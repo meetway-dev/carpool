@@ -1,19 +1,17 @@
 import Link from "next/link";
 import { Car } from "lucide-react";
 import { ThemeToggle } from "@/components/common/theme-toggle";
+import { NotificationBell } from "@/components/common/notification-bell";
 import { ROUTES } from "@/constants/routes";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 interface AppHeaderProps {
-  /** Optional title override; defaults to the brand name. */
   title?: string;
-  /** Render children (e.g. a sticky search bar) below the brand row. */
   children?: React.ReactNode;
   className?: string;
 }
 
-/** Sticky glass app header with brand and theme toggle. */
 export function AppHeader({ title, children, className }: AppHeaderProps) {
   return (
     <header className={cn("glass sticky top-0 z-30", className)}>
@@ -26,7 +24,10 @@ export function AppHeader({ title, children, className }: AppHeaderProps) {
             {title ?? siteConfig.shortName}
           </span>
         </Link>
-        <ThemeToggle />
+        <div className="flex items-center gap-1">
+          <NotificationBell />
+          <ThemeToggle />
+        </div>
       </div>
       {children}
     </header>

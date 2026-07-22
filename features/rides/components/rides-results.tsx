@@ -7,6 +7,8 @@ import { RideCardSkeletonList } from "@/features/rides/components/ride-card-skel
 import { EmptyState } from "@/components/feedback/empty-state";
 import { Button } from "@/components/ui/button";
 import { useInfiniteRides } from "@/features/rides/hooks/use-infinite-rides";
+import { saveSearchToHistory } from "@/features/search/actions/record-search";
+import { useDeviceKey } from "@/hooks/use-device-key";
 import type { SearchParams } from "@/validators/search.schema";
 import type { PaginatedResult, RideDTO } from "@/types";
 
@@ -29,12 +31,33 @@ export function RidesResults({ params, initialData }: RidesResultsProps) {
   } = useInfiniteRides(params, initialData);
 
   const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const deviceKey = useDeviceKey();
+  const recordedRef = useRef(false);
 
   const rides = useMemo(
     () => data?.pages.flatMap((page) => page.items) ?? [],
     [data],
   );
   const total = data?.pages[0]?.total ?? 0;
+
+  // Record this search to history once, when a route is present and results resolve.
+  useEffect(() => {
+    if (recordedRef.current || !deviceKey || isLoading) return;
+    if (!params.fromCity && !params.toCity) return;
+    recordedRef.current = true;
+    void saveSearchToHistory(deviceKey, {
+      fromCity: params.fromCity,
+      toCity: params.toCity,
+      date: params.date,
+      filters: {
+        sort: params.sort,
+        vehicleType: params.vehicleType,
+        seats: params.seats,
+        timeWindow: params.timeWindow,
+      },
+      resultsCount: total,
+    });
+  }, [deviceKey, isLoading, params, total]);
 
   // Auto-load the next page when the sentinel scrolls into view.
   useEffect(() => {

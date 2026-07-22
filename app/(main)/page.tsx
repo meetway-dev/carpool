@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SearchForm } from "@/features/search/components/search-form";
+import { RecentSearches } from "@/features/search/components/recent-searches";
 import { RideCard } from "@/features/rides/components/ride-card";
 import { EmptyState } from "@/components/feedback/empty-state";
 import { getFeaturedRides } from "@/services/ride.service";
@@ -45,6 +46,8 @@ export default async function HomePage() {
           </CardContent>
         </Card>
       </section>
+
+      <RecentSearches />
 
       <section className="space-y-3 px-4 pt-8">
         <div className="flex items-center gap-2">

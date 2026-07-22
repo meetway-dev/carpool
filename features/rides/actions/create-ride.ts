@@ -7,6 +7,8 @@ import { Ride } from "@/models/ride.model";
 import { createRideSchema } from "@/validators/ride.schema";
 import { rateLimiters } from "@/lib/rate-limit";
 import { upsertDriverFromRide } from "@/services/driver.service";
+import { notifyRouteFollowers } from "@/services/notification-triggers.service";
+import type { RideDTO } from "@/types";
 import {
   computeDepartureTimestamp,
   computeExpiresAt,
@@ -147,6 +149,26 @@ export async function createRide(
 
     revalidatePath(ROUTES.rides);
     revalidatePath(ROUTES.home);
+
+    // Fire-and-forget: notify users who saved this route.
+    void notifyRouteFollowers({
+      id: String(created._id),
+      driver: { name: data.driverName, phone: data.phone, verified: driver.verified },
+      vehicle: {
+        type: data.vehicleType as RideDTO["vehicle"]["type"],
+        model: data.vehicleModel,
+        color: data.vehicleColor as RideDTO["vehicle"]["color"],
+      },
+      route: { fromCity: data.fromCity, toCity: data.toCity, pickupPoint: data.pickupPoint, dropPoint: data.dropPoint },
+      pricePerSeat: data.pricePerSeat,
+      seatsTotal: data.seatsTotal,
+      seatsLeft: data.seatsTotal,
+      departure: { date: data.date, time: data.time, timestamp: departure.toISOString() },
+      options: data.options,
+      status,
+      featured: false,
+      createdAt: new Date().toISOString(),
+    });
 
     return { success: true, data: { rideId: String(created._id) } };
   } catch (error) {

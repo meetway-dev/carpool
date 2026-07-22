@@ -14,6 +14,7 @@ import {
 import { SearchForm } from "@/features/search/components/search-form";
 import { SortSelect } from "@/features/search/components/sort-select";
 import { FilterSheet } from "@/features/search/components/filter-sheet";
+import { SaveRouteButton } from "@/features/search/components/save-route-button";
 import { formatRideDate } from "@/lib/utils";
 
 interface SearchHeaderProps {

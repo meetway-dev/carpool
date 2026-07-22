@@ -188,6 +188,34 @@ export async function getFeaturedRides(limit = 6): Promise<RideDTO[]> {
   return docs.map((doc) => mapRideToDTO(doc as Record<string, unknown>));
 }
 
+/** Rides posted by a specific driver (for driver profile page). */
+export async function getRidesByDriver(
+  driverId: string,
+  limit = 10,
+): Promise<RideDTO[]> {
+  if (!/^[a-f0-9]{24}$/i.test(driverId)) return [];
+  await connectToDatabase();
+  const docs = await Ride.find({
+    "driver.driverId": driverId,
+    status: { $in: PUBLIC_RIDE_STATUSES },
+    "departure.timestamp": { $gte: new Date() },
+  })
+    .sort({ "departure.timestamp": 1 })
+    .limit(limit)
+    .lean()
+    .exec();
+  return docs.map((doc) => mapRideToDTO(doc as Record<string, unknown>));
+}
+
+/** Fetch multiple rides by id array (used by favorites hydration). */
+export async function getRidesByIds(ids: string[]): Promise<RideDTO[]> {
+  const validIds = ids.filter((id) => /^[a-f0-9]{24}$/i.test(id));
+  if (validIds.length === 0) return [];
+  await connectToDatabase();
+  const docs = await Ride.find({ _id: { $in: validIds } }).lean().exec();
+  return docs.map((doc) => mapRideToDTO(doc as Record<string, unknown>));
+}
+
 /** Rides on a specific route (used by ride details "more on this route"). */
 export async function getRelatedRides(
   fromCity: string,
