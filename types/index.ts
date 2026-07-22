@@ -77,6 +77,12 @@ export interface DriverDTO {
   bio?: string;
   languages: string[];
   homeCity?: string;
+  vehicle?: {
+    type: string;
+    model: string;
+    color: string;
+    number?: string;
+  };
 }
 
 /** Standard result envelope returned from server actions. */
