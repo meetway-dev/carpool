@@ -51,6 +51,14 @@ export default function LoginPage() {
         <Card className="w-full max-w-md border-border/60 bg-background/95 shadow-xl">
           <CardHeader className="space-y-2 pb-4">
             <CardTitle className="text-2xl">Welcome back</CardTitle>
+            <div className="space-y-1">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+                Live in KPK &amp; Islamabad
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Find your next ride in seconds and share intercity trips across Pakistan.
+              </p>
+            </div>
             <p className="text-sm text-muted-foreground">
               Sign in to continue booking rides and managing your trips.
             </p>

@@ -13,6 +13,7 @@ const userSchema = new Schema(
       },
       model: { type: String },
       color: { type: String },
+      number: { type: String, trim: true },
     },
     provider: { type: String, enum: ["email", "google"], required: true },
     verified: { type: Boolean, default: false },

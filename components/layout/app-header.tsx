@@ -1,10 +1,9 @@
-import Link from "next/link";
-import { Car } from "lucide-react";
-import { ThemeToggle } from "@/components/common/theme-toggle";
 import { NotificationBell } from "@/components/common/notification-bell";
+import { ThemeToggle } from "@/components/common/theme-toggle";
 import { ROUTES } from "@/constants/routes";
-import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { Car, User } from "lucide-react";
+import Link from "next/link";
 
 interface AppHeaderProps {
   title?: string;
@@ -21,12 +20,19 @@ export function AppHeader({ title, children, className }: AppHeaderProps) {
             <Car className="h-5 w-5" />
           </span>
           <span className="text-lg font-bold tracking-tight">
-            {title ?? siteConfig.shortName}
+            {title ?? "CityPool"}
           </span>
         </Link>
-        <div className="flex items-center gap-1">
+        <div className="ml-auto flex items-center gap-1">
           <NotificationBell />
           <ThemeToggle />
+          <Link
+            href={ROUTES.profile}
+            aria-label="Go to profile"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/80 text-foreground transition-colors hover:bg-accent"
+          >
+            <User className="h-5 w-5" />
+          </Link>
         </div>
       </div>
       {children}

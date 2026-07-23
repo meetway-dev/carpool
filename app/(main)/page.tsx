@@ -3,14 +3,12 @@ import { Sparkles, TrendingUp, Plus, Clock } from "lucide-react";
 import { AppHeader } from "@/components/layout/app-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { SearchForm } from "@/features/search/components/search-form";
 import { RecentSearches } from "@/features/search/components/recent-searches";
 import { RideCard } from "@/features/rides/components/ride-card";
 import { EmptyState } from "@/components/feedback/empty-state";
 import { getFeaturedRides } from "@/services/ride.service";
 import { ROUTES, POPULAR_ROUTES } from "@/constants/routes";
-import { siteConfig } from "@/config/site";
 import type { RideDTO } from "@/types";
 
 export const dynamic = "force-dynamic";
@@ -32,14 +30,6 @@ export default async function HomePage() {
       <AppHeader />
 
       <section className="space-y-4 px-4 pt-5">
-        <div className="space-y-1.5">
-          <Badge variant="success">Live in KPK &amp; Islamabad</Badge>
-          <h1 className="text-2xl font-bold leading-tight">
-            Find your next ride in seconds.
-          </h1>
-          <p className="text-sm text-muted-foreground">{siteConfig.description}</p>
-        </div>
-
         <Card className="glass">
           <CardContent className="p-4">
             <SearchForm />

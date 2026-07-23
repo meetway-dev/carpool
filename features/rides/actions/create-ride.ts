@@ -100,6 +100,22 @@ export async function createRide(
       };
     }
 
+    // Prevent the same phone/user from creating multiple active rides.
+    const existingByPhone = await Ride.findOne({
+      "driver.phone": data.phone,
+      status: { $nin: ["expired", "cancelled", "completed"] },
+    })
+      .select("_id status")
+      .lean()
+      .exec();
+
+    if (existingByPhone) {
+      return {
+        success: false,
+        error: "You already have an active ride. Please edit or cancel it before creating another.",
+      };
+    }
+
     const status = resolveRideStatus(data.seatsTotal, departure);
     const searchText = buildSearchText({
       driverName: data.driverName,

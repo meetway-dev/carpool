@@ -1,17 +1,16 @@
 "use client";
 
-import { useState } from "react";
-import { MessageCircle, Phone, Heart, Share2, Flag } from "lucide-react";
-import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { buildWhatsAppLink, buildCallLink, buildRideInquiryMessage } from "@/lib/whatsapp";
-import { absoluteUrl } from "@/lib/utils";
-import { formatRideDate } from "@/lib/utils";
 import { ROUTES } from "@/constants/routes";
 import { useFavorites } from "@/features/favorites/hooks/use-favorites";
 import { ReportDialog } from "@/features/rides/components/report-dialog";
+import { absoluteUrl, cn, formatRideDate } from "@/lib/utils";
+import { buildCallLink, buildRideInquiryMessage, buildWhatsAppLink } from "@/lib/whatsapp";
 import type { RideDTO } from "@/types";
+import { Flag, Heart, MessageCircle, Phone, Share2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { toast } from "sonner";
 
 interface RideActionsProps {
   ride: RideDTO;
@@ -33,6 +32,7 @@ export function RideActions({ ride, variant = "card" }: RideActionsProps) {
   const whatsappLink = buildWhatsAppLink({ phone: ride.driver.phone, message });
   const callLink = buildCallLink(ride.driver.phone);
   const shareUrl = absoluteUrl(ROUTES.rideDetails(ride.id));
+  const router = useRouter();
 
   async function handleShare() {
     const shareData = {
@@ -76,6 +76,34 @@ export function RideActions({ ride, variant = "card" }: RideActionsProps) {
             </Button>
           ) : null}
         </div>
+        <div>
+          <Button
+            onClick={async () => {
+              try {
+                // ensure user is signed in
+                const me = await fetch('/api/auth/me').then((r) => r.json());
+                if (!me) {
+                  router.push('/auth/login');
+                  return;
+                }
+                const seats = 1; // single-seat booking for now
+                const res = await fetch(`/api/rides/${ride.id}/book`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ seats }),
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data?.error || 'Booking failed');
+                toast.success('Booking confirmed');
+              } catch (err: any) {
+                toast.error(err?.message || 'Could not book ride');
+              }
+            }}
+            className="w-full mt-2"
+          >
+            Book seat
+          </Button>
+        </div>
         <div className="grid grid-cols-3 gap-2">
           <Button variant="ghost" onClick={handleSave}>
             <Heart className={cn("h-4 w-4", saved && "fill-destructive text-destructive")} />
@@ -108,6 +136,32 @@ export function RideActions({ ride, variant = "card" }: RideActionsProps) {
             </a>
           </Button>
         ) : null}
+        <Button
+          variant="success"
+          size="sm"
+          onClick={async () => {
+            try {
+              const me = await fetch('/api/auth/me').then((r) => r.json());
+              if (!me) {
+                router.push('/auth/login');
+                return;
+              }
+              const seats = 1;
+              const res = await fetch(`/api/rides/${ride.id}/book`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ seats }),
+              });
+              const data = await res.json();
+              if (!res.ok) throw new Error(data?.error || 'Booking failed');
+              toast.success('Booking confirmed');
+            } catch (err: any) {
+              toast.error(err?.message || 'Could not book ride');
+            }
+          }}
+        >
+          Book
+        </Button>
         {callLink ? (
           <Button asChild variant="outline" size="icon" aria-label="Call driver">
             <a href={callLink}>

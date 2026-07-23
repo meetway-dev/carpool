@@ -13,6 +13,7 @@ export function ProfileForm() {
   const [phone, setPhone] = useState("");
   const [vehicleType, setVehicleType] = useState("");
   const [vehicleModel, setVehicleModel] = useState("");
+  const [vehicleNumber, setVehicleNumber] = useState("");
   const [vehicleColor, setVehicleColor] = useState("");
   const [saving, setSaving] = useState(false);
 
@@ -29,6 +30,7 @@ export function ProfileForm() {
         setVehicleType(data.vehicle?.type ?? "");
         setVehicleModel(data.vehicle?.model ?? "");
         setVehicleColor(data.vehicle?.color ?? "");
+        setVehicleNumber(data.vehicle?.number ?? "");
       } catch (e) {
         // ignore
       } finally {
@@ -43,7 +45,7 @@ export function ProfileForm() {
   async function save() {
     setSaving(true);
     try {
-      const res = await fetch('/api/user/profile', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, phone, vehicle: { type: vehicleType, model: vehicleModel, color: vehicleColor } }) });
+      const res = await fetch('/api/user/profile', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, phone, vehicle: { type: vehicleType, model: vehicleModel, color: vehicleColor, number: vehicleNumber } }) });
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       // optionally show toast
@@ -69,6 +71,10 @@ export function ProfileForm() {
       <div className="space-y-1">
         <Label>Vehicle Model</Label>
         <Input value={vehicleModel} onChange={(e) => setVehicleModel(e.target.value)} placeholder="Toyota Corolla" />
+      </div>
+      <div className="space-y-1">
+        <Label>Vehicle Number</Label>
+        <Input value={vehicleNumber} onChange={(e) => setVehicleNumber(e.target.value)} placeholder="ABC-1234" />
       </div>
       <div className="grid grid-cols-2 gap-3">
         <div>

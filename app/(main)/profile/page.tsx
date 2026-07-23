@@ -2,11 +2,9 @@ import { AppHeader } from "@/components/layout/app-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ROUTES } from "@/constants/routes";
+import { ProfileForm } from "@/features/profile/profile-form";
 import { Heart, Plus, ShieldCheck, User } from "lucide-react";
-import nextDynamic from "next/dynamic";
 import Link from "next/link";
-
-const ProfileForm = nextDynamic(() => import("@/features/profile/profile-form").then((m) => m.ProfileForm), { ssr: false });
 
 export const dynamic = "force-dynamic";
 

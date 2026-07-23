@@ -114,7 +114,7 @@ export async function setPasswordForUser(userId: string, passwordHash: string): 
   await User.updateOne({ _id: userId }, { passwordHash, resetTokenHash: undefined, resetTokenExpires: undefined }).exec();
 }
 
-export async function updateUserProfile(userId: string, patch: Partial<{ name: string; phone?: string | null; vehicle?: { type?: string; model?: string; color?: string } }>) {
+export async function updateUserProfile(userId: string, patch: Partial<{ name: string; phone?: string | null; vehicle?: { type?: string; model?: string; color?: string; number?: string } }>) {
   await connectToDatabase();
   const update: any = {};
   if (patch.name !== undefined) update.name = patch.name;
