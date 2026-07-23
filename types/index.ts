@@ -1,5 +1,5 @@
 import type { RideStatus } from "@/constants/ride-status";
-import type { VehicleType, VehicleColor } from "@/constants/vehicle-types";
+import type { VehicleColor, VehicleType } from "@/constants/vehicle-types";
 
 /** Serializable ride shape returned by services to the UI (no Mongoose docs). */
 export interface RideDTO {
@@ -33,13 +33,10 @@ export interface RideDTO {
   };
   arrivalEstimate?: string;
   options: {
-    luggage: boolean;
     smoking: boolean;
     ac: boolean;
     femaleOnly: boolean;
     music: boolean;
-    pets: boolean;
-    returnTrip: boolean;
   };
   notes?: string;
   status: RideStatus;

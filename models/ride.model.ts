@@ -1,7 +1,7 @@
-import { Schema, model, models, type InferSchemaType, type Model } from "mongoose";
-import { RIDE_STATUSES } from "@/constants/ride-status";
-import { VEHICLE_TYPES, VEHICLE_COLORS } from "@/constants/vehicle-types";
 import { CITY_NAMES } from "@/constants/cities";
+import { RIDE_STATUSES } from "@/constants/ride-status";
+import { VEHICLE_COLORS, VEHICLE_TYPES } from "@/constants/vehicle-types";
+import { Schema, model, models, type InferSchemaType, type Model } from "mongoose";
 
 const driverSubSchema = new Schema(
   {
@@ -28,8 +28,8 @@ const routeSubSchema = new Schema(
   {
     fromCity: { type: String, enum: CITY_NAMES, required: true },
     toCity: { type: String, enum: CITY_NAMES, required: true },
-    pickupPoint: { type: String, required: true, trim: true },
-    dropPoint: { type: String, required: true, trim: true },
+    pickupPoint: { type: String, trim: true },
+    dropPoint: { type: String, trim: true },
   },
   { _id: false },
 );

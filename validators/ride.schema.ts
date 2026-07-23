@@ -1,7 +1,7 @@
-import { z } from "zod";
 import { CITY_NAMES } from "@/constants/cities";
-import { VEHICLE_TYPE_VALUES, VEHICLE_COLORS } from "@/constants/vehicle-types";
+import { VEHICLE_COLORS, VEHICLE_TYPE_VALUES } from "@/constants/vehicle-types";
 import { isValidPakistaniPhone, normalizePakistaniPhone } from "@/lib/phone";
+import { z } from "zod";
 
 /** Reusable Pakistani phone field that normalizes to E.164 on parse. */
 export const phoneSchema = z
@@ -30,13 +30,10 @@ const timeSchema = z
 
 /** Ride options / amenities. */
 export const rideOptionsSchema = z.object({
-  luggage: z.boolean().default(true),
   smoking: z.boolean().default(false),
   ac: z.boolean().default(true),
   femaleOnly: z.boolean().default(false),
   music: z.boolean().default(true),
-  pets: z.boolean().default(false),
-  returnTrip: z.boolean().default(false),
 });
 
 export const rideRecurrenceSchema = z.object({
@@ -71,8 +68,8 @@ export const rideBaseSchema = z.object({
     .max(30, "Too many seats"),
   fromCity: citySchema,
   toCity: citySchema,
-  pickupPoint: z.string().min(2, "Pickup point is required").max(120).trim(),
-  dropPoint: z.string().min(2, "Drop point is required").max(120).trim(),
+  pickupPoint: z.string().trim().max(120, "Pickup point is too long").optional().or(z.literal("")),
+  dropPoint: z.string().trim().max(120, "Drop point is too long").optional().or(z.literal("")),
   date: z
     .string()
     .refine((value) => !Number.isNaN(Date.parse(value)), "Enter a valid date"),

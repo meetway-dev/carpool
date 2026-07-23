@@ -1,23 +1,22 @@
 "use server";
 
-import { headers } from "next/headers";
-import { revalidatePath } from "next/cache";
+import { ROUTES } from "@/constants/routes";
 import { connectToDatabase } from "@/lib/db/connect";
-import { Ride } from "@/models/ride.model";
-import { createRideSchema } from "@/validators/ride.schema";
 import { rateLimiters } from "@/lib/rate-limit";
+import {
+    buildDuplicateHash,
+    buildSearchText,
+    computeDepartureTimestamp,
+    computeExpiresAt,
+    resolveRideStatus,
+} from "@/lib/ride-helpers";
+import { Ride } from "@/models/ride.model";
 import { upsertDriverFromRide } from "@/services/driver.service";
 import { notifyRouteFollowers } from "@/services/notification-triggers.service";
-import type { RideDTO } from "@/types";
-import {
-  computeDepartureTimestamp,
-  computeExpiresAt,
-  buildDuplicateHash,
-  buildSearchText,
-  resolveRideStatus,
-} from "@/lib/ride-helpers";
-import { ROUTES } from "@/constants/routes";
-import type { ActionResult } from "@/types";
+import type { ActionResult, RideDTO } from "@/types";
+import { createRideSchema } from "@/validators/ride.schema";
+import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
 
 interface CreateRideResult {
   rideId: string;
@@ -106,8 +105,8 @@ export async function createRide(
       driverName: data.driverName,
       fromCity: data.fromCity,
       toCity: data.toCity,
-      pickupPoint: data.pickupPoint,
-      dropPoint: data.dropPoint,
+      pickupPoint: data.pickupPoint ?? "",
+      dropPoint: data.dropPoint ?? "",
       vehicleModel: data.vehicleModel,
       vehicleType: data.vehicleType,
       notes: data.notes || undefined,
@@ -129,8 +128,8 @@ export async function createRide(
       route: {
         fromCity: data.fromCity,
         toCity: data.toCity,
-        pickupPoint: data.pickupPoint,
-        dropPoint: data.dropPoint,
+        pickupPoint: data.pickupPoint ?? "",
+        dropPoint: data.dropPoint ?? "",
       },
       pricePerSeat: data.pricePerSeat,
       seatsTotal: data.seatsTotal,
@@ -159,7 +158,7 @@ export async function createRide(
         model: data.vehicleModel,
         color: data.vehicleColor as RideDTO["vehicle"]["color"],
       },
-      route: { fromCity: data.fromCity, toCity: data.toCity, pickupPoint: data.pickupPoint, dropPoint: data.dropPoint },
+      route: { fromCity: data.fromCity, toCity: data.toCity, pickupPoint: data.pickupPoint ?? "", dropPoint: data.dropPoint ?? "" },
       pricePerSeat: data.pricePerSeat,
       seatsTotal: data.seatsTotal,
       seatsLeft: data.seatsTotal,

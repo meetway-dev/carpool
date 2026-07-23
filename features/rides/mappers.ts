@@ -1,6 +1,6 @@
-import type { RideDTO } from "@/types";
 import type { RideStatus } from "@/constants/ride-status";
-import type { VehicleType, VehicleColor } from "@/constants/vehicle-types";
+import type { VehicleColor, VehicleType } from "@/constants/vehicle-types";
+import type { RideDTO } from "@/types";
 
 /**
  * Convert a lean/hydrated Mongoose ride document into a plain, serializable
@@ -51,13 +51,10 @@ export function mapRideToDTO(doc: Record<string, unknown>): RideDTO {
     },
     arrivalEstimate: doc.arrivalEstimate ? String(doc.arrivalEstimate) : undefined,
     options: {
-      luggage: Boolean(options.luggage),
       smoking: Boolean(options.smoking),
       ac: Boolean(options.ac),
       femaleOnly: Boolean(options.femaleOnly),
       music: Boolean(options.music),
-      pets: Boolean(options.pets),
-      returnTrip: Boolean(options.returnTrip),
     },
     notes: doc.notes ? String(doc.notes) : undefined,
     status: (doc.status ?? "open") as RideStatus,

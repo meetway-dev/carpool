@@ -1,17 +1,19 @@
 "use client";
 
-import { useEffect } from "react";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { Bell, BellOff, Check } from "lucide-react";
-import { AppHeader } from "@/components/layout/app-header";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/feedback/empty-state";
+import { AppHeader } from "@/components/layout/app-header";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { markNotificationsRead } from "@/features/notifications/actions/mark-read";
 import { useDeviceKey } from "@/hooks/use-device-key";
-import { timeAgo, cn } from "@/lib/utils";
+import { cn, timeAgo } from "@/lib/utils";
 import type { NotificationDTO } from "@/services/notification.service";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { Bell, BellOff, Check } from "lucide-react";
+import { useEffect } from "react";
+
+export const dynamic = "force-dynamic";
 
 async function fetchNotifications(ownerKey: string): Promise<NotificationDTO[]> {
   const res = await fetch(`/api/notifications?ownerKey=${encodeURIComponent(ownerKey)}`);

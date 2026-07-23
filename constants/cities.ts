@@ -24,6 +24,7 @@ export const CITIES: readonly City[] = [
   { name: "Abbottabad", slug: "abbottabad", province: "Khyber Pakhtunkhwa", lat: 34.1688, lng: 73.2215 },
   { name: "Haripur", slug: "haripur", province: "Khyber Pakhtunkhwa", lat: 33.9946, lng: 72.9106 },
   { name: "Mansehra", slug: "mansehra", province: "Khyber Pakhtunkhwa", lat: 34.3333, lng: 73.2 },
+  { name: "Lahore", slug: "lahore", province: "Punjab", lat: 31.5204, lng: 74.3587 },
 ] as const;
 
 export const CITY_NAMES = CITIES.map((city) => city.name) as [string, ...string[]];

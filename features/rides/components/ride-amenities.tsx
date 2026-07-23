@@ -1,15 +1,12 @@
-import {
-  Snowflake,
-  Luggage,
-  Cigarette,
-  Music,
-  PawPrint,
-  Repeat,
-  UserRound,
-  type LucideIcon,
-} from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { RideDTO } from "@/types";
+import {
+    Cigarette,
+    Music,
+    Snowflake,
+    UserRound,
+    type LucideIcon,
+} from "lucide-react";
 
 interface Amenity {
   key: keyof RideDTO["options"];
@@ -22,10 +19,7 @@ interface Amenity {
 const AMENITIES: Amenity[] = [
   { key: "ac", label: "AC", icon: Snowflake, positive: true },
   { key: "femaleOnly", label: "Female only", icon: UserRound, positive: true },
-  { key: "luggage", label: "Luggage", icon: Luggage, positive: true },
   { key: "music", label: "Music", icon: Music, positive: true },
-  { key: "pets", label: "Pets", icon: PawPrint, positive: true },
-  { key: "returnTrip", label: "Return trip", icon: Repeat, positive: true },
   { key: "smoking", label: "Smoking", icon: Cigarette, positive: false },
 ];
 

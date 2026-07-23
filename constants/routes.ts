@@ -12,6 +12,14 @@ export const ROUTES = {
   favorites: "/favorites",
   notifications: "/notifications",
   profile: "/profile",
+  auth: {
+    root: "/auth",
+    login: "/auth/login",
+    signup: "/auth/signup",
+    logout: "/auth/logout",
+    forgot: "/auth/forgot",
+    reset: (token: string) => `/auth/reset/${token}`,
+  },
   admin: {
     root: "/admin",
     rides: "/admin/rides",

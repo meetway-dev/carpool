@@ -1,6 +1,8 @@
 import { AppHeader } from "@/components/layout/app-header";
 import { RequestForm } from "@/features/requests/components/request-form";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Post a ride request",
   description: "Tell drivers where you need to go and let them offer you a ride.",

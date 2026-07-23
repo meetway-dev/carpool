@@ -1,18 +1,20 @@
+import { randomBytes } from "crypto";
 import "dotenv/config";
+import fs from "fs";
 import mongoose from "mongoose";
 import { CITIES } from "../constants/cities";
-import { VEHICLE_TYPE_META, VEHICLE_COLORS, type VehicleType } from "../constants/vehicle-types";
-import { Ride } from "../models/ride.model";
-import { Driver } from "../models/driver.model";
-import { RideRequest } from "../models/ride-request.model";
+import { VEHICLE_COLORS, VEHICLE_TYPE_META, type VehicleType } from "../constants/vehicle-types";
 import { normalizePakistaniPhone } from "../lib/phone";
 import {
-  computeDepartureTimestamp,
-  computeExpiresAt,
   buildDuplicateHash,
   buildSearchText,
+  computeDepartureTimestamp,
+  computeExpiresAt,
   resolveRideStatus,
 } from "../lib/ride-helpers";
+import { Driver } from "../models/driver.model";
+import { RideRequest } from "../models/ride-request.model";
+import { Ride } from "../models/ride.model";
 
 /**
  * Seed script — populates realistic drivers, rides and passenger requests so
@@ -23,6 +25,7 @@ import {
  */
 
 const MONGODB_URI = process.env.MONGODB_URI;
+const DRY_RUN = (process.env.DRY_RUN ?? "").toLowerCase() === "true" || process.env.DRY_RUN === "1";
 
 const DRIVER_NAMES = [
   "Imran Khan",
@@ -97,21 +100,33 @@ function timeString(): string {
   return `${hour.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")}`;
 }
 
+function randomId(prefix = "id", bytes = 6) {
+  return `${prefix}_${randomBytes(bytes).toString("hex")}`;
+}
+
 async function seed() {
   if (!MONGODB_URI) {
     throw new Error("MONGODB_URI is not set. Add it to your .env file before seeding.");
   }
 
   console.log("Connecting to MongoDB...");
-  await mongoose.connect(MONGODB_URI);
-  console.log("Connected.");
+  if (!DRY_RUN) {
+    await mongoose.connect(MONGODB_URI);
+    console.log("Connected.");
+  } else {
+    console.log("DRY_RUN mode enabled — not connecting to MongoDB.");
+  }
 
   console.log("Clearing existing rides, drivers and requests...");
-  await Promise.all([
-    Ride.deleteMany({}),
-    Driver.deleteMany({}),
-    RideRequest.deleteMany({}),
-  ]);
+  if (!DRY_RUN) {
+    await Promise.all([
+      Ride.deleteMany({}),
+      Driver.deleteMany({}),
+      RideRequest.deleteMany({}),
+    ]);
+  } else {
+    console.log("DRY_RUN: skipping database deletions.");
+  }
 
   // --- Drivers -----------------------------------------------------------
   const drivers = DRIVER_NAMES.map((name, index) => {
@@ -134,8 +149,15 @@ async function seed() {
     };
   });
 
-  const insertedDrivers = await Driver.insertMany(drivers);
-  console.log(`Inserted ${insertedDrivers.length} drivers.`);
+  let insertedDrivers: any[];
+  if (DRY_RUN) {
+    // simulate inserted drivers with generated ids
+    insertedDrivers = drivers.map((d, i) => ({ ...d, _id: randomId("drv", 6) }));
+    console.log(`DRY_RUN: simulated ${insertedDrivers.length} drivers.`);
+  } else {
+    insertedDrivers = await Driver.insertMany(drivers);
+    console.log(`Inserted ${insertedDrivers.length} drivers.`);
+  }
 
   // --- Rides -------------------------------------------------------------
   const rideDocs: Record<string, unknown>[] = [];
@@ -212,8 +234,14 @@ async function seed() {
     });
   }
 
-  const insertedRides = await Ride.insertMany(rideDocs);
-  console.log(`Inserted ${insertedRides.length} rides.`);
+  let insertedRides: any[];
+  if (DRY_RUN) {
+    insertedRides = rideDocs.map((r, i) => ({ ...r, _id: randomId("ride", 6) }));
+    console.log(`DRY_RUN: prepared ${insertedRides.length} rides.`);
+  } else {
+    insertedRides = await Ride.insertMany(rideDocs);
+    console.log(`Inserted ${insertedRides.length} rides.`);
+  }
 
   // --- Passenger requests ------------------------------------------------
   const requestDocs = Array.from({ length: 12 }).map(() => {
@@ -238,16 +266,66 @@ async function seed() {
     };
   });
 
-  const insertedRequests = await RideRequest.insertMany(requestDocs);
-  console.log(`Inserted ${insertedRequests.length} passenger requests.`);
+  let insertedRequests: any[];
+  if (DRY_RUN) {
+    insertedRequests = requestDocs.map((r, i) => ({ ...r, _id: randomId("req", 6) }));
+    console.log(`DRY_RUN: prepared ${insertedRequests.length} passenger requests.`);
+  } else {
+    insertedRequests = await RideRequest.insertMany(requestDocs);
+    console.log(`Inserted ${insertedRequests.length} passenger requests.`);
+  }
 
-  await mongoose.disconnect();
-  console.log("Seed complete. Disconnected.");
+  // --- Default admin user ---------------------------------------------
+    try {
+      console.log("Ensuring default admin user exists...");
+      const adminEmail = "meetway.tech@gmail.com";
+      const adminName = "kashif khan";
+      const adminPhone = normalizePakistaniPhone("03128803988") || "03128803988";
+      const adminPassword = "admin@123";
+
+      // Use project helpers to create user with hashed password
+      const { createEmailUser } = await import("../services/user.service");
+      const { hashPassword } = await import("../lib/auth");
+
+      const passwordHash = hashPassword(adminPassword);
+      if (DRY_RUN) {
+        console.log("DRY_RUN: would create admin user:", { email: adminEmail, name: adminName, phone: adminPhone });
+      } else {
+        try {
+          const user = await createEmailUser({ email: adminEmail, passwordHash, name: adminName, phone: adminPhone });
+          console.log("Created admin user:", user.email);
+        } catch (e: any) {
+          console.log("Admin user already exists or could not be created:", e?.message ?? e);
+        }
+      }
+    } catch (err) {
+      console.error("Failed to ensure admin user:", err);
+    }
+
+  if (!DRY_RUN) {
+    await mongoose.disconnect();
+    console.log("Seed complete. Disconnected.");
+  } else {
+    // write a consolidated dry-run output for review
+    try {
+      await fs.promises.mkdir("tmp", { recursive: true });
+      const out = { drivers: insertedDrivers, rides: insertedRides, requests: insertedRequests };
+      await fs.promises.writeFile("tmp/seed.json", JSON.stringify(out, null, 2), "utf8");
+      console.log("DRY_RUN: wrote tmp/seed.json with simulated data.");
+    } catch (e) {
+      console.error("DRY_RUN: failed to write tmp/seed.json:", e);
+    }
+  }
 }
 
 seed()
   .then(() => process.exit(0))
   .catch((error) => {
     console.error("Seed failed:", error);
+    if (error && error.message && error.message.includes("whitelist")) {
+      console.error(
+        "It looks like MongoDB Atlas is blocking the connection. Add your IP to the Atlas network access list or set MONGODB_URI to a locally accessible MongoDB instance. For development you can set DRY_RUN=true to generate seed data without DB access.",
+      );
+    }
     process.exit(1);
   });

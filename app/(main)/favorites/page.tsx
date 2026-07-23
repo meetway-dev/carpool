@@ -1,17 +1,19 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
-import { Heart, Search, MapPin, ArrowRight } from "lucide-react";
-import { AppHeader } from "@/components/layout/app-header";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/feedback/empty-state";
+import { AppHeader } from "@/components/layout/app-header";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ROUTES } from "@/constants/routes";
+import { useFavorites } from "@/features/favorites/hooks/use-favorites";
 import { RideCard } from "@/features/rides/components/ride-card";
 import { RideCardSkeletonList } from "@/features/rides/components/ride-card-skeleton";
-import { useFavorites } from "@/features/favorites/hooks/use-favorites";
-import { ROUTES } from "@/constants/routes";
 import type { RideDTO } from "@/types";
+import { useQuery } from "@tanstack/react-query";
+import { ArrowRight, Heart, MapPin, Search } from "lucide-react";
+import Link from "next/link";
+
+export const dynamic = "force-dynamic";
 
 async function fetchRidesByIds(ids: string[]): Promise<RideDTO[]> {
   if (!ids.length) return [];

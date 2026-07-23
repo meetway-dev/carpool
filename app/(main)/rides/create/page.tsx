@@ -1,6 +1,8 @@
 import { AppHeader } from "@/components/layout/app-header";
 import { CreateRideForm } from "@/features/rides/components/create-ride-form";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Post a ride",
   description: "Publish an intercity ride on RideConnect in a few taps.",

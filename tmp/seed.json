@@ -1,0 +1,3431 @@
+{
+  "drivers": [
+    {
+      "name": "Imran Khan",
+      "phone": "+923001234501",
+      "rating": 3.8,
+      "ratingCount": 51,
+      "completedTrips": 63,
+      "verified": false,
+      "homeCity": "Abbottabad",
+      "languages": [
+        "Urdu",
+        "Pashto"
+      ],
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Toyota Coaster",
+        "color": "White"
+      },
+      "_id": "drv_bf75ef4c95d5"
+    },
+    {
+      "name": "Bilal Ahmed",
+      "phone": "+923011234502",
+      "rating": 4.4,
+      "ratingCount": 94,
+      "completedTrips": 175,
+      "verified": true,
+      "homeCity": "Nowshera",
+      "languages": [
+        "Pashto",
+        "Urdu",
+        "English"
+      ],
+      "vehicle": {
+        "type": "Bike",
+        "model": "Honda CG 125",
+        "color": "Silver"
+      },
+      "_id": "drv_30374a694b88"
+    },
+    {
+      "name": "Fahad Iqbal",
+      "phone": "+923211234503",
+      "rating": 3.8,
+      "ratingCount": 71,
+      "completedTrips": 397,
+      "verified": true,
+      "homeCity": "Mardan",
+      "languages": [
+        "Pashto",
+        "Urdu",
+        "English"
+      ],
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Higer Bus",
+        "color": "Grey"
+      },
+      "_id": "drv_ff0ee2f8b154"
+    },
+    {
+      "name": "Usman Ali",
+      "phone": "+923331234504",
+      "rating": 4.9,
+      "ratingCount": 16,
+      "completedTrips": 383,
+      "verified": true,
+      "homeCity": "Peshawar",
+      "languages": [
+        "Urdu",
+        "Pashto"
+      ],
+      "vehicle": {
+        "type": "Bike",
+        "model": "Yamaha YBR",
+        "color": "Grey"
+      },
+      "_id": "drv_e30f041304b0"
+    },
+    {
+      "name": "Zeeshan Malik",
+      "phone": "+923451234505",
+      "rating": 4.8,
+      "ratingCount": 99,
+      "completedTrips": 345,
+      "verified": true,
+      "homeCity": "Mardan",
+      "languages": [
+        "Urdu"
+      ],
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Blue"
+      },
+      "_id": "drv_bb2b9413b631"
+    },
+    {
+      "name": "Kamran Shah",
+      "phone": "+923121234506",
+      "rating": 5,
+      "ratingCount": 32,
+      "completedTrips": 284,
+      "verified": true,
+      "homeCity": "Islamabad",
+      "languages": [
+        "Pashto",
+        "Urdu",
+        "English"
+      ],
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Silver"
+      },
+      "_id": "drv_a52c047f2567"
+    },
+    {
+      "name": "Adnan Yousaf",
+      "phone": "+923091234507",
+      "rating": 4.9,
+      "ratingCount": 111,
+      "completedTrips": 361,
+      "verified": false,
+      "homeCity": "Haripur",
+      "languages": [
+        "Urdu",
+        "English"
+      ],
+      "vehicle": {
+        "type": "SUV",
+        "model": "Honda BR-V",
+        "color": "Black"
+      },
+      "_id": "drv_c260930d9669"
+    },
+    {
+      "name": "Waqas Nawaz",
+      "phone": "+923151234508",
+      "rating": 4.4,
+      "ratingCount": 32,
+      "completedTrips": 390,
+      "verified": true,
+      "homeCity": "Nowshera",
+      "languages": [
+        "Urdu"
+      ],
+      "vehicle": {
+        "type": "Car",
+        "model": "Honda Civic",
+        "color": "Other"
+      },
+      "_id": "drv_230cf67fc288"
+    },
+    {
+      "name": "Hamza Tariq",
+      "phone": "+923411234509",
+      "rating": 3.9,
+      "ratingCount": 9,
+      "completedTrips": 313,
+      "verified": true,
+      "homeCity": "Nowshera",
+      "languages": [
+        "Urdu",
+        "Pashto"
+      ],
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "_id": "drv_a43039505c44"
+    },
+    {
+      "name": "Saad Rehman",
+      "phone": "+923221234510",
+      "rating": 4.3,
+      "ratingCount": 9,
+      "completedTrips": 113,
+      "verified": false,
+      "homeCity": "Takht Bhai",
+      "languages": [
+        "Pashto",
+        "Urdu",
+        "English"
+      ],
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Higer Bus",
+        "color": "White"
+      },
+      "_id": "drv_9c7e92afe1d3"
+    },
+    {
+      "name": "Noman Aslam",
+      "phone": "+923051234511",
+      "rating": 4.3,
+      "ratingCount": 7,
+      "completedTrips": 295,
+      "verified": false,
+      "homeCity": "Abbottabad",
+      "languages": [
+        "Pashto",
+        "Urdu",
+        "English"
+      ],
+      "vehicle": {
+        "type": "Van",
+        "model": "Toyota Noah",
+        "color": "Green"
+      },
+      "_id": "drv_0d40bcf7c5a7"
+    },
+    {
+      "name": "Junaid Akbar",
+      "phone": "+923361234512",
+      "rating": 4.8,
+      "ratingCount": 88,
+      "completedTrips": 20,
+      "verified": false,
+      "homeCity": "Mansehra",
+      "languages": [
+        "Urdu",
+        "Pashto"
+      ],
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "_id": "drv_91d5db0bf5ac"
+    }
+  ],
+  "rides": [
+    {
+      "driver": {
+        "name": "Junaid Akbar",
+        "phone": "+923361234512",
+        "verified": false,
+        "driverId": "drv_91d5db0bf5ac"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Peshawar",
+        "toCity": "Mardan",
+        "pickupPoint": "GT Road Stop",
+        "dropPoint": "Faizabad"
+      },
+      "pricePerSeat": 1900,
+      "seatsTotal": 6,
+      "seatsLeft": 3,
+      "departure": {
+        "date": "2026-07-23",
+        "time": "13:00",
+        "timestamp": "2026-07-23T08:00:00.000Z"
+      },
+      "arrivalEstimate": "~2h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": true,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "d15139925c3e3f9860d1142dad354ef506ff7678",
+      "searchText": "junaid akbar peshawar mardan faizabad faizabad toyota hiace hiace",
+      "ownerKey": "seed:+923361234512",
+      "expiresAt": "2026-07-23T11:00:00.000Z",
+      "viewCount": 31,
+      "_id": "ride_ef47b9ae995a"
+    },
+    {
+      "driver": {
+        "name": "Adnan Yousaf",
+        "phone": "+923091234507",
+        "verified": false,
+        "driverId": "drv_c260930d9669"
+      },
+      "vehicle": {
+        "type": "SUV",
+        "model": "Honda BR-V",
+        "color": "Black"
+      },
+      "route": {
+        "fromCity": "Mansehra",
+        "toCity": "Mardan",
+        "pickupPoint": "University Chowk",
+        "dropPoint": "University Chowk"
+      },
+      "pricePerSeat": 800,
+      "seatsTotal": 6,
+      "seatsLeft": 6,
+      "departure": {
+        "date": "2026-07-27",
+        "time": "14:45",
+        "timestamp": "2026-07-27T09:45:00.000Z"
+      },
+      "arrivalEstimate": "~2h 30m",
+      "options": {
+        "luggage": false,
+        "smoking": true,
+        "ac": false,
+        "femaleOnly": true,
+        "music": true,
+        "pets": true,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "4f135c93787103b3b7c5c7027fb2bee64f04af2e",
+      "searchText": "adnan yousaf mansehra mardan gt road stop faizabad honda br-v suv",
+      "ownerKey": "seed:+923091234507",
+      "expiresAt": "2026-07-27T12:45:00.000Z",
+      "viewCount": 448,
+      "_id": "ride_95d517bc426a"
+    },
+    {
+      "driver": {
+        "name": "Hamza Tariq",
+        "phone": "+923411234509",
+        "verified": true,
+        "driverId": "drv_a43039505c44"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Islamabad",
+        "toCity": "Takht Bhai",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "GT Road Stop"
+      },
+      "pricePerSeat": 1800,
+      "seatsTotal": 10,
+      "seatsLeft": 9,
+      "departure": {
+        "date": "2026-07-25",
+        "time": "22:45",
+        "timestamp": "2026-07-25T17:45:00.000Z"
+      },
+      "arrivalEstimate": "~4h 15m",
+      "options": {
+        "luggage": true,
+        "smoking": true,
+        "ac": false,
+        "femaleOnly": true,
+        "music": true,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "b564cc675fc6959f2b42c97aa7e880dcfb7c4fd7",
+      "searchText": "hamza tariq islamabad takht bhai saddar ring road toyota hiace hiace",
+      "ownerKey": "seed:+923411234509",
+      "expiresAt": "2026-07-25T20:45:00.000Z",
+      "viewCount": 335,
+      "_id": "ride_ef8fe6c62ad0"
+    },
+    {
+      "driver": {
+        "name": "Hamza Tariq",
+        "phone": "+923411234509",
+        "verified": true,
+        "driverId": "drv_a43039505c44"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Takht Bhai",
+        "toCity": "Haripur",
+        "pickupPoint": "University Chowk",
+        "dropPoint": "Saddar"
+      },
+      "pricePerSeat": 2500,
+      "seatsTotal": 5,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-24",
+        "time": "17:30",
+        "timestamp": "2026-07-24T12:30:00.000Z"
+      },
+      "arrivalEstimate": "~1h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": false,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "b3be91d4f6077f37adda12d097a8dbcb9f61d3f5",
+      "searchText": "hamza tariq takht bhai haripur saddar main bazaar toyota hiace hiace",
+      "ownerKey": "seed:+923411234509",
+      "expiresAt": "2026-07-24T15:30:00.000Z",
+      "viewCount": 446,
+      "_id": "ride_03e0d8cd4339"
+    },
+    {
+      "driver": {
+        "name": "Fahad Iqbal",
+        "phone": "+923211234503",
+        "verified": true,
+        "driverId": "drv_ff0ee2f8b154"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Higer Bus",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Swabi",
+        "toCity": "Rawalpindi",
+        "pickupPoint": "Ring Road",
+        "dropPoint": "Bus Terminal"
+      },
+      "pricePerSeat": 2500,
+      "seatsTotal": 5,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-26",
+        "time": "15:45",
+        "timestamp": "2026-07-26T10:45:00.000Z"
+      },
+      "arrivalEstimate": "~3h 45m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "d1ff302d81f3da00bb1bb7b75b4d01513aa0c76a",
+      "searchText": "fahad iqbal swabi rawalpindi ring road bus terminal higer bus coaster",
+      "ownerKey": "seed:+923211234503",
+      "expiresAt": "2026-07-26T13:45:00.000Z",
+      "viewCount": 1,
+      "_id": "ride_b7a560b20785"
+    },
+    {
+      "driver": {
+        "name": "Waqas Nawaz",
+        "phone": "+923151234508",
+        "verified": true,
+        "driverId": "drv_230cf67fc288"
+      },
+      "vehicle": {
+        "type": "Car",
+        "model": "Honda Civic",
+        "color": "Other"
+      },
+      "route": {
+        "fromCity": "Nowshera",
+        "toCity": "Abbottabad",
+        "pickupPoint": "Saddar",
+        "dropPoint": "Bus Terminal"
+      },
+      "pricePerSeat": 500,
+      "seatsTotal": 2,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-23",
+        "time": "18:15",
+        "timestamp": "2026-07-23T13:15:00.000Z"
+      },
+      "arrivalEstimate": "~3h 0m",
+      "options": {
+        "luggage": false,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": true,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "Leaving on time please.",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "25d289059e18bdb7709e8f839b50c6ddb74ab496",
+      "searchText": "waqas nawaz nowshera abbottabad ring road saddar honda civic car",
+      "ownerKey": "seed:+923151234508",
+      "expiresAt": "2026-07-23T16:15:00.000Z",
+      "viewCount": 230,
+      "_id": "ride_64bef8ebad63"
+    },
+    {
+      "driver": {
+        "name": "Noman Aslam",
+        "phone": "+923051234511",
+        "verified": false,
+        "driverId": "drv_0d40bcf7c5a7"
+      },
+      "vehicle": {
+        "type": "Van",
+        "model": "Toyota Noah",
+        "color": "Green"
+      },
+      "route": {
+        "fromCity": "Swabi",
+        "toCity": "Rawalpindi",
+        "pickupPoint": "University Chowk",
+        "dropPoint": "GT Road Stop"
+      },
+      "pricePerSeat": 1200,
+      "seatsTotal": 6,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-25",
+        "time": "06:15",
+        "timestamp": "2026-07-25T01:15:00.000Z"
+      },
+      "arrivalEstimate": "~3h 0m",
+      "options": {
+        "luggage": false,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": true,
+        "repeatWeekly": false
+      },
+      "notes": "Leaving on time please.",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "2cf976a2c9dbc12d910a01d041bd058e70bb0eef",
+      "searchText": "noman aslam swabi rawalpindi faizabad main bazaar toyota noah van",
+      "ownerKey": "seed:+923051234511",
+      "expiresAt": "2026-07-25T04:15:00.000Z",
+      "viewCount": 350,
+      "_id": "ride_9876628a4e6d"
+    },
+    {
+      "driver": {
+        "name": "Adnan Yousaf",
+        "phone": "+923091234507",
+        "verified": false,
+        "driverId": "drv_c260930d9669"
+      },
+      "vehicle": {
+        "type": "SUV",
+        "model": "Honda BR-V",
+        "color": "Black"
+      },
+      "route": {
+        "fromCity": "Swabi",
+        "toCity": "Mansehra",
+        "pickupPoint": "Bus Terminal",
+        "dropPoint": "Main Bazaar"
+      },
+      "pricePerSeat": 3000,
+      "seatsTotal": 3,
+      "seatsLeft": 1,
+      "departure": {
+        "date": "2026-07-25",
+        "time": "22:45",
+        "timestamp": "2026-07-25T17:45:00.000Z"
+      },
+      "arrivalEstimate": "~4h 0m",
+      "options": {
+        "luggage": false,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": true,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "4d750a93271e3c3270d5476045dd22c0b6d000a9",
+      "searchText": "adnan yousaf swabi mansehra ring road bus terminal honda br-v suv",
+      "ownerKey": "seed:+923091234507",
+      "expiresAt": "2026-07-25T20:45:00.000Z",
+      "viewCount": 210,
+      "_id": "ride_4f6a886716ee"
+    },
+    {
+      "driver": {
+        "name": "Bilal Ahmed",
+        "phone": "+923011234502",
+        "verified": true,
+        "driverId": "drv_30374a694b88"
+      },
+      "vehicle": {
+        "type": "Bike",
+        "model": "Honda CG 125",
+        "color": "Silver"
+      },
+      "route": {
+        "fromCity": "Abbottabad",
+        "toCity": "Charsadda",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "Ring Road"
+      },
+      "pricePerSeat": 900,
+      "seatsTotal": 1,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-29",
+        "time": "22:15",
+        "timestamp": "2026-07-29T17:15:00.000Z"
+      },
+      "arrivalEstimate": "~2h 0m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": false,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": true,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "d853980c47f538535afbacd82e75276bd5c39e38",
+      "searchText": "bilal ahmed abbottabad charsadda gt road stop university chowk honda cg 125 bike",
+      "ownerKey": "seed:+923011234502",
+      "expiresAt": "2026-07-29T20:15:00.000Z",
+      "viewCount": 470,
+      "_id": "ride_f128fba8ee2e"
+    },
+    {
+      "driver": {
+        "name": "Imran Khan",
+        "phone": "+923001234501",
+        "verified": false,
+        "driverId": "drv_bf75ef4c95d5"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Toyota Coaster",
+        "color": "White"
+      },
+      "route": {
+        "fromCity": "Mansehra",
+        "toCity": "Rawalpindi",
+        "pickupPoint": "Main Bazaar",
+        "dropPoint": "GT Road Stop"
+      },
+      "pricePerSeat": 2800,
+      "seatsTotal": 15,
+      "seatsLeft": 7,
+      "departure": {
+        "date": "2026-07-23",
+        "time": "20:00",
+        "timestamp": "2026-07-23T15:00:00.000Z"
+      },
+      "arrivalEstimate": "~2h 45m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": false,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "f05698df8ffd0cde168119151af118aaf22a388b",
+      "searchText": "imran khan mansehra rawalpindi ring road saddar toyota coaster coaster",
+      "ownerKey": "seed:+923001234501",
+      "expiresAt": "2026-07-23T18:00:00.000Z",
+      "viewCount": 69,
+      "_id": "ride_929f0038cfc7"
+    },
+    {
+      "driver": {
+        "name": "Bilal Ahmed",
+        "phone": "+923011234502",
+        "verified": true,
+        "driverId": "drv_30374a694b88"
+      },
+      "vehicle": {
+        "type": "Bike",
+        "model": "Honda CG 125",
+        "color": "Silver"
+      },
+      "route": {
+        "fromCity": "Islamabad",
+        "toCity": "Rawalpindi",
+        "pickupPoint": "GT Road Stop",
+        "dropPoint": "Bus Terminal"
+      },
+      "pricePerSeat": 1400,
+      "seatsTotal": 1,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-24",
+        "time": "22:15",
+        "timestamp": "2026-07-24T17:15:00.000Z"
+      },
+      "arrivalEstimate": "~1h 0m",
+      "options": {
+        "luggage": false,
+        "smoking": true,
+        "ac": false,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "Leaving on time please.",
+      "status": "full",
+      "featured": true,
+      "duplicateHash": "20706e9a5621f15fd91aa34fa673af4173455fd2",
+      "searchText": "bilal ahmed islamabad rawalpindi faizabad motorway toll plaza honda cg 125 bike",
+      "ownerKey": "seed:+923011234502",
+      "expiresAt": "2026-07-24T20:15:00.000Z",
+      "viewCount": 374,
+      "_id": "ride_46d2480a632e"
+    },
+    {
+      "driver": {
+        "name": "Waqas Nawaz",
+        "phone": "+923151234508",
+        "verified": true,
+        "driverId": "drv_230cf67fc288"
+      },
+      "vehicle": {
+        "type": "Car",
+        "model": "Honda Civic",
+        "color": "Other"
+      },
+      "route": {
+        "fromCity": "Takht Bhai",
+        "toCity": "Islamabad",
+        "pickupPoint": "Bus Terminal",
+        "dropPoint": "Main Bazaar"
+      },
+      "pricePerSeat": 1700,
+      "seatsTotal": 2,
+      "seatsLeft": 2,
+      "departure": {
+        "date": "2026-07-24",
+        "time": "10:00",
+        "timestamp": "2026-07-24T05:00:00.000Z"
+      },
+      "arrivalEstimate": "~4h 0m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": false,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "d3428d582ca128c1f702e329ef1434981fb9dd6e",
+      "searchText": "waqas nawaz takht bhai islamabad bus terminal university chowk honda civic car",
+      "ownerKey": "seed:+923151234508",
+      "expiresAt": "2026-07-24T08:00:00.000Z",
+      "viewCount": 104,
+      "_id": "ride_590d8e23c52b"
+    },
+    {
+      "driver": {
+        "name": "Hamza Tariq",
+        "phone": "+923411234509",
+        "verified": true,
+        "driverId": "drv_a43039505c44"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Mardan",
+        "toCity": "Islamabad",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "Ring Road"
+      },
+      "pricePerSeat": 2300,
+      "seatsTotal": 10,
+      "seatsLeft": 10,
+      "departure": {
+        "date": "2026-07-23",
+        "time": "19:30",
+        "timestamp": "2026-07-23T14:30:00.000Z"
+      },
+      "arrivalEstimate": "~3h 45m",
+      "options": {
+        "luggage": false,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "a79375827421544274d4304215af3b63d4652a06",
+      "searchText": "hamza tariq mardan islamabad ring road main bazaar toyota hiace hiace",
+      "ownerKey": "seed:+923411234509",
+      "expiresAt": "2026-07-23T17:30:00.000Z",
+      "viewCount": 191,
+      "_id": "ride_0889fe198fad"
+    },
+    {
+      "driver": {
+        "name": "Waqas Nawaz",
+        "phone": "+923151234508",
+        "verified": true,
+        "driverId": "drv_230cf67fc288"
+      },
+      "vehicle": {
+        "type": "Car",
+        "model": "Honda Civic",
+        "color": "Other"
+      },
+      "route": {
+        "fromCity": "Islamabad",
+        "toCity": "Peshawar",
+        "pickupPoint": "Motorway Toll Plaza",
+        "dropPoint": "University Chowk"
+      },
+      "pricePerSeat": 1500,
+      "seatsTotal": 3,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-28",
+        "time": "18:00",
+        "timestamp": "2026-07-28T13:00:00.000Z"
+      },
+      "arrivalEstimate": "~3h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "full",
+      "featured": true,
+      "duplicateHash": "0f963d1c7c2d4cc1a1156b116a4ddb5327195f36",
+      "searchText": "waqas nawaz islamabad peshawar university chowk university chowk honda civic car",
+      "ownerKey": "seed:+923151234508",
+      "expiresAt": "2026-07-28T16:00:00.000Z",
+      "viewCount": 98,
+      "_id": "ride_fb6da0acc0dd"
+    },
+    {
+      "driver": {
+        "name": "Hamza Tariq",
+        "phone": "+923411234509",
+        "verified": true,
+        "driverId": "drv_a43039505c44"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Haripur",
+        "toCity": "Peshawar",
+        "pickupPoint": "GT Road Stop",
+        "dropPoint": "Bus Terminal"
+      },
+      "pricePerSeat": 1700,
+      "seatsTotal": 15,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-24",
+        "time": "12:30",
+        "timestamp": "2026-07-24T07:30:00.000Z"
+      },
+      "arrivalEstimate": "~4h 0m",
+      "options": {
+        "luggage": true,
+        "smoking": true,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "Leaving on time please.",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "13d25b315fabf87336c3ccb7778c75dc2676cc9f",
+      "searchText": "hamza tariq haripur peshawar saddar ring road toyota hiace hiace",
+      "ownerKey": "seed:+923411234509",
+      "expiresAt": "2026-07-24T10:30:00.000Z",
+      "viewCount": 97,
+      "_id": "ride_cfb99c5deca8"
+    },
+    {
+      "driver": {
+        "name": "Hamza Tariq",
+        "phone": "+923411234509",
+        "verified": true,
+        "driverId": "drv_a43039505c44"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Swabi",
+        "toCity": "Nowshera",
+        "pickupPoint": "Bus Terminal",
+        "dropPoint": "University Chowk"
+      },
+      "pricePerSeat": 500,
+      "seatsTotal": 9,
+      "seatsLeft": 7,
+      "departure": {
+        "date": "2026-07-25",
+        "time": "06:00",
+        "timestamp": "2026-07-25T01:00:00.000Z"
+      },
+      "arrivalEstimate": "~4h 0m",
+      "options": {
+        "luggage": false,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "539f58b280e148bafd9ff7a43cb06e631f3f13ff",
+      "searchText": "hamza tariq swabi nowshera bus terminal university chowk toyota hiace hiace",
+      "ownerKey": "seed:+923411234509",
+      "expiresAt": "2026-07-25T04:00:00.000Z",
+      "viewCount": 234,
+      "_id": "ride_7dc986e77f95"
+    },
+    {
+      "driver": {
+        "name": "Fahad Iqbal",
+        "phone": "+923211234503",
+        "verified": true,
+        "driverId": "drv_ff0ee2f8b154"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Higer Bus",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Mansehra",
+        "toCity": "Peshawar",
+        "pickupPoint": "Bus Terminal",
+        "dropPoint": "University Chowk"
+      },
+      "pricePerSeat": 2800,
+      "seatsTotal": 24,
+      "seatsLeft": 3,
+      "departure": {
+        "date": "2026-07-23",
+        "time": "09:45",
+        "timestamp": "2026-07-23T04:45:00.000Z"
+      },
+      "arrivalEstimate": "~1h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": false,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "b62349c0cdb63d6241a5098cea7e264594684984",
+      "searchText": "fahad iqbal mansehra peshawar gt road stop main bazaar higer bus coaster",
+      "ownerKey": "seed:+923211234503",
+      "expiresAt": "2026-07-23T07:45:00.000Z",
+      "viewCount": 70,
+      "_id": "ride_51baaf39ec0c"
+    },
+    {
+      "driver": {
+        "name": "Fahad Iqbal",
+        "phone": "+923211234503",
+        "verified": true,
+        "driverId": "drv_ff0ee2f8b154"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Higer Bus",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Nowshera",
+        "toCity": "Mardan",
+        "pickupPoint": "Saddar",
+        "dropPoint": "Saddar"
+      },
+      "pricePerSeat": 1200,
+      "seatsTotal": 10,
+      "seatsLeft": 9,
+      "departure": {
+        "date": "2026-07-28",
+        "time": "08:15",
+        "timestamp": "2026-07-28T03:15:00.000Z"
+      },
+      "arrivalEstimate": "~1h 45m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "75d907ddc7e32ded0d38808ef65aceeabdbf8f24",
+      "searchText": "fahad iqbal nowshera mardan main bazaar ring road higer bus coaster",
+      "ownerKey": "seed:+923211234503",
+      "expiresAt": "2026-07-28T06:15:00.000Z",
+      "viewCount": 420,
+      "_id": "ride_c9bf5974e04a"
+    },
+    {
+      "driver": {
+        "name": "Bilal Ahmed",
+        "phone": "+923011234502",
+        "verified": true,
+        "driverId": "drv_30374a694b88"
+      },
+      "vehicle": {
+        "type": "Bike",
+        "model": "Honda CG 125",
+        "color": "Silver"
+      },
+      "route": {
+        "fromCity": "Takht Bhai",
+        "toCity": "Mansehra",
+        "pickupPoint": "University Chowk",
+        "dropPoint": "Bus Terminal"
+      },
+      "pricePerSeat": 600,
+      "seatsTotal": 1,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-24",
+        "time": "07:00",
+        "timestamp": "2026-07-24T02:00:00.000Z"
+      },
+      "arrivalEstimate": "~2h 45m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "Leaving on time please.",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "20cd3564d7f2017e1b3c167c291a0469f6cac964",
+      "searchText": "bilal ahmed takht bhai mansehra bus terminal faizabad honda cg 125 bike",
+      "ownerKey": "seed:+923011234502",
+      "expiresAt": "2026-07-24T05:00:00.000Z",
+      "viewCount": 394,
+      "_id": "ride_2fa926738df0"
+    },
+    {
+      "driver": {
+        "name": "Kamran Shah",
+        "phone": "+923121234506",
+        "verified": true,
+        "driverId": "drv_a52c047f2567"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Silver"
+      },
+      "route": {
+        "fromCity": "Haripur",
+        "toCity": "Rawalpindi",
+        "pickupPoint": "GT Road Stop",
+        "dropPoint": "Saddar"
+      },
+      "pricePerSeat": 3000,
+      "seatsTotal": 5,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-29",
+        "time": "15:45",
+        "timestamp": "2026-07-29T10:45:00.000Z"
+      },
+      "arrivalEstimate": "~1h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": true,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "Leaving on time please.",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "e051a8c6fd668556903fd96a4d3c4b5c4f03c630",
+      "searchText": "kamran shah haripur rawalpindi motorway toll plaza bus terminal toyota hiace hiace",
+      "ownerKey": "seed:+923121234506",
+      "expiresAt": "2026-07-29T13:45:00.000Z",
+      "viewCount": 416,
+      "_id": "ride_a3adb116cdbf"
+    },
+    {
+      "driver": {
+        "name": "Kamran Shah",
+        "phone": "+923121234506",
+        "verified": true,
+        "driverId": "drv_a52c047f2567"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Silver"
+      },
+      "route": {
+        "fromCity": "Rawalpindi",
+        "toCity": "Abbottabad",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "Bus Terminal"
+      },
+      "pricePerSeat": 700,
+      "seatsTotal": 9,
+      "seatsLeft": 6,
+      "departure": {
+        "date": "2026-07-27",
+        "time": "08:45",
+        "timestamp": "2026-07-27T03:45:00.000Z"
+      },
+      "arrivalEstimate": "~2h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": false,
+        "femaleOnly": false,
+        "music": true,
+        "pets": true,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": true,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "2662b1287fcd88a329cd12205093698f15ae6f66",
+      "searchText": "kamran shah rawalpindi abbottabad bus terminal ring road toyota hiace hiace",
+      "ownerKey": "seed:+923121234506",
+      "expiresAt": "2026-07-27T06:45:00.000Z",
+      "viewCount": 171,
+      "_id": "ride_dbba3853f198"
+    },
+    {
+      "driver": {
+        "name": "Fahad Iqbal",
+        "phone": "+923211234503",
+        "verified": true,
+        "driverId": "drv_ff0ee2f8b154"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Higer Bus",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Nowshera",
+        "toCity": "Islamabad",
+        "pickupPoint": "Motorway Toll Plaza",
+        "dropPoint": "Saddar"
+      },
+      "pricePerSeat": 800,
+      "seatsTotal": 10,
+      "seatsLeft": 8,
+      "departure": {
+        "date": "2026-07-26",
+        "time": "17:30",
+        "timestamp": "2026-07-26T12:30:00.000Z"
+      },
+      "arrivalEstimate": "~4h 45m",
+      "options": {
+        "luggage": false,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "139298da3ba18c45e733483edf8345f2c7891db6",
+      "searchText": "fahad iqbal nowshera islamabad gt road stop motorway toll plaza higer bus coaster",
+      "ownerKey": "seed:+923211234503",
+      "expiresAt": "2026-07-26T15:30:00.000Z",
+      "viewCount": 466,
+      "_id": "ride_fdbcd15659a1"
+    },
+    {
+      "driver": {
+        "name": "Fahad Iqbal",
+        "phone": "+923211234503",
+        "verified": true,
+        "driverId": "drv_ff0ee2f8b154"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Higer Bus",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Haripur",
+        "toCity": "Islamabad",
+        "pickupPoint": "GT Road Stop",
+        "dropPoint": "University Chowk"
+      },
+      "pricePerSeat": 1800,
+      "seatsTotal": 18,
+      "seatsLeft": 6,
+      "departure": {
+        "date": "2026-07-29",
+        "time": "12:00",
+        "timestamp": "2026-07-29T07:00:00.000Z"
+      },
+      "arrivalEstimate": "~1h 30m",
+      "options": {
+        "luggage": false,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "open",
+      "featured": true,
+      "duplicateHash": "8f3493211f88bb675a8880efd58eb90dba6bcebf",
+      "searchText": "fahad iqbal haripur islamabad saddar ring road higer bus coaster",
+      "ownerKey": "seed:+923211234503",
+      "expiresAt": "2026-07-29T10:00:00.000Z",
+      "viewCount": 119,
+      "_id": "ride_366792f04ccf"
+    },
+    {
+      "driver": {
+        "name": "Imran Khan",
+        "phone": "+923001234501",
+        "verified": false,
+        "driverId": "drv_bf75ef4c95d5"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Toyota Coaster",
+        "color": "White"
+      },
+      "route": {
+        "fromCity": "Peshawar",
+        "toCity": "Abbottabad",
+        "pickupPoint": "Ring Road",
+        "dropPoint": "Motorway Toll Plaza"
+      },
+      "pricePerSeat": 800,
+      "seatsTotal": 13,
+      "seatsLeft": 12,
+      "departure": {
+        "date": "2026-07-27",
+        "time": "09:15",
+        "timestamp": "2026-07-27T04:15:00.000Z"
+      },
+      "arrivalEstimate": "~1h 15m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": true,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "96050e5c8f9cf3e611bacdcefb74d99f7c631350",
+      "searchText": "imran khan peshawar abbottabad faizabad university chowk toyota coaster coaster",
+      "ownerKey": "seed:+923001234501",
+      "expiresAt": "2026-07-27T07:15:00.000Z",
+      "viewCount": 356,
+      "_id": "ride_8fff7b8103c4"
+    },
+    {
+      "driver": {
+        "name": "Adnan Yousaf",
+        "phone": "+923091234507",
+        "verified": false,
+        "driverId": "drv_c260930d9669"
+      },
+      "vehicle": {
+        "type": "SUV",
+        "model": "Honda BR-V",
+        "color": "Black"
+      },
+      "route": {
+        "fromCity": "Abbottabad",
+        "toCity": "Charsadda",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "Motorway Toll Plaza"
+      },
+      "pricePerSeat": 2300,
+      "seatsTotal": 1,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-29",
+        "time": "18:15",
+        "timestamp": "2026-07-29T13:15:00.000Z"
+      },
+      "arrivalEstimate": "~2h 30m",
+      "options": {
+        "luggage": false,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": true,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "070a44d2e7f159c3f4f7ad48ecd9818c879a0a69",
+      "searchText": "adnan yousaf abbottabad charsadda faizabad saddar honda br-v suv",
+      "ownerKey": "seed:+923091234507",
+      "expiresAt": "2026-07-29T16:15:00.000Z",
+      "viewCount": 228,
+      "_id": "ride_b0986d3468ef"
+    },
+    {
+      "driver": {
+        "name": "Imran Khan",
+        "phone": "+923001234501",
+        "verified": false,
+        "driverId": "drv_bf75ef4c95d5"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Toyota Coaster",
+        "color": "White"
+      },
+      "route": {
+        "fromCity": "Mansehra",
+        "toCity": "Takht Bhai",
+        "pickupPoint": "University Chowk",
+        "dropPoint": "Ring Road"
+      },
+      "pricePerSeat": 1300,
+      "seatsTotal": 6,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-26",
+        "time": "09:15",
+        "timestamp": "2026-07-26T04:15:00.000Z"
+      },
+      "arrivalEstimate": "~4h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": true,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "353776a5d83427e3a0d44058c14d737dc7b74c7b",
+      "searchText": "imran khan mansehra takht bhai motorway toll plaza main bazaar toyota coaster coaster",
+      "ownerKey": "seed:+923001234501",
+      "expiresAt": "2026-07-26T07:15:00.000Z",
+      "viewCount": 191,
+      "_id": "ride_3f3e25669e2a"
+    },
+    {
+      "driver": {
+        "name": "Kamran Shah",
+        "phone": "+923121234506",
+        "verified": true,
+        "driverId": "drv_a52c047f2567"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Silver"
+      },
+      "route": {
+        "fromCity": "Mansehra",
+        "toCity": "Islamabad",
+        "pickupPoint": "Saddar",
+        "dropPoint": "GT Road Stop"
+      },
+      "pricePerSeat": 2400,
+      "seatsTotal": 10,
+      "seatsLeft": 3,
+      "departure": {
+        "date": "2026-07-23",
+        "time": "18:00",
+        "timestamp": "2026-07-23T13:00:00.000Z"
+      },
+      "arrivalEstimate": "~1h 0m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "daf17bfde9c484cae3c2d9007c06e5c589fdc00d",
+      "searchText": "kamran shah mansehra islamabad main bazaar bus terminal toyota hiace hiace",
+      "ownerKey": "seed:+923121234506",
+      "expiresAt": "2026-07-23T16:00:00.000Z",
+      "viewCount": 139,
+      "_id": "ride_82f10574a1d6"
+    },
+    {
+      "driver": {
+        "name": "Imran Khan",
+        "phone": "+923001234501",
+        "verified": false,
+        "driverId": "drv_bf75ef4c95d5"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Toyota Coaster",
+        "color": "White"
+      },
+      "route": {
+        "fromCity": "Peshawar",
+        "toCity": "Rawalpindi",
+        "pickupPoint": "University Chowk",
+        "dropPoint": "GT Road Stop"
+      },
+      "pricePerSeat": 1600,
+      "seatsTotal": 13,
+      "seatsLeft": 1,
+      "departure": {
+        "date": "2026-07-27",
+        "time": "06:30",
+        "timestamp": "2026-07-27T01:30:00.000Z"
+      },
+      "arrivalEstimate": "~3h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "Leaving on time please.",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "ecd2143f055af7107f4a7461c79bdc6a82d5510c",
+      "searchText": "imran khan peshawar rawalpindi university chowk saddar toyota coaster coaster",
+      "ownerKey": "seed:+923001234501",
+      "expiresAt": "2026-07-27T04:30:00.000Z",
+      "viewCount": 202,
+      "_id": "ride_564da634a01f"
+    },
+    {
+      "driver": {
+        "name": "Waqas Nawaz",
+        "phone": "+923151234508",
+        "verified": true,
+        "driverId": "drv_230cf67fc288"
+      },
+      "vehicle": {
+        "type": "Car",
+        "model": "Honda Civic",
+        "color": "Other"
+      },
+      "route": {
+        "fromCity": "Abbottabad",
+        "toCity": "Mansehra",
+        "pickupPoint": "Saddar",
+        "dropPoint": "Saddar"
+      },
+      "pricePerSeat": 2900,
+      "seatsTotal": 2,
+      "seatsLeft": 1,
+      "departure": {
+        "date": "2026-07-25",
+        "time": "11:30",
+        "timestamp": "2026-07-25T06:30:00.000Z"
+      },
+      "arrivalEstimate": "~3h 45m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "595f5e65abbf716a27aad0151573e55cbaf1c389",
+      "searchText": "waqas nawaz abbottabad mansehra motorway toll plaza ring road honda civic car",
+      "ownerKey": "seed:+923151234508",
+      "expiresAt": "2026-07-25T09:30:00.000Z",
+      "viewCount": 60,
+      "_id": "ride_e2981d64cd01"
+    },
+    {
+      "driver": {
+        "name": "Waqas Nawaz",
+        "phone": "+923151234508",
+        "verified": true,
+        "driverId": "drv_230cf67fc288"
+      },
+      "vehicle": {
+        "type": "Car",
+        "model": "Honda Civic",
+        "color": "Other"
+      },
+      "route": {
+        "fromCity": "Peshawar",
+        "toCity": "Islamabad",
+        "pickupPoint": "Motorway Toll Plaza",
+        "dropPoint": "Faizabad"
+      },
+      "pricePerSeat": 1300,
+      "seatsTotal": 4,
+      "seatsLeft": 3,
+      "departure": {
+        "date": "2026-07-26",
+        "time": "05:15",
+        "timestamp": "2026-07-26T00:15:00.000Z"
+      },
+      "arrivalEstimate": "~1h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "bbd8a41e3a0c3b34fff85f8c2f30d4d9cba69d7f",
+      "searchText": "waqas nawaz peshawar islamabad university chowk gt road stop honda civic car",
+      "ownerKey": "seed:+923151234508",
+      "expiresAt": "2026-07-26T03:15:00.000Z",
+      "viewCount": 85,
+      "_id": "ride_8997ce179dbe"
+    },
+    {
+      "driver": {
+        "name": "Kamran Shah",
+        "phone": "+923121234506",
+        "verified": true,
+        "driverId": "drv_a52c047f2567"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Silver"
+      },
+      "route": {
+        "fromCity": "Islamabad",
+        "toCity": "Takht Bhai",
+        "pickupPoint": "Main Bazaar",
+        "dropPoint": "Motorway Toll Plaza"
+      },
+      "pricePerSeat": 2900,
+      "seatsTotal": 9,
+      "seatsLeft": 7,
+      "departure": {
+        "date": "2026-07-25",
+        "time": "18:00",
+        "timestamp": "2026-07-25T13:00:00.000Z"
+      },
+      "arrivalEstimate": "~3h 15m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": false,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": true,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "c831f6b0a6c3e41582d3505448c5751e38f360d2",
+      "searchText": "kamran shah islamabad takht bhai university chowk saddar toyota hiace hiace",
+      "ownerKey": "seed:+923121234506",
+      "expiresAt": "2026-07-25T16:00:00.000Z",
+      "viewCount": 269,
+      "_id": "ride_eacf0c572f25"
+    },
+    {
+      "driver": {
+        "name": "Hamza Tariq",
+        "phone": "+923411234509",
+        "verified": true,
+        "driverId": "drv_a43039505c44"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Charsadda",
+        "toCity": "Mansehra",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "Motorway Toll Plaza"
+      },
+      "pricePerSeat": 1300,
+      "seatsTotal": 12,
+      "seatsLeft": 9,
+      "departure": {
+        "date": "2026-07-24",
+        "time": "09:15",
+        "timestamp": "2026-07-24T04:15:00.000Z"
+      },
+      "arrivalEstimate": "~2h 15m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": false,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "d12059739d6c625b0b3da93683e7b7bb5ad8d6b6",
+      "searchText": "hamza tariq charsadda mansehra ring road main bazaar toyota hiace hiace",
+      "ownerKey": "seed:+923411234509",
+      "expiresAt": "2026-07-24T07:15:00.000Z",
+      "viewCount": 259,
+      "_id": "ride_c9c538a70270"
+    },
+    {
+      "driver": {
+        "name": "Waqas Nawaz",
+        "phone": "+923151234508",
+        "verified": true,
+        "driverId": "drv_230cf67fc288"
+      },
+      "vehicle": {
+        "type": "Car",
+        "model": "Honda Civic",
+        "color": "Other"
+      },
+      "route": {
+        "fromCity": "Takht Bhai",
+        "toCity": "Mardan",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "Motorway Toll Plaza"
+      },
+      "pricePerSeat": 600,
+      "seatsTotal": 2,
+      "seatsLeft": 2,
+      "departure": {
+        "date": "2026-07-28",
+        "time": "09:30",
+        "timestamp": "2026-07-28T04:30:00.000Z"
+      },
+      "arrivalEstimate": "~4h 0m",
+      "options": {
+        "luggage": false,
+        "smoking": false,
+        "ac": false,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "Leaving on time please.",
+      "status": "almostFull",
+      "featured": true,
+      "duplicateHash": "8a8c17cbcd8d2851faa90979dd2a431bd9f50b4f",
+      "searchText": "waqas nawaz takht bhai mardan saddar bus terminal honda civic car",
+      "ownerKey": "seed:+923151234508",
+      "expiresAt": "2026-07-28T07:30:00.000Z",
+      "viewCount": 422,
+      "_id": "ride_f6f4def13af1"
+    },
+    {
+      "driver": {
+        "name": "Adnan Yousaf",
+        "phone": "+923091234507",
+        "verified": false,
+        "driverId": "drv_c260930d9669"
+      },
+      "vehicle": {
+        "type": "SUV",
+        "model": "Honda BR-V",
+        "color": "Black"
+      },
+      "route": {
+        "fromCity": "Abbottabad",
+        "toCity": "Rawalpindi",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "Bus Terminal"
+      },
+      "pricePerSeat": 1100,
+      "seatsTotal": 1,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-24",
+        "time": "10:15",
+        "timestamp": "2026-07-24T05:15:00.000Z"
+      },
+      "arrivalEstimate": "~1h 30m",
+      "options": {
+        "luggage": false,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "Leaving on time please.",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "2d514fce7f37deaf3f4a096c6cca67248ddbcabb",
+      "searchText": "adnan yousaf abbottabad rawalpindi main bazaar university chowk honda br-v suv",
+      "ownerKey": "seed:+923091234507",
+      "expiresAt": "2026-07-24T08:15:00.000Z",
+      "viewCount": 254,
+      "_id": "ride_6f197c1bd6e4"
+    },
+    {
+      "driver": {
+        "name": "Fahad Iqbal",
+        "phone": "+923211234503",
+        "verified": true,
+        "driverId": "drv_ff0ee2f8b154"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Higer Bus",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Abbottabad",
+        "toCity": "Peshawar",
+        "pickupPoint": "Bus Terminal",
+        "dropPoint": "Main Bazaar"
+      },
+      "pricePerSeat": 2900,
+      "seatsTotal": 5,
+      "seatsLeft": 3,
+      "departure": {
+        "date": "2026-07-24",
+        "time": "09:00",
+        "timestamp": "2026-07-24T04:00:00.000Z"
+      },
+      "arrivalEstimate": "~2h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "Leaving on time please.",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "46cba02ce6525beec522f3aad70481a01b7d601e",
+      "searchText": "fahad iqbal abbottabad peshawar university chowk ring road higer bus coaster",
+      "ownerKey": "seed:+923211234503",
+      "expiresAt": "2026-07-24T07:00:00.000Z",
+      "viewCount": 82,
+      "_id": "ride_ac2cf7507837"
+    },
+    {
+      "driver": {
+        "name": "Fahad Iqbal",
+        "phone": "+923211234503",
+        "verified": true,
+        "driverId": "drv_ff0ee2f8b154"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Higer Bus",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Charsadda",
+        "toCity": "Abbottabad",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "Bus Terminal"
+      },
+      "pricePerSeat": 1400,
+      "seatsTotal": 29,
+      "seatsLeft": 16,
+      "departure": {
+        "date": "2026-07-23",
+        "time": "05:15",
+        "timestamp": "2026-07-23T00:15:00.000Z"
+      },
+      "arrivalEstimate": "~4h 15m",
+      "options": {
+        "luggage": true,
+        "smoking": true,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "expired",
+      "featured": true,
+      "duplicateHash": "eff71de83aae655baaa1ae3a768a2a14331aa320",
+      "searchText": "fahad iqbal charsadda abbottabad main bazaar motorway toll plaza higer bus coaster",
+      "ownerKey": "seed:+923211234503",
+      "expiresAt": "2026-07-23T03:15:00.000Z",
+      "viewCount": 215,
+      "_id": "ride_61faceb6a857"
+    },
+    {
+      "driver": {
+        "name": "Hamza Tariq",
+        "phone": "+923411234509",
+        "verified": true,
+        "driverId": "drv_a43039505c44"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Mardan",
+        "toCity": "Takht Bhai",
+        "pickupPoint": "Ring Road",
+        "dropPoint": "Faizabad"
+      },
+      "pricePerSeat": 2300,
+      "seatsTotal": 7,
+      "seatsLeft": 5,
+      "departure": {
+        "date": "2026-07-23",
+        "time": "09:45",
+        "timestamp": "2026-07-23T04:45:00.000Z"
+      },
+      "arrivalEstimate": "~1h 45m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": true,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "1775aff1ba1448fbb297ac18b91ef6d71483585e",
+      "searchText": "hamza tariq mardan takht bhai ring road saddar toyota hiace hiace",
+      "ownerKey": "seed:+923411234509",
+      "expiresAt": "2026-07-23T07:45:00.000Z",
+      "viewCount": 500,
+      "_id": "ride_4adb55e55e94"
+    },
+    {
+      "driver": {
+        "name": "Fahad Iqbal",
+        "phone": "+923211234503",
+        "verified": true,
+        "driverId": "drv_ff0ee2f8b154"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Higer Bus",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Abbottabad",
+        "toCity": "Peshawar",
+        "pickupPoint": "Bus Terminal",
+        "dropPoint": "Motorway Toll Plaza"
+      },
+      "pricePerSeat": 2000,
+      "seatsTotal": 4,
+      "seatsLeft": 4,
+      "departure": {
+        "date": "2026-07-24",
+        "time": "11:00",
+        "timestamp": "2026-07-24T06:00:00.000Z"
+      },
+      "arrivalEstimate": "~2h 0m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "0452156281c3fe1902a79ecb3304be6bf9747f7e",
+      "searchText": "fahad iqbal abbottabad peshawar university chowk saddar higer bus coaster",
+      "ownerKey": "seed:+923211234503",
+      "expiresAt": "2026-07-24T09:00:00.000Z",
+      "viewCount": 2,
+      "_id": "ride_c14de6a193b5"
+    },
+    {
+      "driver": {
+        "name": "Waqas Nawaz",
+        "phone": "+923151234508",
+        "verified": true,
+        "driverId": "drv_230cf67fc288"
+      },
+      "vehicle": {
+        "type": "Car",
+        "model": "Honda Civic",
+        "color": "Other"
+      },
+      "route": {
+        "fromCity": "Mardan",
+        "toCity": "Islamabad",
+        "pickupPoint": "University Chowk",
+        "dropPoint": "Faizabad"
+      },
+      "pricePerSeat": 2700,
+      "seatsTotal": 4,
+      "seatsLeft": 3,
+      "departure": {
+        "date": "2026-07-28",
+        "time": "08:30",
+        "timestamp": "2026-07-28T03:30:00.000Z"
+      },
+      "arrivalEstimate": "~3h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "open",
+      "featured": true,
+      "duplicateHash": "ba4b47b29ef1cd8bb5f95f2e1c88a9f211de3255",
+      "searchText": "waqas nawaz mardan islamabad motorway toll plaza bus terminal honda civic car",
+      "ownerKey": "seed:+923151234508",
+      "expiresAt": "2026-07-28T06:30:00.000Z",
+      "viewCount": 371,
+      "_id": "ride_3bd38702a8b5"
+    },
+    {
+      "driver": {
+        "name": "Fahad Iqbal",
+        "phone": "+923211234503",
+        "verified": true,
+        "driverId": "drv_ff0ee2f8b154"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Higer Bus",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Nowshera",
+        "toCity": "Mardan",
+        "pickupPoint": "GT Road Stop",
+        "dropPoint": "University Chowk"
+      },
+      "pricePerSeat": 400,
+      "seatsTotal": 22,
+      "seatsLeft": 2,
+      "departure": {
+        "date": "2026-07-26",
+        "time": "15:00",
+        "timestamp": "2026-07-26T10:00:00.000Z"
+      },
+      "arrivalEstimate": "~4h 0m",
+      "options": {
+        "luggage": false,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "7878c4cf0bc5654f24a085babc2c54834e3ae703",
+      "searchText": "fahad iqbal nowshera mardan university chowk faizabad higer bus coaster",
+      "ownerKey": "seed:+923211234503",
+      "expiresAt": "2026-07-26T13:00:00.000Z",
+      "viewCount": 40,
+      "_id": "ride_090db14dd4b8"
+    },
+    {
+      "driver": {
+        "name": "Waqas Nawaz",
+        "phone": "+923151234508",
+        "verified": true,
+        "driverId": "drv_230cf67fc288"
+      },
+      "vehicle": {
+        "type": "Car",
+        "model": "Honda Civic",
+        "color": "Other"
+      },
+      "route": {
+        "fromCity": "Mardan",
+        "toCity": "Abbottabad",
+        "pickupPoint": "Main Bazaar",
+        "dropPoint": "GT Road Stop"
+      },
+      "pricePerSeat": 2700,
+      "seatsTotal": 2,
+      "seatsLeft": 1,
+      "departure": {
+        "date": "2026-07-24",
+        "time": "22:15",
+        "timestamp": "2026-07-24T17:15:00.000Z"
+      },
+      "arrivalEstimate": "~3h 15m",
+      "options": {
+        "luggage": false,
+        "smoking": false,
+        "ac": false,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "d995f285150b9f444a7a23a15b92532d2d6dd1f0",
+      "searchText": "waqas nawaz mardan abbottabad saddar university chowk honda civic car",
+      "ownerKey": "seed:+923151234508",
+      "expiresAt": "2026-07-24T20:15:00.000Z",
+      "viewCount": 310,
+      "_id": "ride_6d9fd99154c3"
+    },
+    {
+      "driver": {
+        "name": "Waqas Nawaz",
+        "phone": "+923151234508",
+        "verified": true,
+        "driverId": "drv_230cf67fc288"
+      },
+      "vehicle": {
+        "type": "Car",
+        "model": "Honda Civic",
+        "color": "Other"
+      },
+      "route": {
+        "fromCity": "Rawalpindi",
+        "toCity": "Abbottabad",
+        "pickupPoint": "University Chowk",
+        "dropPoint": "Main Bazaar"
+      },
+      "pricePerSeat": 1100,
+      "seatsTotal": 2,
+      "seatsLeft": 2,
+      "departure": {
+        "date": "2026-07-29",
+        "time": "13:00",
+        "timestamp": "2026-07-29T08:00:00.000Z"
+      },
+      "arrivalEstimate": "~3h 0m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "410adf48543853dcf318becee992a81744939273",
+      "searchText": "waqas nawaz rawalpindi abbottabad saddar main bazaar honda civic car",
+      "ownerKey": "seed:+923151234508",
+      "expiresAt": "2026-07-29T11:00:00.000Z",
+      "viewCount": 408,
+      "_id": "ride_c251c6c7c16b"
+    },
+    {
+      "driver": {
+        "name": "Fahad Iqbal",
+        "phone": "+923211234503",
+        "verified": true,
+        "driverId": "drv_ff0ee2f8b154"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Higer Bus",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Haripur",
+        "toCity": "Peshawar",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "Bus Terminal"
+      },
+      "pricePerSeat": 1600,
+      "seatsTotal": 2,
+      "seatsLeft": 1,
+      "departure": {
+        "date": "2026-07-27",
+        "time": "08:15",
+        "timestamp": "2026-07-27T03:15:00.000Z"
+      },
+      "arrivalEstimate": "~1h 0m",
+      "options": {
+        "luggage": true,
+        "smoking": true,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": true,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "1b006e33f2bdf21e676bdf6f1e32a602913906f5",
+      "searchText": "fahad iqbal haripur peshawar faizabad university chowk higer bus coaster",
+      "ownerKey": "seed:+923211234503",
+      "expiresAt": "2026-07-27T06:15:00.000Z",
+      "viewCount": 412,
+      "_id": "ride_93946eab9ac2"
+    },
+    {
+      "driver": {
+        "name": "Hamza Tariq",
+        "phone": "+923411234509",
+        "verified": true,
+        "driverId": "drv_a43039505c44"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Peshawar",
+        "toCity": "Islamabad",
+        "pickupPoint": "Main Bazaar",
+        "dropPoint": "Main Bazaar"
+      },
+      "pricePerSeat": 1300,
+      "seatsTotal": 6,
+      "seatsLeft": 6,
+      "departure": {
+        "date": "2026-07-26",
+        "time": "21:15",
+        "timestamp": "2026-07-26T16:15:00.000Z"
+      },
+      "arrivalEstimate": "~3h 0m",
+      "options": {
+        "luggage": true,
+        "smoking": true,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": true,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "0e419bc9874326dc769a94d0c04f111f949373e2",
+      "searchText": "hamza tariq peshawar islamabad bus terminal saddar toyota hiace hiace",
+      "ownerKey": "seed:+923411234509",
+      "expiresAt": "2026-07-26T19:15:00.000Z",
+      "viewCount": 93,
+      "_id": "ride_105c0befb04e"
+    },
+    {
+      "driver": {
+        "name": "Noman Aslam",
+        "phone": "+923051234511",
+        "verified": false,
+        "driverId": "drv_0d40bcf7c5a7"
+      },
+      "vehicle": {
+        "type": "Van",
+        "model": "Toyota Noah",
+        "color": "Green"
+      },
+      "route": {
+        "fromCity": "Mardan",
+        "toCity": "Takht Bhai",
+        "pickupPoint": "GT Road Stop",
+        "dropPoint": "GT Road Stop"
+      },
+      "pricePerSeat": 500,
+      "seatsTotal": 3,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-27",
+        "time": "13:15",
+        "timestamp": "2026-07-27T08:15:00.000Z"
+      },
+      "arrivalEstimate": "~1h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": false,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "8b40ba757f52f21283f6d35a4bbe37eb88a41c6f",
+      "searchText": "noman aslam mardan takht bhai main bazaar ring road toyota noah van",
+      "ownerKey": "seed:+923051234511",
+      "expiresAt": "2026-07-27T11:15:00.000Z",
+      "viewCount": 271,
+      "_id": "ride_3eec6f04ed6f"
+    },
+    {
+      "driver": {
+        "name": "Imran Khan",
+        "phone": "+923001234501",
+        "verified": false,
+        "driverId": "drv_bf75ef4c95d5"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Toyota Coaster",
+        "color": "White"
+      },
+      "route": {
+        "fromCity": "Rawalpindi",
+        "toCity": "Islamabad",
+        "pickupPoint": "University Chowk",
+        "dropPoint": "Motorway Toll Plaza"
+      },
+      "pricePerSeat": 1800,
+      "seatsTotal": 5,
+      "seatsLeft": 3,
+      "departure": {
+        "date": "2026-07-28",
+        "time": "13:30",
+        "timestamp": "2026-07-28T08:30:00.000Z"
+      },
+      "arrivalEstimate": "~2h 45m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "4c3b5e14b0a37eb889142b4213e05ece209e620a",
+      "searchText": "imran khan rawalpindi islamabad main bazaar main bazaar toyota coaster coaster",
+      "ownerKey": "seed:+923001234501",
+      "expiresAt": "2026-07-28T11:30:00.000Z",
+      "viewCount": 74,
+      "_id": "ride_7dd71087ba65"
+    },
+    {
+      "driver": {
+        "name": "Waqas Nawaz",
+        "phone": "+923151234508",
+        "verified": true,
+        "driverId": "drv_230cf67fc288"
+      },
+      "vehicle": {
+        "type": "Car",
+        "model": "Honda Civic",
+        "color": "Other"
+      },
+      "route": {
+        "fromCity": "Abbottabad",
+        "toCity": "Haripur",
+        "pickupPoint": "Motorway Toll Plaza",
+        "dropPoint": "Bus Terminal"
+      },
+      "pricePerSeat": 1400,
+      "seatsTotal": 2,
+      "seatsLeft": 1,
+      "departure": {
+        "date": "2026-07-23",
+        "time": "05:00",
+        "timestamp": "2026-07-23T00:00:00.000Z"
+      },
+      "arrivalEstimate": "~4h 45m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "expired",
+      "featured": false,
+      "duplicateHash": "dccd64002bb2da473cf7a6be7e699e89c05022a7",
+      "searchText": "waqas nawaz abbottabad haripur faizabad ring road honda civic car",
+      "ownerKey": "seed:+923151234508",
+      "expiresAt": "2026-07-23T03:00:00.000Z",
+      "viewCount": 279,
+      "_id": "ride_60885accf4d5"
+    },
+    {
+      "driver": {
+        "name": "Noman Aslam",
+        "phone": "+923051234511",
+        "verified": false,
+        "driverId": "drv_0d40bcf7c5a7"
+      },
+      "vehicle": {
+        "type": "Van",
+        "model": "Toyota Noah",
+        "color": "Green"
+      },
+      "route": {
+        "fromCity": "Mardan",
+        "toCity": "Rawalpindi",
+        "pickupPoint": "Main Bazaar",
+        "dropPoint": "Ring Road"
+      },
+      "pricePerSeat": 2500,
+      "seatsTotal": 4,
+      "seatsLeft": 4,
+      "departure": {
+        "date": "2026-07-23",
+        "time": "07:15",
+        "timestamp": "2026-07-23T02:15:00.000Z"
+      },
+      "arrivalEstimate": "~2h 30m",
+      "options": {
+        "luggage": false,
+        "smoking": true,
+        "ac": false,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "expired",
+      "featured": false,
+      "duplicateHash": "7dfe5d77b5797b5c0e079805bb042a2c66dc419e",
+      "searchText": "noman aslam mardan rawalpindi university chowk ring road toyota noah van",
+      "ownerKey": "seed:+923051234511",
+      "expiresAt": "2026-07-23T05:15:00.000Z",
+      "viewCount": 306,
+      "_id": "ride_170751729fe7"
+    },
+    {
+      "driver": {
+        "name": "Usman Ali",
+        "phone": "+923331234504",
+        "verified": true,
+        "driverId": "drv_e30f041304b0"
+      },
+      "vehicle": {
+        "type": "Bike",
+        "model": "Yamaha YBR",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Swabi",
+        "toCity": "Charsadda",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "GT Road Stop"
+      },
+      "pricePerSeat": 2000,
+      "seatsTotal": 1,
+      "seatsLeft": 1,
+      "departure": {
+        "date": "2026-07-27",
+        "time": "07:30",
+        "timestamp": "2026-07-27T02:30:00.000Z"
+      },
+      "arrivalEstimate": "~2h 0m",
+      "options": {
+        "luggage": false,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": true,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "a72c85fc25c5ec1dae4348271a5dbb2a2a29b7af",
+      "searchText": "usman ali swabi charsadda bus terminal university chowk yamaha ybr bike",
+      "ownerKey": "seed:+923331234504",
+      "expiresAt": "2026-07-27T05:30:00.000Z",
+      "viewCount": 357,
+      "_id": "ride_be547ae2db10"
+    },
+    {
+      "driver": {
+        "name": "Fahad Iqbal",
+        "phone": "+923211234503",
+        "verified": true,
+        "driverId": "drv_ff0ee2f8b154"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Higer Bus",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Abbottabad",
+        "toCity": "Mansehra",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "Faizabad"
+      },
+      "pricePerSeat": 600,
+      "seatsTotal": 1,
+      "seatsLeft": 1,
+      "departure": {
+        "date": "2026-07-29",
+        "time": "05:45",
+        "timestamp": "2026-07-29T00:45:00.000Z"
+      },
+      "arrivalEstimate": "~1h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": true,
+        "music": false,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "691ae582695ac0f7447330ca157e1993243c8cf0",
+      "searchText": "fahad iqbal abbottabad mansehra motorway toll plaza university chowk higer bus coaster",
+      "ownerKey": "seed:+923211234503",
+      "expiresAt": "2026-07-29T03:45:00.000Z",
+      "viewCount": 191,
+      "_id": "ride_3ea395412010"
+    },
+    {
+      "driver": {
+        "name": "Imran Khan",
+        "phone": "+923001234501",
+        "verified": false,
+        "driverId": "drv_bf75ef4c95d5"
+      },
+      "vehicle": {
+        "type": "Coaster",
+        "model": "Toyota Coaster",
+        "color": "White"
+      },
+      "route": {
+        "fromCity": "Haripur",
+        "toCity": "Charsadda",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "GT Road Stop"
+      },
+      "pricePerSeat": 900,
+      "seatsTotal": 30,
+      "seatsLeft": 7,
+      "departure": {
+        "date": "2026-07-29",
+        "time": "12:00",
+        "timestamp": "2026-07-29T07:00:00.000Z"
+      },
+      "arrivalEstimate": "~2h 0m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": true,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "8fca12adddd5da35ea34d263d297375e9baf6044",
+      "searchText": "imran khan haripur charsadda bus terminal saddar toyota coaster coaster",
+      "ownerKey": "seed:+923001234501",
+      "expiresAt": "2026-07-29T10:00:00.000Z",
+      "viewCount": 487,
+      "_id": "ride_9c6d9036dc01"
+    },
+    {
+      "driver": {
+        "name": "Noman Aslam",
+        "phone": "+923051234511",
+        "verified": false,
+        "driverId": "drv_0d40bcf7c5a7"
+      },
+      "vehicle": {
+        "type": "Van",
+        "model": "Toyota Noah",
+        "color": "Green"
+      },
+      "route": {
+        "fromCity": "Takht Bhai",
+        "toCity": "Mardan",
+        "pickupPoint": "Bus Terminal",
+        "dropPoint": "Faizabad"
+      },
+      "pricePerSeat": 700,
+      "seatsTotal": 5,
+      "seatsLeft": 4,
+      "departure": {
+        "date": "2026-07-27",
+        "time": "12:30",
+        "timestamp": "2026-07-27T07:30:00.000Z"
+      },
+      "arrivalEstimate": "~3h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "313570065b19878fdf6c69d6429b34b0715d7592",
+      "searchText": "noman aslam takht bhai mardan saddar faizabad toyota noah van",
+      "ownerKey": "seed:+923051234511",
+      "expiresAt": "2026-07-27T10:30:00.000Z",
+      "viewCount": 29,
+      "_id": "ride_06ee527fe160"
+    },
+    {
+      "driver": {
+        "name": "Hamza Tariq",
+        "phone": "+923411234509",
+        "verified": true,
+        "driverId": "drv_a43039505c44"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Haripur",
+        "toCity": "Nowshera",
+        "pickupPoint": "Ring Road",
+        "dropPoint": "Saddar"
+      },
+      "pricePerSeat": 2500,
+      "seatsTotal": 15,
+      "seatsLeft": 7,
+      "departure": {
+        "date": "2026-07-24",
+        "time": "10:00",
+        "timestamp": "2026-07-24T05:00:00.000Z"
+      },
+      "arrivalEstimate": "~4h 45m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": true,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "216c3fbc1d511ec6a9a7b18c32e9dd91d58a989c",
+      "searchText": "hamza tariq haripur nowshera faizabad gt road stop toyota hiace hiace",
+      "ownerKey": "seed:+923411234509",
+      "expiresAt": "2026-07-24T08:00:00.000Z",
+      "viewCount": 314,
+      "_id": "ride_d44abba8f19f"
+    },
+    {
+      "driver": {
+        "name": "Adnan Yousaf",
+        "phone": "+923091234507",
+        "verified": false,
+        "driverId": "drv_c260930d9669"
+      },
+      "vehicle": {
+        "type": "SUV",
+        "model": "Honda BR-V",
+        "color": "Black"
+      },
+      "route": {
+        "fromCity": "Islamabad",
+        "toCity": "Peshawar",
+        "pickupPoint": "Bus Terminal",
+        "dropPoint": "Bus Terminal"
+      },
+      "pricePerSeat": 2100,
+      "seatsTotal": 4,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-24",
+        "time": "17:00",
+        "timestamp": "2026-07-24T12:00:00.000Z"
+      },
+      "arrivalEstimate": "~4h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": false,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "08946c30669d81763cfcac012d894f8723263741",
+      "searchText": "adnan yousaf islamabad peshawar main bazaar faizabad honda br-v suv",
+      "ownerKey": "seed:+923091234507",
+      "expiresAt": "2026-07-24T15:00:00.000Z",
+      "viewCount": 51,
+      "_id": "ride_4bff8a8667cb"
+    },
+    {
+      "driver": {
+        "name": "Usman Ali",
+        "phone": "+923331234504",
+        "verified": true,
+        "driverId": "drv_e30f041304b0"
+      },
+      "vehicle": {
+        "type": "Bike",
+        "model": "Yamaha YBR",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Rawalpindi",
+        "toCity": "Swabi",
+        "pickupPoint": "University Chowk",
+        "dropPoint": "Faizabad"
+      },
+      "pricePerSeat": 1200,
+      "seatsTotal": 1,
+      "seatsLeft": 0,
+      "departure": {
+        "date": "2026-07-29",
+        "time": "22:15",
+        "timestamp": "2026-07-29T17:15:00.000Z"
+      },
+      "arrivalEstimate": "~2h 15m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "full",
+      "featured": false,
+      "duplicateHash": "52267effdb7ff2a7f9d5d672775db910fb372dea",
+      "searchText": "usman ali rawalpindi swabi bus terminal faizabad yamaha ybr bike",
+      "ownerKey": "seed:+923331234504",
+      "expiresAt": "2026-07-29T20:15:00.000Z",
+      "viewCount": 311,
+      "_id": "ride_b5b93446e089"
+    },
+    {
+      "driver": {
+        "name": "Noman Aslam",
+        "phone": "+923051234511",
+        "verified": false,
+        "driverId": "drv_0d40bcf7c5a7"
+      },
+      "vehicle": {
+        "type": "Van",
+        "model": "Toyota Noah",
+        "color": "Green"
+      },
+      "route": {
+        "fromCity": "Haripur",
+        "toCity": "Rawalpindi",
+        "pickupPoint": "Motorway Toll Plaza",
+        "dropPoint": "Ring Road"
+      },
+      "pricePerSeat": 3000,
+      "seatsTotal": 2,
+      "seatsLeft": 2,
+      "departure": {
+        "date": "2026-07-29",
+        "time": "05:30",
+        "timestamp": "2026-07-29T00:30:00.000Z"
+      },
+      "arrivalEstimate": "~3h 0m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": true,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "ab1f94f15d668b391e30ea412ca3d5c34f9a7698",
+      "searchText": "noman aslam haripur rawalpindi saddar bus terminal toyota noah van",
+      "ownerKey": "seed:+923051234511",
+      "expiresAt": "2026-07-29T03:30:00.000Z",
+      "viewCount": 216,
+      "_id": "ride_6fdcaee8a7c2"
+    },
+    {
+      "driver": {
+        "name": "Adnan Yousaf",
+        "phone": "+923091234507",
+        "verified": false,
+        "driverId": "drv_c260930d9669"
+      },
+      "vehicle": {
+        "type": "SUV",
+        "model": "Honda BR-V",
+        "color": "Black"
+      },
+      "route": {
+        "fromCity": "Nowshera",
+        "toCity": "Swabi",
+        "pickupPoint": "Ring Road",
+        "dropPoint": "Main Bazaar"
+      },
+      "pricePerSeat": 1800,
+      "seatsTotal": 3,
+      "seatsLeft": 1,
+      "departure": {
+        "date": "2026-07-27",
+        "time": "15:45",
+        "timestamp": "2026-07-27T10:45:00.000Z"
+      },
+      "arrivalEstimate": "~1h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": true,
+        "ac": true,
+        "femaleOnly": true,
+        "music": false,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "No smoking inside.",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "1faf23bb162eac8005844b57a629b28371fbea1c",
+      "searchText": "adnan yousaf nowshera swabi saddar gt road stop honda br-v suv",
+      "ownerKey": "seed:+923091234507",
+      "expiresAt": "2026-07-27T13:45:00.000Z",
+      "viewCount": 72,
+      "_id": "ride_f9306b01bef6"
+    },
+    {
+      "driver": {
+        "name": "Bilal Ahmed",
+        "phone": "+923011234502",
+        "verified": true,
+        "driverId": "drv_30374a694b88"
+      },
+      "vehicle": {
+        "type": "Bike",
+        "model": "Honda CG 125",
+        "color": "Silver"
+      },
+      "route": {
+        "fromCity": "Charsadda",
+        "toCity": "Swabi",
+        "pickupPoint": "Ring Road",
+        "dropPoint": "Bus Terminal"
+      },
+      "pricePerSeat": 1600,
+      "seatsTotal": 1,
+      "seatsLeft": 1,
+      "departure": {
+        "date": "2026-07-23",
+        "time": "08:45",
+        "timestamp": "2026-07-23T03:45:00.000Z"
+      },
+      "arrivalEstimate": "~1h 15m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "3f2d5a52c564ad5a021bb48268594ae31240c9e6",
+      "searchText": "bilal ahmed charsadda swabi motorway toll plaza faizabad honda cg 125 bike",
+      "ownerKey": "seed:+923011234502",
+      "expiresAt": "2026-07-23T06:45:00.000Z",
+      "viewCount": 132,
+      "_id": "ride_a3c4d3adfefd"
+    },
+    {
+      "driver": {
+        "name": "Junaid Akbar",
+        "phone": "+923361234512",
+        "verified": false,
+        "driverId": "drv_91d5db0bf5ac"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Mansehra",
+        "toCity": "Peshawar",
+        "pickupPoint": "Bus Terminal",
+        "dropPoint": "Ring Road"
+      },
+      "pricePerSeat": 500,
+      "seatsTotal": 7,
+      "seatsLeft": 4,
+      "departure": {
+        "date": "2026-07-25",
+        "time": "11:00",
+        "timestamp": "2026-07-25T06:00:00.000Z"
+      },
+      "arrivalEstimate": "~2h 15m",
+      "options": {
+        "luggage": true,
+        "smoking": false,
+        "ac": true,
+        "femaleOnly": false,
+        "music": true,
+        "pets": false,
+        "returnTrip": true
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "Leaving on time please.",
+      "status": "open",
+      "featured": false,
+      "duplicateHash": "f125847f5ed3767a8049815b9b2ce9fa19275e81",
+      "searchText": "junaid akbar mansehra peshawar motorway toll plaza main bazaar toyota hiace hiace",
+      "ownerKey": "seed:+923361234512",
+      "expiresAt": "2026-07-25T09:00:00.000Z",
+      "viewCount": 69,
+      "_id": "ride_bb855341e16e"
+    },
+    {
+      "driver": {
+        "name": "Hamza Tariq",
+        "phone": "+923411234509",
+        "verified": true,
+        "driverId": "drv_a43039505c44"
+      },
+      "vehicle": {
+        "type": "Hiace",
+        "model": "Toyota Hiace",
+        "color": "Grey"
+      },
+      "route": {
+        "fromCity": "Islamabad",
+        "toCity": "Mansehra",
+        "pickupPoint": "Faizabad",
+        "dropPoint": "University Chowk"
+      },
+      "pricePerSeat": 3000,
+      "seatsTotal": 4,
+      "seatsLeft": 1,
+      "departure": {
+        "date": "2026-07-29",
+        "time": "11:45",
+        "timestamp": "2026-07-29T06:45:00.000Z"
+      },
+      "arrivalEstimate": "~4h 30m",
+      "options": {
+        "luggage": true,
+        "smoking": true,
+        "ac": true,
+        "femaleOnly": true,
+        "music": true,
+        "pets": false,
+        "returnTrip": false
+      },
+      "recurrence": {
+        "repeatDaily": false,
+        "repeatWeekly": false
+      },
+      "notes": "AC ride, comfortable seats.",
+      "status": "almostFull",
+      "featured": false,
+      "duplicateHash": "4f0d3cb4e8140958829c8c56a382661811e00430",
+      "searchText": "hamza tariq islamabad mansehra saddar ring road toyota hiace hiace",
+      "ownerKey": "seed:+923411234509",
+      "expiresAt": "2026-07-29T09:45:00.000Z",
+      "viewCount": 221,
+      "_id": "ride_3c6fe25c7521"
+    }
+  ],
+  "requests": [
+    {
+      "passenger": {
+        "name": "Noman Aslam",
+        "phone": "+923221234510"
+      },
+      "fromCity": "Takht Bhai",
+      "toCity": "Rawalpindi",
+      "date": "2026-07-27",
+      "seats": 3,
+      "budget": 600,
+      "notes": "Flexible on timing.",
+      "status": "open",
+      "ownerKey": "seed:+923221234510",
+      "expiresAt": "2026-07-27T21:59:00.000Z",
+      "_id": "req_5c7eee520b4e"
+    },
+    {
+      "passenger": {
+        "name": "Bilal Ahmed",
+        "phone": "+923091234507"
+      },
+      "fromCity": "Charsadda",
+      "toCity": "Haripur",
+      "date": "2026-07-25",
+      "seats": 2,
+      "budget": 2400,
+      "notes": "Two passengers.",
+      "status": "open",
+      "ownerKey": "seed:+923091234507",
+      "expiresAt": "2026-07-25T21:59:00.000Z",
+      "_id": "req_14b3fc2596c2"
+    },
+    {
+      "passenger": {
+        "name": "Usman Ali",
+        "phone": "+923001234501"
+      },
+      "fromCity": "Mansehra",
+      "toCity": "Charsadda",
+      "date": "2026-07-26",
+      "seats": 2,
+      "budget": 1400,
+      "notes": "Need AC car.",
+      "status": "open",
+      "ownerKey": "seed:+923001234501",
+      "expiresAt": "2026-07-26T21:59:00.000Z",
+      "_id": "req_fc215b0f85a3"
+    },
+    {
+      "passenger": {
+        "name": "Waqas Nawaz",
+        "phone": "+923411234509"
+      },
+      "fromCity": "Swabi",
+      "toCity": "Nowshera",
+      "date": "2026-07-28",
+      "seats": 4,
+      "budget": 1900,
+      "notes": "Two passengers.",
+      "status": "open",
+      "ownerKey": "seed:+923411234509",
+      "expiresAt": "2026-07-28T21:59:00.000Z",
+      "_id": "req_d105af9b09c8"
+    },
+    {
+      "passenger": {
+        "name": "Noman Aslam",
+        "phone": "+923011234502"
+      },
+      "fromCity": "Charsadda",
+      "toCity": "Abbottabad",
+      "date": "2026-07-27",
+      "seats": 4,
+      "budget": 1700,
+      "notes": "",
+      "status": "open",
+      "ownerKey": "seed:+923011234502",
+      "expiresAt": "2026-07-27T21:59:00.000Z",
+      "_id": "req_befd7bd67208"
+    },
+    {
+      "passenger": {
+        "name": "Saad Rehman",
+        "phone": "+923211234503"
+      },
+      "fromCity": "Islamabad",
+      "toCity": "Mardan",
+      "date": "2026-07-23",
+      "seats": 2,
+      "budget": 2000,
+      "notes": "",
+      "status": "open",
+      "ownerKey": "seed:+923211234503",
+      "expiresAt": "2026-07-23T21:59:00.000Z",
+      "_id": "req_0aa7d0927ce6"
+    },
+    {
+      "passenger": {
+        "name": "Saad Rehman",
+        "phone": "+923011234502"
+      },
+      "fromCity": "Haripur",
+      "toCity": "Mardan",
+      "date": "2026-07-27",
+      "seats": 2,
+      "budget": 300,
+      "notes": "Two passengers.",
+      "status": "open",
+      "ownerKey": "seed:+923011234502",
+      "expiresAt": "2026-07-27T21:59:00.000Z",
+      "_id": "req_935e1f3470d7"
+    },
+    {
+      "passenger": {
+        "name": "Adnan Yousaf",
+        "phone": "+923411234509"
+      },
+      "fromCity": "Peshawar",
+      "toCity": "Abbottabad",
+      "date": "2026-07-28",
+      "seats": 1,
+      "budget": 1900,
+      "notes": "Need AC car.",
+      "status": "open",
+      "ownerKey": "seed:+923411234509",
+      "expiresAt": "2026-07-28T21:59:00.000Z",
+      "_id": "req_5c2f664d2f73"
+    },
+    {
+      "passenger": {
+        "name": "Noman Aslam",
+        "phone": "+923411234509"
+      },
+      "fromCity": "Swabi",
+      "toCity": "Nowshera",
+      "date": "2026-07-23",
+      "seats": 3,
+      "budget": 1500,
+      "notes": "Flexible on timing.",
+      "status": "open",
+      "ownerKey": "seed:+923411234509",
+      "expiresAt": "2026-07-23T21:59:00.000Z",
+      "_id": "req_ea651806de86"
+    },
+    {
+      "passenger": {
+        "name": "Noman Aslam",
+        "phone": "+923451234505"
+      },
+      "fromCity": "Charsadda",
+      "toCity": "Abbottabad",
+      "date": "2026-07-25",
+      "seats": 3,
+      "budget": 1000,
+      "notes": "Flexible on timing.",
+      "status": "open",
+      "ownerKey": "seed:+923451234505",
+      "expiresAt": "2026-07-25T21:59:00.000Z",
+      "_id": "req_a32e9934d900"
+    },
+    {
+      "passenger": {
+        "name": "Zeeshan Malik",
+        "phone": "+923451234505"
+      },
+      "fromCity": "Islamabad",
+      "toCity": "Takht Bhai",
+      "date": "2026-07-23",
+      "seats": 2,
+      "budget": 2200,
+      "notes": "Need AC car.",
+      "status": "open",
+      "ownerKey": "seed:+923451234505",
+      "expiresAt": "2026-07-23T21:59:00.000Z",
+      "_id": "req_55ceb46c0e3e"
+    },
+    {
+      "passenger": {
+        "name": "Bilal Ahmed",
+        "phone": "+923361234512"
+      },
+      "fromCity": "Haripur",
+      "toCity": "Nowshera",
+      "date": "2026-07-23",
+      "seats": 1,
+      "budget": 300,
+      "notes": "Two passengers.",
+      "status": "open",
+      "ownerKey": "seed:+923361234512",
+      "expiresAt": "2026-07-23T21:59:00.000Z",
+      "_id": "req_710cf5ed6ac6"
+    }
+  ]
+}
