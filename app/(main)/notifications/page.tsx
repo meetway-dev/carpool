@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { markNotificationsRead } from "@/features/notifications/actions/mark-read";
 import { useDeviceKey } from "@/hooks/use-device-key";
+import { getApi } from "@/lib/api-client";
 import { cn, timeAgo } from "@/lib/utils";
 import type { NotificationDTO } from "@/services/notification.service";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -16,9 +17,7 @@ import { useEffect } from "react";
 export const dynamic = "force-dynamic";
 
 async function fetchNotifications(ownerKey: string): Promise<NotificationDTO[]> {
-  const res = await fetch(`/api/notifications?ownerKey=${encodeURIComponent(ownerKey)}`);
-  if (!res.ok) throw new Error("Failed to load notifications");
-  return res.json() as Promise<NotificationDTO[]>;
+  return getApi<NotificationDTO[]>(`/api/notifications?ownerKey=${encodeURIComponent(ownerKey)}`);
 }
 
 export default function NotificationsPage() {

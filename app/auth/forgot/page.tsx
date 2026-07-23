@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ROUTES } from "@/constants/routes";
 import { forgotPasswordSchema, type ForgotPasswordInput } from "@/validators/user.schema";
+import { postApi } from "@/lib/api-client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -22,16 +23,15 @@ export default function ForgotPage() {
 
   const onSubmit = async (data: ForgotPasswordInput) => {
     setError(null);
-    const res = await fetch('/api/auth/forgot', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-    if (!res.ok) {
-      const body = (await res.json().catch(() => null)) as { error?: string } | null;
-      const message = body?.error ?? 'Failed to send reset link';
+    try {
+      await postApi<{ success: boolean }>('/api/auth/forgot', data);
+      setSent(true);
+      toast.success('If the account exists, a reset link was sent.');
+    } catch (err: any) {
+      const message = err?.message ?? 'Failed to send reset link';
       setError(message);
       toast.error(message);
-      return;
     }
-    setSent(true);
-    toast.success('If the account exists, a reset link was sent.');
   };
 
   return (

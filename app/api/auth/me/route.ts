@@ -1,4 +1,5 @@
 import { getAuthenticatedUser } from "@/lib/auth-server";
+import { handleApiError } from "@/lib/api-error";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -14,7 +15,7 @@ export async function GET() {
       provider: user.provider,
     });
   } catch (error) {
-    console.error("GET /api/auth/me failed:", error);
-    return NextResponse.json(null, { status: 500 });
+    const { error: message, status } = handleApiError(error);
+    return NextResponse.json({ error: message }, { status });
   }
 }

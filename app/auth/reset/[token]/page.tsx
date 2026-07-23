@@ -5,6 +5,7 @@ import { AppHeader } from "@/components/layout/app-header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { resetPasswordSchema, type ResetPasswordInput } from "@/validators/user.schema";
+import { postApi } from "@/lib/api-client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
@@ -21,16 +22,15 @@ export default function ResetPage() {
 
   const onSubmit = async (data: ResetPasswordInput) => {
     setError(null);
-    const res = await fetch('/api/auth/reset', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ token, password: data.password }) });
-    if (!res.ok) {
-      const body = (await res.json().catch(() => null)) as { error?: string } | null;
-      const message = body?.error ?? 'Failed to reset password';
+    try {
+      await postApi<{ success: boolean }>('/api/auth/reset', { token, password: data.password });
+      toast.success('Password reset successfully!');
+      router.push('/auth/login');
+    } catch (err: any) {
+      const message = err?.message ?? 'Failed to reset password';
       setError(message);
       toast.error(message);
-      return;
     }
-    toast.success('Password reset successfully!');
-    router.push('/auth/login');
   };
 
   return (

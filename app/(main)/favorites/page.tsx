@@ -8,6 +8,7 @@ import { ROUTES } from "@/constants/routes";
 import { useFavorites } from "@/features/favorites/hooks/use-favorites";
 import { RideCard } from "@/features/rides/components/ride-card";
 import { RideCardSkeletonList } from "@/features/rides/components/ride-card-skeleton";
+import { getApi } from "@/lib/api-client";
 import type { RideDTO } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, Heart, MapPin, Search } from "lucide-react";
@@ -18,9 +19,7 @@ export const dynamic = "force-dynamic";
 async function fetchRidesByIds(ids: string[]): Promise<RideDTO[]> {
   if (!ids.length) return [];
   const qs = ids.map((id) => `ids=${id}`).join("&");
-  const res = await fetch(`/api/rides/by-ids?${qs}`);
-  if (!res.ok) return [];
-  return res.json() as Promise<RideDTO[]>;
+  return getApi<RideDTO[]>(`/api/rides/by-ids?${qs}`);
 }
 
 export default function FavoritesPage() {

@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { ROUTES } from "@/constants/routes";
 import { siteConfig } from "@/config/site";
 import { loginSchema, type LoginInput } from "@/validators/user.schema";
+import { postApi } from "@/lib/api-client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -28,22 +29,15 @@ export default function LoginPage() {
 
   const onSubmit = async (data: LoginInput) => {
     setError(null);
-    const res = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    if (!res.ok) {
-      const body = (await res.json().catch(() => null)) as { error?: string } | null;
-      const message = body?.error ?? "Unable to login";
+    try {
+      await postApi<{ success: boolean }>("/api/auth/login", data);
+      toast.success("Logged in successfully!");
+      router.push(ROUTES.home);
+    } catch (err: any) {
+      const message = err?.message ?? "Unable to login";
       setError(message);
       toast.error(message);
-      return;
     }
-
-    toast.success("Logged in successfully!");
-    router.push(ROUTES.home);
   };
 
   return (

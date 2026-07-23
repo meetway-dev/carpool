@@ -2,15 +2,12 @@
 
 import { headers } from "next/headers";
 import { connectToDatabase } from "@/lib/db/connect";
+import { handleApiError } from "@/lib/api-error";
 import { Report } from "@/models/report.model";
 import { createReportSchema } from "@/validators/driver.schema";
 import { rateLimiters } from "@/lib/rate-limit";
 import type { ActionResult } from "@/types";
 
-/**
- * Submit a report against a ride, driver or request. Rate-limited per client to
- * curb abuse. Device key is passed from the client for v1 ownership tracking.
- */
 export async function submitReport(
   input: unknown,
   reporterKey: string,
@@ -44,7 +41,7 @@ export async function submitReport(
     });
     return { success: true, data: undefined };
   } catch (error) {
-    console.error("submitReport failed:", error);
-    return { success: false, error: "Could not submit report. Please try again." };
+    const { error: message } = handleApiError(error);
+    return { success: false, error: message };
   }
 }

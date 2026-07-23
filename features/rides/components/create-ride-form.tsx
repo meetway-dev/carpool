@@ -12,6 +12,7 @@ import { RIDE_OPTION_CONFIG } from "@/features/rides/components/ride-options-con
 import { CitySelect } from "@/features/search/components/city-select";
 import { useDeviceKey } from "@/hooks/use-device-key";
 import { useLocalStorage } from "@/hooks/use-local-storage";
+import { getApi } from "@/lib/api-client";
 import type { RideDTO } from "@/types";
 import { createRideSchema, type CreateRideInput } from "@/validators/ride.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -92,17 +93,14 @@ export function CreateRideForm() {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("/api/auth/me");
-        if (!res.ok) return;
-        const data = await res.json();
+        const data = await getApi<{ name?: string; phone?: string }>("/api/auth/me");
         if (!data || !mounted) return;
-        // only set fields if they're empty in the draft/default
         const values = form.getValues();
         const patch: Partial<CreateRideInput> = {};
         if (!values.driverName && data.name) patch.driverName = data.name;
         if (!values.phone && data.phone) patch.phone = data.phone;
         if (Object.keys(patch).length) form.reset({ ...values, ...patch });
-      } catch (err) {
+      } catch {
         // ignore
       }
     })();
@@ -241,6 +239,7 @@ export function CreateRideForm() {
               <Input
                 type="number"
                 inputMode="numeric"
+                max={4}
                 {...register("seatsTotal", { valueAsNumber: true })}
               />
             </FormField>

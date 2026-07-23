@@ -5,6 +5,7 @@ import { ROUTES } from "@/constants/routes";
 import { useFavorites } from "@/features/favorites/hooks/use-favorites";
 import { ReportDialog } from "@/features/rides/components/report-dialog";
 import { absoluteUrl, cn, formatRideDate } from "@/lib/utils";
+import { getApi, postApi } from "@/lib/api-client";
 import { buildCallLink, buildRideInquiryMessage, buildWhatsAppLink } from "@/lib/whatsapp";
 import type { RideDTO } from "@/types";
 import { Flag, Heart, MessageCircle, Phone, Share2 } from "lucide-react";
@@ -80,20 +81,12 @@ export function RideActions({ ride, variant = "card" }: RideActionsProps) {
           <Button
             onClick={async () => {
               try {
-                // ensure user is signed in
-                const me = await fetch('/api/auth/me').then((r) => r.json());
+                const me = await getApi<{ id?: string }>('/api/auth/me');
                 if (!me) {
                   router.push('/auth/login');
                   return;
                 }
-                const seats = 1; // single-seat booking for now
-                const res = await fetch(`/api/rides/${ride.id}/book`, {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ seats }),
-                });
-                const data = await res.json();
-                if (!res.ok) throw new Error(data?.error || 'Booking failed');
+                await postApi<{ success: boolean; bookingId?: string }>(`/api/rides/${ride.id}/book`, { seats: 1 });
                 toast.success('Booking confirmed');
               } catch (err: any) {
                 toast.error(err?.message || 'Could not book ride');
@@ -141,19 +134,12 @@ export function RideActions({ ride, variant = "card" }: RideActionsProps) {
           size="sm"
           onClick={async () => {
             try {
-              const me = await fetch('/api/auth/me').then((r) => r.json());
+              const me = await getApi<{ id?: string }>('/api/auth/me');
               if (!me) {
                 router.push('/auth/login');
                 return;
               }
-              const seats = 1;
-              const res = await fetch(`/api/rides/${ride.id}/book`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ seats }),
-              });
-              const data = await res.json();
-              if (!res.ok) throw new Error(data?.error || 'Booking failed');
+              await postApi<{ success: boolean; bookingId?: string }>(`/api/rides/${ride.id}/book`, { seats: 1 });
               toast.success('Booking confirmed');
             } catch (err: any) {
               toast.error(err?.message || 'Could not book ride');

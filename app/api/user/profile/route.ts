@@ -1,5 +1,6 @@
 import { getAuthenticatedUser } from "@/lib/auth-server";
 import { updateUserProfile } from "@/services/user.service";
+import { handleApiError } from "@/lib/api-error";
 import { NextResponse } from "next/server";
 
 export async function PUT(req: Request) {
@@ -17,8 +18,8 @@ export async function PUT(req: Request) {
     });
 
     return NextResponse.json({ success: true, user: updated });
-  } catch (err) {
-    console.error("PUT /api/user/profile failed:", err);
-    return NextResponse.json({ error: "Could not update profile" }, { status: 500 });
+  } catch (error) {
+    const { error: message, status } = handleApiError(error);
+    return NextResponse.json({ error: message }, { status });
   }
 }

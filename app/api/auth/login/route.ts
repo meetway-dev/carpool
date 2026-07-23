@@ -1,5 +1,6 @@
 import { createSessionToken, verifyPassword } from "@/lib/auth";
 import { findUserByEmail } from "@/services/user.service";
+import { handleApiError } from "@/lib/api-error";
 import { loginSchema } from "@/validators/user.schema";
 import { NextResponse, type NextRequest } from "next/server";
 import { cookies } from "next/headers";
@@ -35,10 +36,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("POST /api/auth/login failed:", error);
-    return NextResponse.json(
-      { error: "Could not login. Please try again." },
-      { status: 500 },
-    );
+    const { error: message, status } = handleApiError(error);
+    return NextResponse.json({ error: message }, { status });
   }
 }

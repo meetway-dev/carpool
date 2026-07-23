@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { searchRides } from "@/services/ride.service";
 import { parseSearchParams } from "@/validators/search.schema";
+import { handleApiError } from "@/lib/api-error";
 import { rateLimiters } from "@/lib/rate-limit";
 
 export const dynamic = "force-dynamic";
@@ -33,10 +34,7 @@ export async function GET(request: NextRequest) {
       headers: { "Cache-Control": "public, s-maxage=30, stale-while-revalidate=60" },
     });
   } catch (error) {
-    console.error("GET /api/rides failed:", error);
-    return NextResponse.json(
-      { error: "Failed to load rides. Please try again." },
-      { status: 500 },
-    );
+    const { error: message, status } = handleApiError(error);
+    return NextResponse.json({ error: message }, { status });
   }
 }

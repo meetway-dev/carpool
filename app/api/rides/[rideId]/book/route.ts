@@ -2,6 +2,7 @@ import { getAuthenticatedUser } from "@/lib/auth-server";
 import { connectToDatabase } from "@/lib/db/connect";
 import { Booking } from "@/models/booking.model";
 import { Ride } from "@/models/ride.model";
+import { handleApiError } from "@/lib/api-error";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request, context: any) {
@@ -23,7 +24,6 @@ export async function POST(req: Request, context: any) {
       return NextResponse.json({ error: "Name and phone are required to book." }, { status: 400 });
     }
 
-    // Atomically decrement seatsLeft if enough seats remain.
     const updated = await Ride.findOneAndUpdate(
       { _id: rideId, seatsLeft: { $gte: seats }, status: { $in: ["open"] } },
       { $inc: { seatsLeft: -seats } },
@@ -42,8 +42,8 @@ export async function POST(req: Request, context: any) {
     });
 
     return NextResponse.json({ success: true, bookingId: String(created._id) });
-  } catch (err) {
-    console.error("POST /api/rides/[rideId]/book failed:", err);
-    return NextResponse.json({ error: "Could not create booking" }, { status: 500 });
+  } catch (error) {
+    const { error: message, status } = handleApiError(error);
+    return NextResponse.json({ error: message }, { status });
   }
 }

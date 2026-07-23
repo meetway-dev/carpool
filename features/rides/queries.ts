@@ -1,4 +1,5 @@
 import type { SearchParams } from "@/validators/search.schema";
+import { getApi } from "@/lib/api-client";
 import type { RideDTO, PaginatedResult } from "@/types";
 
 /** Serialize search params into a query string for the rides API. */
@@ -20,12 +21,5 @@ export async function fetchRidesPage(
   signal?: AbortSignal,
 ): Promise<PaginatedResult<RideDTO>> {
   const qs = serializeSearchParams({ ...params, page });
-  const response = await fetch(`/api/rides?${qs}`, { signal });
-
-  if (!response.ok) {
-    const body = (await response.json().catch(() => null)) as { error?: string } | null;
-    throw new Error(body?.error ?? "Failed to load rides");
-  }
-
-  return (await response.json()) as PaginatedResult<RideDTO>;
+  return getApi<PaginatedResult<RideDTO>>(`/api/rides?${qs}`, signal);
 }

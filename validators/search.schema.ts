@@ -20,7 +20,7 @@ export const searchParamsSchema = z.object({
   timeWindow: z
     .enum(TIME_WINDOW_KEYS as unknown as [string, ...string[]])
     .optional(),
-  seats: z.coerce.number().int().min(1).max(10).optional(),
+  seats: z.coerce.number().int().min(1).max(4).optional(),
   minPrice: z.coerce.number().int().min(0).optional(),
   maxPrice: z.coerce.number().int().min(0).optional(),
   vehicleType: z

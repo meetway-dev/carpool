@@ -3,6 +3,7 @@
 import { headers } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { connectToDatabase } from "@/lib/db/connect";
+import { handleApiError } from "@/lib/api-error";
 import { RideRequest } from "@/models/ride-request.model";
 import { createRideRequestSchema } from "@/validators/ride-request.schema";
 import { rateLimiters } from "@/lib/rate-limit";
@@ -14,10 +15,6 @@ interface CreateRideRequestResult {
   requestId: string;
 }
 
-/**
- * Create a passenger "Need Ride" request. Validated, rate-limited and set to
- * auto-expire at the end of the requested day.
- */
 export async function createRideRequest(
   input: unknown,
   ownerKey: string,
@@ -66,7 +63,7 @@ export async function createRideRequest(
 
     return { success: true, data: { requestId: String(created._id) } };
   } catch (error) {
-    console.error("createRideRequest failed:", error);
-    return { success: false, error: "Could not post your request. Please try again." };
+    const { error: message } = handleApiError(error);
+    return { success: false, error: message };
   }
 }

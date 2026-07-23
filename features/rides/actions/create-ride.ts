@@ -2,6 +2,7 @@
 
 import { ROUTES } from "@/constants/routes";
 import { connectToDatabase } from "@/lib/db/connect";
+import { handleApiError } from "@/lib/api-error";
 import { rateLimiters } from "@/lib/rate-limit";
 import {
     buildDuplicateHash,
@@ -22,10 +23,6 @@ interface CreateRideResult {
   rideId: string;
 }
 
-/**
- * Create a ride: validates input, blocks duplicates and blocked drivers,
- * derives denormalized fields, links/creates the driver record and persists.
- */
 export async function createRide(
   input: unknown,
   ownerKey: string,
@@ -41,7 +38,6 @@ export async function createRide(
 
   const data = parsed.data;
 
-  // Rate limit per client (IP falls back to device key).
   const headerList = await headers();
   const identifier =
     headerList.get("x-forwarded-for")?.split(",")[0]?.trim() ?? ownerKey ?? "anonymous";
@@ -65,7 +61,6 @@ export async function createRide(
       time: data.time,
     });
 
-    // Duplicate detection — same driver, route and departure already posted.
     const existing = await Ride.findOne({
       duplicateHash,
       status: { $nin: ["expired", "cancelled", "completed"] },
@@ -81,7 +76,6 @@ export async function createRide(
       };
     }
 
-    // Link or create the driver (also rejects blocked numbers).
     const driver = await upsertDriverFromRide({
       name: data.driverName,
       phone: data.phone,
@@ -100,7 +94,6 @@ export async function createRide(
       };
     }
 
-    // Prevent the same phone/user from creating multiple active rides.
     const existingByPhone = await Ride.findOne({
       "driver.phone": data.phone,
       status: { $nin: ["expired", "cancelled", "completed"] },
@@ -165,7 +158,6 @@ export async function createRide(
     revalidatePath(ROUTES.rides);
     revalidatePath(ROUTES.home);
 
-    // Fire-and-forget: notify users who saved this route.
     void notifyRouteFollowers({
       id: String(created._id),
       driver: { name: data.driverName, phone: data.phone, verified: driver.verified },
@@ -187,7 +179,7 @@ export async function createRide(
 
     return { success: true, data: { rideId: String(created._id) } };
   } catch (error) {
-    console.error("createRide failed:", error);
-    return { success: false, error: "Could not publish your ride. Please try again." };
+    const { error: message } = handleApiError(error);
+    return { success: false, error: message };
   }
 }

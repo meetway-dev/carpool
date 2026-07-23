@@ -1,5 +1,6 @@
 import { createSessionToken, hashPassword } from "@/lib/auth";
 import { createEmailUser } from "@/services/user.service";
+import { handleApiError } from "@/lib/api-error";
 import { signupSchema } from "@/validators/user.schema";
 import { NextResponse, type NextRequest } from "next/server";
 import { cookies } from "next/headers";
@@ -38,10 +39,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("POST /api/auth/signup failed:", error);
-    return NextResponse.json(
-      { error: "Could not create account. Please try again." },
-      { status: 500 },
-    );
+    const { error: message, status } = handleApiError(error);
+    return NextResponse.json({ error: message }, { status });
   }
 }

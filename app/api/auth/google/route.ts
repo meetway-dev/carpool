@@ -1,5 +1,6 @@
 import { createSessionToken } from "@/lib/auth";
 import { createOrUpdateGoogleUser } from "@/services/user.service";
+import { handleApiError } from "@/lib/api-error";
 import { getServerEnv } from "@/config/env";
 import { NextResponse, type NextRequest } from "next/server";
 import { cookies } from "next/headers";
@@ -87,7 +88,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.redirect("/");
   } catch (error) {
-    console.error("Google auth failed:", error);
-    return NextResponse.json({ error: "Google login failed." }, { status: 500 });
+    const { error: message, status } = handleApiError(error);
+    return NextResponse.json({ error: message }, { status });
   }
 }

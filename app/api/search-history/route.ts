@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getRecentSearches } from "@/services/search-history.service";
+import { handleApiError } from "@/lib/api-error";
 
 export const dynamic = "force-dynamic";
 
@@ -11,7 +12,8 @@ export async function GET(request: NextRequest) {
   try {
     const history = await getRecentSearches(ownerKey);
     return NextResponse.json(history);
-  } catch {
-    return NextResponse.json({ error: "Failed to load search history" }, { status: 500 });
+  } catch (error) {
+    const { error: message, status } = handleApiError(error);
+    return NextResponse.json({ error: message }, { status });
   }
 }

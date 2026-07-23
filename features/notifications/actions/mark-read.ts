@@ -1,6 +1,7 @@
 "use server";
 
 import { connectToDatabase } from "@/lib/db/connect";
+import { handleApiError } from "@/lib/api-error";
 import { Notification } from "@/models/notification.model";
 import type { ActionResult } from "@/types";
 
@@ -14,7 +15,8 @@ export async function markNotificationsRead(
     if (ids?.length) filter._id = { $in: ids };
     await Notification.updateMany(filter, { $set: { read: true } });
     return { success: true, data: undefined };
-  } catch {
-    return { success: false, error: "Failed to mark notifications read." };
+  } catch (error) {
+    const { error: message } = handleApiError(error);
+    return { success: false, error: message };
   }
 }

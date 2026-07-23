@@ -124,7 +124,7 @@ export function RequestForm() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {[1, 2, 3, 4, 5, 6].map((n) => (
+                  {[1, 2, 3, 4].map((n) => (
                     <SelectItem key={n} value={String(n)}>
                       {n} {n === 1 ? "seat" : "seats"}
                     </SelectItem>

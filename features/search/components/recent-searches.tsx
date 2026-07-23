@@ -4,13 +4,12 @@ import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { History, ArrowRight } from "lucide-react";
 import { useDeviceKey } from "@/hooks/use-device-key";
+import { getApi } from "@/lib/api-client";
 import { ROUTES } from "@/constants/routes";
 import type { SearchHistoryEntry } from "@/services/search-history.service";
 
 async function fetchHistory(ownerKey: string): Promise<SearchHistoryEntry[]> {
-  const res = await fetch(`/api/search-history?ownerKey=${encodeURIComponent(ownerKey)}`);
-  if (!res.ok) return [];
-  return res.json() as Promise<SearchHistoryEntry[]>;
+  return getApi<SearchHistoryEntry[]>(`/api/search-history?ownerKey=${encodeURIComponent(ownerKey)}`);
 }
 
 /** Recent searches chip row on the home screen. Renders nothing when empty. */

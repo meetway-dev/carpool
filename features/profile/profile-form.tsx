@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { VEHICLE_COLORS, VEHICLE_TYPE_VALUES } from "@/constants/vehicle-types";
 import { useEffect, useState } from "react";
+import { getApi, putApi } from "@/lib/api-client";
+import { toast } from "sonner";
 
 export function ProfileForm() {
   const [loading, setLoading] = useState(true);
@@ -21,9 +23,7 @@ export function ProfileForm() {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("/api/auth/me");
-        if (!res.ok) return;
-        const data = await res.json();
+        const data = await getApi<{ name?: string; phone?: string; vehicle?: { type?: string; model?: string; color?: string; number?: string } }>("/api/auth/me");
         if (!mounted || !data) return;
         setName(data.name ?? "");
         setPhone(data.phone ?? "");
@@ -45,12 +45,10 @@ export function ProfileForm() {
   async function save() {
     setSaving(true);
     try {
-      const res = await fetch('/api/user/profile', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, phone, vehicle: { type: vehicleType, model: vehicleModel, color: vehicleColor, number: vehicleNumber } }) });
-      if (!res.ok) throw new Error('Failed');
-      const data = await res.json();
-      // optionally show toast
+      await putApi<{ success: boolean; user?: { name?: string; phone?: string; vehicle?: { type?: string; model?: string; color?: string; number?: string } } }>('/api/user/profile', { name, phone, vehicle: { type: vehicleType, model: vehicleModel, color: vehicleColor, number: vehicleNumber } });
+      toast.success("Profile saved");
     } catch (e) {
-      // ignore for now
+      // handled by api-client
     } finally {
       setSaving(false);
     }

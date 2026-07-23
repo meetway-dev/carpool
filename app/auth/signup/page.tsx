@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { ROUTES } from "@/constants/routes";
 import { siteConfig } from "@/config/site";
 import { signupSchema, type SignupInput } from "@/validators/user.schema";
+import { postApi } from "@/lib/api-client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -28,22 +29,15 @@ export default function SignupPage() {
 
   const onSubmit = async (data: SignupInput) => {
     setError(null);
-    const res = await fetch("/api/auth/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    if (!res.ok) {
-      const body = (await res.json().catch(() => null)) as { error?: string } | null;
-      const message = body?.error ?? "Unable to sign up";
+    try {
+      await postApi<{ success: boolean }>("/api/auth/signup", data);
+      toast.success("Account created successfully!");
+      router.push(ROUTES.home);
+    } catch (err: any) {
+      const message = err?.message ?? "Unable to sign up";
       setError(message);
       toast.error(message);
-      return;
     }
-
-    toast.success("Account created successfully!");
-    router.push(ROUTES.home);
   };
 
   return (

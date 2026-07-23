@@ -4,6 +4,7 @@ import { useCallback } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { useDeviceKey } from "@/hooks/use-device-key";
+import { getApi } from "@/lib/api-client";
 import {
   toggleRideFavorite,
   toggleDriverFavorite,
@@ -24,9 +25,7 @@ interface FavoritesState {
 const EMPTY: FavoritesState = { rides: [], drivers: [], routes: [] };
 
 async function fetchFavorites(ownerKey: string): Promise<FavoritesState> {
-  const res = await fetch(`/api/favorites?ownerKey=${encodeURIComponent(ownerKey)}`);
-  if (!res.ok) return EMPTY;
-  return res.json() as Promise<FavoritesState>;
+  return getApi<FavoritesState>(`/api/favorites?ownerKey=${encodeURIComponent(ownerKey)}`);
 }
 
 /**

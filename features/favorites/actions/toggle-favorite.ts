@@ -5,6 +5,7 @@ import {
   toggleFavoriteDriver,
   toggleFavoriteRoute,
 } from "@/services/favorite.service";
+import { handleApiError } from "@/lib/api-error";
 import type { ActionResult } from "@/types";
 
 interface ToggleResult {
@@ -27,8 +28,9 @@ export async function toggleRideFavorite(
   try {
     const saved = await toggleFavoriteRide(ownerKey, rideId);
     return { success: true, data: { saved } };
-  } catch {
-    return { success: false, error: "Could not update saved rides." };
+  } catch (error) {
+    const { error: message } = handleApiError(error);
+    return { success: false, error: message };
   }
 }
 
@@ -41,8 +43,9 @@ export async function toggleDriverFavorite(
   try {
     const saved = await toggleFavoriteDriver(ownerKey, driverId);
     return { success: true, data: { saved } };
-  } catch {
-    return { success: false, error: "Could not update saved drivers." };
+  } catch (error) {
+    const { error: message } = handleApiError(error);
+    return { success: false, error: message };
   }
 }
 
@@ -56,7 +59,8 @@ export async function toggleRouteFavorite(
   try {
     const saved = await toggleFavoriteRoute(ownerKey, fromCity, toCity);
     return { success: true, data: { saved } };
-  } catch {
-    return { success: false, error: "Could not update saved routes." };
+  } catch (error) {
+    const { error: message } = handleApiError(error);
+    return { success: false, error: message };
   }
 }

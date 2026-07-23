@@ -65,7 +65,7 @@ export const rideBaseSchema = z.object({
     .number({ invalid_type_error: "Enter seats" })
     .int()
     .min(1, "At least 1 seat")
-    .max(30, "Too many seats"),
+    .max(4, "Max 4 seats"),
   fromCity: citySchema,
   toCity: citySchema,
   pickupPoint: z.string().trim().max(120, "Pickup point is too long").optional().or(z.literal("")),
@@ -102,7 +102,7 @@ export type CreateRideInput = z.infer<typeof createRideSchema>;
 
 /** Partial update schema for editing rides (admin / driver). */
 export const updateRideSchema = rideBaseSchema.partial().extend({
-  seatsLeft: z.number().int().min(0).max(30).optional(),
+  seatsLeft: z.number().int().min(0).max(4).optional(),
 });
 
 export type UpdateRideInput = z.infer<typeof updateRideSchema>;

@@ -22,7 +22,7 @@ export const createRideRequestSchema = z
       .number({ invalid_type_error: "Enter seats" })
       .int()
       .min(1, "At least 1 seat")
-      .max(10, "Too many seats"),
+      .max(4, "Max 4 seats"),
     budget: z
       .number({ invalid_type_error: "Enter a budget" })
       .int()
