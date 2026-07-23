@@ -1,17 +1,20 @@
-import { createSessionToken, getSessionCookieValue } from "@/lib/auth";
+import { createSessionToken } from "@/lib/auth";
 import { createOrUpdateGoogleUser } from "@/services/user.service";
+import { getServerEnv } from "@/config/env";
 import { NextResponse, type NextRequest } from "next/server";
+import { cookies } from "next/headers";
 
-const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-const REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI;
+const serverEnv = getServerEnv();
+const GOOGLE_CLIENT_ID = serverEnv.GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_SECRET = serverEnv.GOOGLE_CLIENT_SECRET;
+const REDIRECT_URI = serverEnv.GOOGLE_REDIRECT_URI;
 
 function buildAuthUrl(state: string) {
   const params = new URLSearchParams({
-    client_id: GOOGLE_CLIENT_ID ?? "",
+    client_id: GOOGLE_CLIENT_ID,
     response_type: "code",
     scope: "openid email profile",
-    redirect_uri: REDIRECT_URI ?? "",
+    redirect_uri: REDIRECT_URI,
     state,
     access_type: "offline",
     prompt: "select_account",
@@ -24,11 +27,11 @@ async function fetchToken(code: string) {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
-      client_id: GOOGLE_CLIENT_ID ?? "",
-      client_secret: GOOGLE_CLIENT_SECRET ?? "",
+      client_id: GOOGLE_CLIENT_ID,
+      client_secret: GOOGLE_CLIENT_SECRET,
       code,
       grant_type: "authorization_code",
-      redirect_uri: REDIRECT_URI ?? "",
+      redirect_uri: REDIRECT_URI,
     }),
   });
   return res.json();
@@ -48,10 +51,6 @@ export async function GET(request: NextRequest) {
   if (!code) {
     const url = buildAuthUrl("google-login");
     return NextResponse.redirect(url);
-  }
-
-  if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET || !REDIRECT_URI) {
-    return NextResponse.json({ error: "Google auth is not configured." }, { status: 500 });
   }
 
   try {
@@ -76,9 +75,17 @@ export async function GET(request: NextRequest) {
 
     const userId = String((user as any)._id ?? (user as any).id);
     const token = createSessionToken(userId);
-    return NextResponse.redirect("/", {
-      headers: { "Set-Cookie": getSessionCookieValue(token) },
+
+    const cookieStore = await cookies();
+    cookieStore.set("rc_session", token, {
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: 7 * 24 * 60 * 60,
+      path: "/",
+      secure: process.env.NODE_ENV === "production",
     });
+
+    return NextResponse.redirect("/");
   } catch (error) {
     console.error("Google auth failed:", error);
     return NextResponse.json({ error: "Google login failed." }, { status: 500 });

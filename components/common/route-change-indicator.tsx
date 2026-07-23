@@ -9,7 +9,6 @@ export function RouteChangeIndicator() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // show the indicator briefly when the pathname changes
     if (prev.current && prev.current !== pathname) {
       setLoading(true);
       const t = setTimeout(() => setLoading(false), 600);
@@ -22,8 +21,8 @@ export function RouteChangeIndicator() {
   if (!loading) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-0 z-50">
-      <div className="h-1 w-full bg-primary/90 shadow-lg shadow-primary/20 animate-pulse" />
+    <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-0.5">
+      <div className="h-full w-full bg-primary/70 transition-all duration-300" />
     </div>
   );
 }

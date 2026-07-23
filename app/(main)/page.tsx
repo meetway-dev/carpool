@@ -1,22 +1,23 @@
-import { EmptyState } from "@/components/feedback/empty-state";
+import Link from "next/link";
+import { Sparkles, TrendingUp, Plus, Clock, ArrowRight } from "lucide-react";
 import { AppHeader } from "@/components/layout/app-header";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { POPULAR_ROUTES, ROUTES } from "@/constants/routes";
-import { RideCard } from "@/features/rides/components/ride-card";
+
 import { SearchForm } from "@/features/search/components/search-form";
+import { RecentSearches } from "@/features/search/components/recent-searches";
+import { RideCard } from "@/features/rides/components/ride-card";
+import { EmptyState } from "@/components/feedback/empty-state";
 import { getFeaturedRides } from "@/services/ride.service";
+import { ROUTES, POPULAR_ROUTES } from "@/constants/routes";
+
 import type { RideDTO } from "@/types";
-import { Clock, Plus, Sparkles, TrendingUp } from "lucide-react";
-import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
 async function loadFeatured(): Promise<RideDTO[]> {
   try {
     return await getFeaturedRides(6);
-  } catch (error) {
-    console.error("Failed to load featured rides:", error);
+  } catch {
     return [];
   }
 }
@@ -28,45 +29,42 @@ export default async function HomePage() {
     <main>
       <AppHeader />
 
-      <section className="space-y-4 px-4 pt-5">
-        <Card className="glass">
-          <CardContent className="p-4">
-            <SearchForm />
-          </CardContent>
-        </Card>
+      {/* Search */}
+      <section className="relative overflow-hidden px-4 pb-6 pt-5">
+        <div className="rounded-2xl border bg-card/80 p-4 shadow-elevated backdrop-blur-sm">
+          <SearchForm />
+        </div>
       </section>
 
-      {/* Recent searches removed per user preference */}
+      <RecentSearches />
 
-      <section className="space-y-3 px-4 pt-8">
-        <div className="flex items-center gap-2">
-          <TrendingUp className="h-4 w-4 text-primary" />
-          <h2 className="text-sm font-semibold">Popular routes</h2>
-        </div>
+      {/* Popular routes */}
+      <section className="space-y-3 px-4 pt-7">
+        <SectionHeading icon={TrendingUp} title="Popular routes" />
         <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4">
           {POPULAR_ROUTES.map((route) => (
             <Link
               key={route.label}
               href={`${ROUTES.rides}?fromCity=${encodeURIComponent(route.fromCity)}&toCity=${encodeURIComponent(route.toCity)}`}
-              className="whitespace-nowrap rounded-full border bg-card px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent"
+              className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border bg-card px-4 py-2 text-sm font-medium shadow-soft transition-all hover:border-primary/40 hover:bg-accent hover:shadow-elevated"
             >
-              {route.label}
+              {route.fromCity}
+              <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
+              {route.toCity}
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="space-y-3 px-4 pt-8">
+      {/* Featured rides */}
+      <section className="space-y-3 px-4 pt-7 pb-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-primary" />
-            <h2 className="text-sm font-semibold">Featured &amp; upcoming rides</h2>
-          </div>
+          <SectionHeading icon={Sparkles} title="Featured rides" />
           <Link
             href={ROUTES.rides}
-            className="text-xs font-medium text-primary hover:underline"
+            className="flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
           >
-            View all
+            View all <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
 
@@ -92,5 +90,22 @@ export default async function HomePage() {
         )}
       </section>
     </main>
+  );
+}
+
+function SectionHeading({
+  icon: Icon,
+  title,
+}: {
+  icon: typeof TrendingUp;
+  title: string;
+}) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="flex h-6 w-6 items-center justify-center rounded-md bg-primary/10 text-primary">
+        <Icon className="h-3.5 w-3.5" />
+      </span>
+      <h2 className="text-sm font-semibold">{title}</h2>
+    </div>
   );
 }

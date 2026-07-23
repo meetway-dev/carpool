@@ -1,5 +1,6 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
 import { FormField } from "@/components/common/form-field";
 import { GoogleAuthButton } from "@/components/common/google-auth-button";
 import { AppHeader } from "@/components/layout/app-header";
@@ -7,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ROUTES } from "@/constants/routes";
+import { siteConfig } from "@/config/site";
 import { signupSchema, type SignupInput } from "@/validators/user.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
@@ -45,9 +47,22 @@ export default function SignupPage() {
   };
 
   return (
-    <main>
-      <AppHeader title="Sign up" />
-      <div className="mx-auto flex min-h-dvh max-w-6xl items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
+    <main className="flex h-full flex-col">
+      <AppHeader />
+      <div className="flex flex-1 flex-col items-center justify-center px-4">
+        <div className="mb-6 text-center">
+          <Badge variant="success" className="gap-1.5 font-medium">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-success" />
+            Live in KPK &amp; Islamabad
+          </Badge>
+          <h1 className="mt-3 text-2xl font-bold leading-tight tracking-tight">
+            Find your next ride <span className="text-primary">in seconds.</span>
+          </h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            {siteConfig.description}
+          </p>
+        </div>
+
         <Card className="w-full max-w-md border-border/60 bg-background/95 shadow-xl">
           <CardHeader className="space-y-2 pb-4">
             <CardTitle className="text-2xl">Create your account</CardTitle>

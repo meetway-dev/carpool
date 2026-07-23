@@ -13,58 +13,66 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 160 84% 39%;
+    --primary: 222 47% 15%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96%;
+    --secondary: 215 20% 94%;
     --secondary-foreground: 222 47% 11%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 215 20% 94%;
+    --muted-foreground: 215 20% 45%;
 
-    --accent: 160 60% 94%;
-    --accent-foreground: 160 84% 25%;
+    --accent: 215 20% 95%;
+    --accent-foreground: 222 47% 11%;
 
-    --destructive: 0 72% 51%;
+    --destructive: 0 60% 48%;
     --destructive-foreground: 0 0% 100%;
 
-    --success: 142 71% 45%;
+    --success: 142 61% 38%;
     --success-foreground: 0 0% 100%;
 
-    --warning: 38 92% 50%;
+    --warning: 32 86% 42%;
     --warning-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 160 84% 39%;
+    --border: 214 32% 88%;
+    --input: 214 32% 88%;
+    --ring: 222 47% 15%;
 
-    --radius: 0.875rem;
+    --brand-2: 215 28% 42%;
+
+    --surface: 215 20% 98%;
+
+    --radius: 0.625rem;
+
+    --shadow-sm: 0 0 0 1px hsl(0 0% 0% / 0.03), 0 2px 4px -1px hsl(0 0% 0% / 0.04);
+    --shadow-md: 0 0 0 1px hsl(0 0% 0% / 0.03), 0 4px 8px -2px hsl(0 0% 0% / 0.06);
+    --shadow-lg: 0 0 0 1px hsl(0 0% 0% / 0.04), 0 12px 24px -8px hsl(0 0% 0% / 0.08);
   }
 
   .dark {
     --background: 222 47% 7%;
-    --foreground: 210 40% 98%;
+    --foreground: 215 28% 95%;
 
     --card: 222 40% 10%;
-    --card-foreground: 210 40% 98%;
+    --card-foreground: 215 28% 95%;
 
     --popover: 222 40% 10%;
-    --popover-foreground: 210 40% 98%;
+    --popover-foreground: 215 28% 95%;
 
-    --primary: 160 74% 45%;
-    --primary-foreground: 222 47% 7%;
+    --primary: 215 28% 55%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 215 28% 95%;
 
     --muted: 217 33% 17%;
     --muted-foreground: 215 20% 65%;
 
     --accent: 217 33% 20%;
-    --accent-foreground: 160 74% 60%;
+    --accent-foreground: 215 28% 95%;
 
     --destructive: 0 63% 45%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 215 28% 95%;
 
     --success: 142 65% 45%;
     --success-foreground: 0 0% 100%;
@@ -74,7 +82,14 @@
 
     --border: 217 33% 20%;
     --input: 217 33% 22%;
-    --ring: 160 74% 45%;
+    --ring: 215 28% 55%;
+
+    --brand-2: 215 28% 55%;
+    --surface: 222 44% 9%;
+
+    --shadow-sm: 0 0 0 1px hsl(0 0% 0% / 0.2), 0 2px 4px -1px hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 0 0 1px hsl(0 0% 0% / 0.2), 0 4px 8px -2px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 0 0 1px hsl(0 0% 0% / 0.25), 0 12px 24px -8px hsl(0 0% 0% / 0.5);
   }
 }
 
@@ -90,9 +105,25 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     /* Respect mobile safe areas for the sticky bottom navigation. */
     padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Tighter, more confident heading typography. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-tight;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  /* Tabular figures for prices, seat counts, and stats. */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
   }
 
   /* Larger, touch-friendly tap targets on interactive elements. */
@@ -103,13 +134,11 @@
 }
 
 @layer components {
-  /* Glassmorphism surface used for sticky search / floating panels (light). */
   .glass {
-    @apply bg-background/70 backdrop-blur-xl backdrop-saturate-150;
-    border: 1px solid hsl(var(--border) / 0.6);
+    @apply bg-background/80 backdrop-blur-md backdrop-saturate-100;
+    border: 1px solid hsl(var(--border) / 0.8);
   }
 
-  /* Shimmering skeleton block. */
   .skeleton {
     @apply relative overflow-hidden rounded-md bg-muted;
   }
@@ -120,7 +149,7 @@
     background-image: linear-gradient(
       90deg,
       transparent,
-      hsl(var(--foreground) / 0.06),
+      hsl(var(--foreground) / 0.04),
       transparent
     );
   }
@@ -133,5 +162,76 @@
 
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Brand gradient (emerald -> sky) for hero banners and accents. */
+  .bg-brand-gradient {
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--brand-2)) 100%
+    );
+  }
+
+  /* Gradient text for headline numbers / wordmarks. */
+  .text-brand-gradient {
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--brand-2)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Elevation helpers backed by the layered shadow tokens. */
+  .shadow-soft {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-float {
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Interactive card lift on hover (pointer devices only). */
+  @media (hover: hover) {
+    .card-interactive {
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+    }
+
+    .card-interactive:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      border-color: hsl(var(--border));
+    }
+  }
+
+  .hero-glow {
+    background: linear-gradient(180deg, hsl(var(--surface)) 0%, hsl(var(--background)) 100%);
+  }
+}
+
+@layer utilities {
+  .animate-in-up {
+    animation: in-up 0.4s ease both;
+  }
+
+  @keyframes in-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

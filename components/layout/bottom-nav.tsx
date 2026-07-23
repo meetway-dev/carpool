@@ -48,7 +48,7 @@ export function BottomNav() {
           <Link
             href={ROUTES.createRide}
             aria-label="Post a ride"
-            className="flex h-14 w-14 -translate-y-4 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition-transform active:scale-95"
+            className="flex h-14 w-14 -translate-y-5 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-elevated ring-4 ring-background transition-transform active:scale-95"
           >
             <Plus className="h-7 w-7" />
           </Link>
@@ -68,11 +68,20 @@ function NavLink({ item, active }: { item: NavItem; active: boolean }) {
     <Link
       href={item.href}
       className={cn(
-        "flex flex-col items-center justify-center gap-0.5 rounded-lg py-1 text-[11px] font-medium transition-colors",
-        active ? "text-primary" : "text-muted-foreground hover:text-foreground",
+        "flex flex-col items-center justify-center gap-0.5 rounded-xl px-2 py-1.5 text-[11px] font-medium transition-all",
+        active
+          ? "text-primary"
+          : "text-muted-foreground hover:text-foreground",
       )}
     >
-      <Icon className={cn("h-5 w-5", active && "fill-primary/10")} />
+      <span
+        className={cn(
+          "flex h-7 w-7 items-center justify-center rounded-lg transition-all",
+          active && "bg-primary/12",
+        )}
+      >
+        <Icon className={cn("h-5 w-5 transition-all", active && "scale-110")} />
+      </span>
       {item.label}
     </Link>
   );

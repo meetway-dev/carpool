@@ -1,4 +1,5 @@
 import { findUserById } from "@/services/user.service";
+import { getServerEnv } from "@/config/env";
 import { createHmac, randomBytes, scryptSync, timingSafeEqual } from "node:crypto";
 
 const SESSION_COOKIE_NAME = "rc_session";
@@ -7,7 +8,7 @@ const PASSWORD_SALT_BYTES = 16;
 const PASSWORD_KEY_BYTES = 64;
 
 function getAuthSecret(): string {
-  return process.env.AUTH_COOKIE_SECRET || "change-me-in-production";
+  return getServerEnv().AUTH_COOKIE_SECRET;
 }
 
 export function hashPassword(password: string): string {
@@ -67,18 +68,6 @@ function verifyPayload(token: string): SessionPayload | null {
 
 export function createSessionToken(userId: string): string {
   return signPayload({ userId, exp: Date.now() + SESSION_MAX_AGE * 1000 });
-}
-
-export function getSessionCookieValue(token: string): string {
-  return `${SESSION_COOKIE_NAME}=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${SESSION_MAX_AGE}; ${
-    process.env.NODE_ENV === "production" ? "Secure;" : ""
-  }`;
-}
-
-export function clearSessionCookie(): string {
-  return `${SESSION_COOKIE_NAME}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0; ${
-    process.env.NODE_ENV === "production" ? "Secure;" : ""
-  }`;
 }
 
 export function getSessionTokenFromCookie(cookieValue?: string): string | null {

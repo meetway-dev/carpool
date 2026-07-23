@@ -12,7 +12,17 @@ const serverEnvSchema = z.object({
       (value) => value.startsWith("mongodb://") || value.startsWith("mongodb+srv://"),
       "MONGODB_URI must be a valid MongoDB connection string",
     ),
-  CRON_SECRET: z.string().min(1, "CRON_SECRET is required"),
+  CRON_SECRET: z
+    .string()
+    .min(1, "CRON_SECRET is required")
+    .default("change-me-in-production"),
+  AUTH_COOKIE_SECRET: z
+    .string()
+    .min(32, "AUTH_COOKIE_SECRET must be at least 32 characters")
+    .default("change-me-in-production"),
+  GOOGLE_CLIENT_ID: z.string().default(""),
+  GOOGLE_CLIENT_SECRET: z.string().default(""),
+  GOOGLE_REDIRECT_URI: z.string().default(""),
   ADMIN_PHONES: z
     .string()
     .default("")

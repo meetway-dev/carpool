@@ -84,7 +84,12 @@ export function SearchHeader({ fromCity, toCity, date, seats }: SearchHeaderProp
 
       <div className="flex items-center justify-between border-t px-3 py-1.5">
         <SortSelect />
-        <FilterSheet />
+        <div className="flex items-center gap-2">
+          {fromCity && toCity ? (
+            <SaveRouteButton fromCity={fromCity} toCity={toCity} />
+          ) : null}
+          <FilterSheet />
+        </div>
       </div>
     </div>
   );

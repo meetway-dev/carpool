@@ -1,21 +1,21 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { Search, ArrowRightLeft, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
 } from "@/components/ui/select";
-import { CitySelect } from "@/features/search/components/city-select";
-import { ROUTES, DEFAULT_SEARCH_PAIR } from "@/constants/routes";
+import { DEFAULT_SEARCH_PAIR, ROUTES } from "@/constants/routes";
 import { serializeSearchParams } from "@/features/rides/queries";
+import { CitySelect } from "@/features/search/components/city-select";
+import { ArrowRightLeft, Calendar, Search, Users } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 interface SearchFormProps {
   defaultFromCity?: string;
@@ -122,7 +122,11 @@ export function SearchForm({
         </Select>
       </div>
 
-      <Button type="submit" size="xl" className="w-full">
+      <Button
+        type="submit"
+        size="xl"
+        className="w-full bg-primary shadow-elevated"
+      >
         <Search /> Search rides
       </Button>
     </form>

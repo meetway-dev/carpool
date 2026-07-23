@@ -1,8 +1,8 @@
-import { clearSessionCookie } from "@/lib/auth";
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 
 export async function GET() {
-  return NextResponse.json({ success: true }, {
-    headers: { "Set-Cookie": clearSessionCookie() },
-  });
+  const cookieStore = await cookies();
+  cookieStore.delete("rc_session");
+  return NextResponse.json({ success: true });
 }

@@ -59,6 +59,13 @@ const config: Config = {
           DEFAULT: "hsl(var(--warning))",
           foreground: "hsl(var(--warning-foreground))",
         },
+        surface: "hsl(var(--surface))",
+        "brand-2": "hsl(var(--brand-2))",
+      },
+      boxShadow: {
+        soft: "var(--shadow-sm)",
+        elevated: "var(--shadow-md)",
+        float: "var(--shadow-lg)",
       },
       borderRadius: {
         lg: "var(--radius)",

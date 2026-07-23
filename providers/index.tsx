@@ -1,6 +1,7 @@
 "use client";
 
 import { RouteChangeIndicator } from "@/components/common/route-change-indicator";
+import { LoadingOverlay } from "@/components/common/loading-overlay";
 import { Toaster } from "@/components/ui/sonner";
 import { QueryProvider } from "@/providers/query-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
@@ -11,7 +12,9 @@ export function AppProviders({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider>
       <QueryProvider>
-        {children}
+        <LoadingOverlay>
+          {children}
+        </LoadingOverlay>
         <RouteChangeIndicator />
         <Toaster />
       </QueryProvider>

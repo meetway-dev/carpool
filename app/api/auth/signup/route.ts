@@ -1,7 +1,8 @@
-import { createSessionToken, getSessionCookieValue, hashPassword } from "@/lib/auth";
+import { createSessionToken, hashPassword } from "@/lib/auth";
 import { createEmailUser } from "@/services/user.service";
 import { signupSchema } from "@/validators/user.schema";
 import { NextResponse, type NextRequest } from "next/server";
+import { cookies } from "next/headers";
 
 export async function POST(request: NextRequest) {
   try {
@@ -25,10 +26,17 @@ export async function POST(request: NextRequest) {
 
     const userId = String((user as any)._id ?? (user as any).id);
     const token = createSessionToken(userId);
-    return NextResponse.json(
-      { success: true },
-      { headers: { "Set-Cookie": getSessionCookieValue(token) } },
-    );
+
+    const cookieStore = await cookies();
+    cookieStore.set("rc_session", token, {
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: 7 * 24 * 60 * 60,
+      path: "/",
+      secure: process.env.NODE_ENV === "production",
+    });
+
+    return NextResponse.json({ success: true });
   } catch (error) {
     console.error("POST /api/auth/signup failed:", error);
     return NextResponse.json(

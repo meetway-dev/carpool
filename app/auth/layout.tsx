@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
-  return <div className="min-h-screen bg-background">{children}</div>;
+  return <div className="h-dvh bg-background">{children}</div>;
 }
