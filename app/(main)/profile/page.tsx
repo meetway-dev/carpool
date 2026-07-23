@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ROUTES } from "@/constants/routes";
 import { ProfileForm } from "@/features/profile/profile-form";
-import { Heart, Plus, ShieldCheck, User } from "lucide-react";
+import { Heart, LogOut, Plus, ShieldCheck, User } from "lucide-react";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
@@ -58,6 +58,12 @@ export default function ProfilePage() {
               </Button>
             );
           })}
+
+          <Button asChild variant="destructive" className="w-full justify-start">
+            <Link href={ROUTES.auth.login}>
+              <LogOut /> Logout
+            </Link>
+          </Button>
         </div>
 
         <div className="flex items-center gap-2 rounded-xl border bg-accent/40 p-3 text-xs text-muted-foreground">

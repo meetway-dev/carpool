@@ -1,15 +1,15 @@
-import Link from "next/link";
-import { Sparkles, TrendingUp, Plus, Clock } from "lucide-react";
+import { EmptyState } from "@/components/feedback/empty-state";
 import { AppHeader } from "@/components/layout/app-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { SearchForm } from "@/features/search/components/search-form";
-import { RecentSearches } from "@/features/search/components/recent-searches";
+import { POPULAR_ROUTES, ROUTES } from "@/constants/routes";
 import { RideCard } from "@/features/rides/components/ride-card";
-import { EmptyState } from "@/components/feedback/empty-state";
+import { RecentSearches } from "@/features/search/components/recent-searches";
+import { SearchForm } from "@/features/search/components/search-form";
 import { getFeaturedRides } from "@/services/ride.service";
-import { ROUTES, POPULAR_ROUTES } from "@/constants/routes";
 import type { RideDTO } from "@/types";
+import { Clock, Plus, Sparkles, TrendingUp } from "lucide-react";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 

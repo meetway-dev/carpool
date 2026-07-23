@@ -66,12 +66,31 @@ export default function LoginPage() {
           <CardContent className="space-y-4">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <FormField label="Email" error={errors.email?.message}>
-                <Input type="email" {...register("email")} />
+                <Input
+                  type="email"
+                  placeholder="you@domain.com"
+                  autoFocus
+                  {...register("email")}
+                />
               </FormField>
 
               <FormField label="Password" error={errors.password?.message}>
-                <Input type="password" {...register("password")} />
+                <Input
+                  type="password"
+                  placeholder="Enter your password"
+                  {...register("password")}
+                />
               </FormField>
+
+              <div className="flex items-center justify-between">
+                <label className="inline-flex items-center text-sm text-muted-foreground">
+                  <input type="checkbox" className="mr-2 h-4 w-4 rounded border-border" />
+                  Remember me
+                </label>
+                <Link href={ROUTES.auth.forgot} className="text-sm text-primary hover:underline">
+                  Forgot password?
+                </Link>
+              </div>
 
               {error ? <p className="text-sm text-destructive">{error}</p> : null}
 
