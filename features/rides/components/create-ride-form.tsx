@@ -50,7 +50,7 @@ function defaultValues(): CreateRideInput {
     vehicleColor: "White",
     vehicleNumber: "",
     pricePerSeat: 500,
-    seatsTotal: 3,
+    seatsTotal: 4,
     fromCity: "Islamabad",
     toCity: "Peshawar",
     pickupPoint: "",

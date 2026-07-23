@@ -19,7 +19,7 @@ interface VehicleTypeMeta {
 }
 
 export const VEHICLE_TYPE_META: Record<VehicleType, VehicleTypeMeta> = {
-  Car: { type: "Car", defaultSeats: 3, maxSeats: 4 },
+  Car: { type: "Car", defaultSeats: 4, maxSeats: 4 },
   SUV: { type: "SUV", defaultSeats: 4, maxSeats: 6 },
   Van: { type: "Van", defaultSeats: 6, maxSeats: 8 },
   Hiace: { type: "Hiace", defaultSeats: 12, maxSeats: 16 },

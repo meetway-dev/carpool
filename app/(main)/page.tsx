@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { POPULAR_ROUTES, ROUTES } from "@/constants/routes";
 import { RideCard } from "@/features/rides/components/ride-card";
-import { RecentSearches } from "@/features/search/components/recent-searches";
 import { SearchForm } from "@/features/search/components/search-form";
 import { getFeaturedRides } from "@/services/ride.service";
 import type { RideDTO } from "@/types";
@@ -37,7 +36,7 @@ export default async function HomePage() {
         </Card>
       </section>
 
-      <RecentSearches />
+      {/* Recent searches removed per user preference */}
 
       <section className="space-y-3 px-4 pt-8">
         <div className="flex items-center gap-2">

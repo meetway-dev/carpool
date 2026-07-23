@@ -30,8 +30,8 @@ export const RIDE_STATUS_META: Record<RideStatus, RideStatusMeta> = {
   },
   almostFull: {
     status: "almostFull",
-    label: "Almost Full",
-    badgeClass: "bg-warning/15 text-warning",
+    label: "Open",
+    badgeClass: "bg-success/15 text-success",
     publiclyVisible: true,
   },
   full: {
@@ -77,9 +77,8 @@ export const ALMOST_FULL_THRESHOLD = 2;
 /** Derive the seat-based status for an active ride. */
 export function deriveSeatStatus(seatsLeft: number): Extract<
   RideStatus,
-  "open" | "almostFull" | "full"
+  "open" | "full"
 > {
   if (seatsLeft <= 0) return "full";
-  if (seatsLeft <= ALMOST_FULL_THRESHOLD) return "almostFull";
   return "open";
 }

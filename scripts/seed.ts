@@ -172,7 +172,8 @@ async function seed() {
 
     const vehicleType = (driver.vehicle?.type as VehicleType | undefined) ?? "Car";
     const meta = VEHICLE_TYPE_META[vehicleType];
-    const seatsTotal = randomInt(1, meta.maxSeats);
+    // Bias seeded rides to realistic vehicle defaults (e.g., cars default to 4 seats)
+    const seatsTotal = randomInt(meta.defaultSeats, meta.maxSeats);
     const seatsLeft = randomInt(0, seatsTotal);
 
     const date = dateString(randomInt(0, 6));
