@@ -64,8 +64,8 @@ export default async function ProfilePage() {
   return (
     <main>
       <AppHeader title="Profile" />
-      <div className="px-4 py-4">
-        <Tabs defaultValue={activeRide ? "ride" : "requests"} className="space-y-4">
+      <div className="px-4 py-4 space-y-4">
+        <Tabs defaultValue={activeRide ? "ride" : "requests"} className="space-y-3">
           <TabsList className="w-full">
             <TabsTrigger value="ride" className="flex-1">
               My ride
@@ -117,14 +117,14 @@ export default async function ProfilePage() {
             )}
           </TabsContent>
 
-          <TabsContent value="requests" className="space-y-3">
+          <TabsContent value="requests" className="space-y-2.5">
             {activeRequests.length > 0 ? (
               activeRequests.map((req) => (
                 <Card key={String(req._id)}>
-                  <CardContent className="p-4">
+                  <CardContent className="p-3.5">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="font-semibold">
+                        <p className="font-semibold text-sm">
                           {req.fromCity} → {req.toCity}
                         </p>
                         <p className="text-xs text-muted-foreground">
@@ -171,7 +171,7 @@ export default async function ProfilePage() {
         </Tabs>
 
         {hasUser ? (
-          <div className="mt-6 space-y-3">
+          <div className="mt-4 space-y-3">
             <ProfileForm />
 
             <div className="space-y-2">

@@ -179,14 +179,14 @@ export function CreateRideForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <StepIndicator steps={STEPS} current={step} />
 
       {/* Step 1 — Route */}
       {step === 0 ? (
-        <div className="space-y-4">
-          <SectionHeading icon={MapPin} title="Route & timing" />
-          <div className="grid grid-cols-2 gap-3">
+        <div className="space-y-3">
+          <SectionHeading icon={MapPin} title="Route & timing" small />
+          <div className="grid grid-cols-2 gap-2.5">
             <FormField label="From" error={errors.fromCity?.message} required>
               <Controller
                 control={control}
@@ -212,7 +212,7 @@ export function CreateRideForm() {
           <FormField label="Drop point" error={errors.dropPoint?.message} hint="Optional">
             <Input placeholder="e.g. University Town" {...register("dropPoint")} />
           </FormField>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2.5">
             <FormField label="Date" error={errors.date?.message} required>
               <Input type="date" min={todayISO()} {...register("date")} />
             </FormField>
@@ -227,7 +227,7 @@ export function CreateRideForm() {
           >
             <Input placeholder="~2h 30m" {...register("arrivalEstimate")} />
           </FormField>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2.5">
             <FormField label="Price per seat (Rs)" error={errors.pricePerSeat?.message} required>
               <Input
                 type="number"
@@ -249,15 +249,15 @@ export function CreateRideForm() {
 
       {/* Step 2 — Amenities / options */}
       {step === 1 ? (
-        <div className="space-y-4">
-          <SectionHeading icon={Car} title="Ride options & amenities" />
-          <p className="text-sm text-muted-foreground">Choose amenities and rules for your ride.</p>
-          <div className="space-y-3">
+        <div className="space-y-3">
+          <SectionHeading icon={Car} title="Ride options & amenities" small />
+          <p className="text-xs text-muted-foreground">Choose amenities and rules for your ride.</p>
+          <div className="space-y-2.5">
             {RIDE_OPTION_CONFIG.map((opt) => (
               <label key={opt.key} className="flex items-center justify-between">
                 <div className="space-y-0.5">
                   <div className="text-sm font-medium">{opt.label}</div>
-                  <div className="text-xs text-muted-foreground">{opt.description}</div>
+                  <div className="text-[11px] text-muted-foreground">{opt.description}</div>
                 </div>
                 <Controller
                   control={control}
@@ -274,9 +274,9 @@ export function CreateRideForm() {
 
       {/* Step 3 — Preview */}
       {step === 2 ? (
-        <div className="space-y-4">
-          <SectionHeading icon={Eye} title="Preview your ride" />
-          <p className="text-sm text-muted-foreground">
+        <div className="space-y-3">
+          <SectionHeading icon={Eye} title="Preview your ride" small />
+          <p className="text-xs text-muted-foreground">
             This is how passengers will see your ride. Go back to edit anything.
           </p>
           <RideCard ride={buildPreviewRide(form.getValues())} />
@@ -337,8 +337,8 @@ function SectionHeading({
 }) {
   return (
     <div className="flex items-center gap-2">
-      <Icon className={small ? "h-4 w-4 text-muted-foreground" : "h-5 w-5 text-primary"} />
-      <h2 className={small ? "text-sm font-semibold text-muted-foreground" : "text-base font-semibold"}>
+      <Icon className={small ? "h-4 w-4 text-primary" : "h-5 w-5 text-primary"} />
+      <h2 className={small ? "text-sm font-semibold" : "text-base font-semibold"}>
         {title}
       </h2>
     </div>

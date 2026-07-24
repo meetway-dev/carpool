@@ -39,13 +39,13 @@ export function SearchHeader({ fromCity, toCity, date, seats }: SearchHeaderProp
 
   return (
     <div className="sticky top-0 z-30 border-b border-border/60 bg-background/95 backdrop-blur-md">
-      <div className="flex items-center gap-2 px-3 py-3">
+      <div className="flex items-center gap-2 px-3 py-2.5">
         <Button
           variant="ghost"
           size="icon"
           aria-label="Go back"
           onClick={() => router.back()}
-          className="h-9 w-9"
+          className="h-8 w-8"
         >
           <ArrowLeft className="h-4 w-4" />
         </Button>
@@ -62,15 +62,15 @@ export function SearchHeader({ fromCity, toCity, date, seats }: SearchHeaderProp
 
         <Sheet open={editOpen} onOpenChange={seteditOpen}>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" aria-label="edit search" className="h-9 w-9">
+            <Button variant="outline" size="icon" aria-label="edit search" className="h-8 w-8">
               <Pencil className="h-4 w-4" />
             </Button>
           </SheetTrigger>
           <SheetContent side="top" className="rounded-b-2xl">
-            <SheetHeader className="px-0">
-              <SheetTitle>Edit search</SheetTitle>
+            <SheetHeader className="px-4 pt-4 pb-2">
+              <SheetTitle className="text-base">Edit search</SheetTitle>
             </SheetHeader>
-            <div className="px-5 pb-6">
+            <div className="px-4 pb-5">
               <SearchForm
                 defaultFromCity={fromCity}
                 defaultToCity={toCity}

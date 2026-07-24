@@ -41,15 +41,15 @@ export default async function HomePage() {
     <main>
       <AppHeader />
 
-      <section className="px-4 pb-6 pt-5">
-        <div className="rounded-xl border border-border bg-card p-4 shadow-sm">
+      <section className="px-4 pb-4 pt-4">
+        <div className="rounded-xl border border-border bg-card p-3.5 shadow-sm">
           <SearchForm />
         </div>
       </section>
 
       <RecentSearches />
 
-      <section className="space-y-3 px-4 pt-7">
+      <section className="space-y-2.5 px-4 pt-5">
         <div className="flex items-center justify-between">
           <SectionHeading icon={TrendingUp} title="Popular routes" />
           <Link
@@ -64,17 +64,17 @@ export default async function HomePage() {
             <Link
               key={route.label}
               href={`${ROUTES.rides}?fromCity=${encodeURIComponent(route.fromCity)}&toCity=${encodeURIComponent(route.toCity)}`}
-              className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border border-border bg-card px-4 py-2 text-sm font-medium shadow-sm transition-all hover:border-primary/30 hover:bg-accent"
+              className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border border-border bg-card px-3.5 py-1.5 text-sm font-medium shadow-sm transition-all hover:border-primary/30 hover:bg-accent"
             >
               {route.fromCity}
-              <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
+              <ArrowRight className="h-3 w-3 text-muted-foreground" />
               {route.toCity}
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="px-4 pt-7 pb-24">
+      <section className="px-4 pt-5 pb-24">
         <Tabs defaultValue="rides" className="w-full">
           <TabsList className="w-full">
             <TabsTrigger value="rides" className="flex-1">
@@ -85,7 +85,7 @@ export default async function HomePage() {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="rides" className="space-y-3">
+          <TabsContent value="rides" className="space-y-2.5 mt-3">
             <div className="flex items-center justify-between">
               <SectionHeading icon={Sparkles} title="Featured rides" />
               <Link
@@ -97,7 +97,7 @@ export default async function HomePage() {
             </div>
 
             {featured.length > 0 ? (
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 {featured.map((ride) => (
                   <RideCard key={ride.id} ride={ride} />
                 ))}
@@ -118,13 +118,13 @@ export default async function HomePage() {
             )}
           </TabsContent>
 
-          <TabsContent value="requests" className="space-y-3">
+          <TabsContent value="requests" className="space-y-2.5 mt-3">
             <div className="flex items-center justify-between">
               <SectionHeading icon={Users} title="Passenger requests" />
             </div>
 
             {publicRequests.length > 0 ? (
-              <div className="space-y-2.5">
+              <div className="space-y-2">
                 {publicRequests.map((request) => (
                   <Link
                     key={request.id}

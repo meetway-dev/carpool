@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { type ReactNode } from "react";
-import { Menu } from "lucide-react";
+import { Menu, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ROUTES } from "@/constants/routes";
 import { ThemeToggle } from "@/components/common/theme-toggle";
@@ -33,6 +33,11 @@ export function AppHeader({ title, right }: AppHeaderProps) {
         <div className="flex items-center gap-1">
           <NotificationBell />
           <ThemeToggle />
+          <Button asChild variant="ghost" size="icon" aria-label="Profile">
+            <Link href={ROUTES.profile}>
+              <User className="h-5 w-5" />
+            </Link>
+          </Button>
           {right}
         </div>
       </div>

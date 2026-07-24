@@ -109,19 +109,19 @@ export function FilterSheet() {
       </SheetTrigger>
 
       <SheetContent side="bottom" className="max-h-[85dvh] overflow-y-auto">
-        <SheetHeader className="px-0">
-          <SheetTitle>Filters</SheetTitle>
-          <SheetDescription>Refine your ride search.</SheetDescription>
+        <SheetHeader className="px-4 pt-4 pb-2">
+          <SheetTitle className="text-base">Filters</SheetTitle>
+          <SheetDescription className="text-xs">Refine your ride search.</SheetDescription>
         </SheetHeader>
 
-        <div className="space-y-5 px-5 pb-4">
-          <div className="space-y-2">
-            <Label>Status</Label>
+        <div className="space-y-4 px-4 pb-4">
+          <div className="space-y-1.5">
+            <Label className="text-xs">Status</Label>
             <Select
               value={status || "active"}
               onValueChange={(v) => setStatus(v === "active" ? "" : v)}
             >
-              <SelectTrigger>
+              <SelectTrigger className="h-10">
                 <SelectValue placeholder="Active" />
               </SelectTrigger>
               <SelectContent>
@@ -135,13 +135,13 @@ export function FilterSheet() {
             </Select>
           </div>
 
-          <div className="space-y-2">
-            <Label>Vehicle type</Label>
+          <div className="space-y-1.5">
+            <Label className="text-xs">Vehicle type</Label>
             <Select
               value={vehicleType || "any"}
               onValueChange={(v) => setVehicleType(v === "any" ? "" : v)}
             >
-              <SelectTrigger>
+              <SelectTrigger className="h-10">
                 <SelectValue placeholder="Any vehicle" />
               </SelectTrigger>
               <SelectContent>
@@ -157,7 +157,7 @@ export function FilterSheet() {
 
           <Separator />
 
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             <ToggleRow label="Air conditioning" checked={ac} onChange={setAc} />
             <ToggleRow
               label="Female friendly"
@@ -175,37 +175,40 @@ export function FilterSheet() {
 
           <div className="space-y-3">
             <div className="space-y-1.5">
-              <Label htmlFor="filter-driver">Driver name</Label>
+              <Label htmlFor="filter-driver" className="text-xs">Driver name</Label>
               <Input
                 id="filter-driver"
                 value={driverName}
                 onChange={(e) => setDriverName(e.target.value)}
                 placeholder="e.g. Bilal"
+                className="h-10"
               />
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="filter-phone">Phone number</Label>
+              <Label htmlFor="filter-phone" className="text-xs">Phone number</Label>
               <Input
                 id="filter-phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="e.g. 0300..."
                 inputMode="tel"
+                className="h-10"
               />
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="filter-keyword">Keyword</Label>
+              <Label htmlFor="filter-keyword" className="text-xs">Keyword</Label>
               <Input
                 id="filter-keyword"
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
                 placeholder="Pickup point, notes…"
+                className="h-10"
               />
             </div>
           </div>
         </div>
 
-        <SheetFooter className="sticky bottom-0 border-t bg-background">
+        <SheetFooter className="sticky bottom-0 border-t bg-background px-4 py-3">
           <Button variant="ghost" onClick={reset} className="flex-1">
             Reset
           </Button>

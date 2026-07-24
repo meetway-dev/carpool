@@ -98,6 +98,9 @@ export default async function RideDetailsPage({ params }: PageProps) {
               <p className="text-xs text-muted-foreground">
                 {ride.driver.verified ? "Verified driver" : "Driver"}
               </p>
+              {ride.driver.phone ? (
+                <p className="mt-0.5 text-xs text-muted-foreground">{ride.driver.phone}</p>
+              ) : null}
             </div>
             {ride.driver.driverId ? (
               <Button asChild variant="outline" size="sm">

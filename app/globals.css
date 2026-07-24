@@ -202,4 +202,31 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  @keyframes drive {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(8px) rotate(2deg); }
+    75% { transform: translateX(-8px) rotate(-2deg); }
+  }
+
+  .animate-drive {
+    animation: drive 2.5s ease-in-out infinite;
+  }
+
+  @keyframes road {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 0; }
+  }
+
+  .animate-road {
+    background: repeating-linear-gradient(
+      90deg,
+      hsl(var(--muted-foreground)) 0px,
+      hsl(var(--muted-foreground)) 20px,
+      transparent 20px,
+      transparent 40px
+    );
+    background-size: 40px 2px;
+    animation: road 0.8s linear infinite;
+  }
 }

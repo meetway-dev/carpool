@@ -30,13 +30,13 @@ export function RideCard({ ride }: { ride: RideDTO }) {
         <div className="h-0.5 w-full bg-primary/60" />
       ) : null}
 
-      <CardContent className="space-y-3 p-4">
+      <CardContent className="space-y-2.5 p-3.5">
         <div className="flex items-start justify-between gap-3">
           <Link
             href={ROUTES.rideDetails(ride.id)}
             className="flex min-w-0 items-center gap-3"
           >
-            <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary text-secondary-foreground ring-1 ring-border">
+            <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary text-secondary-foreground ring-1 ring-border">
               {ride.driver.photoUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -45,11 +45,11 @@ export function RideCard({ ride }: { ride: RideDTO }) {
                   className="h-full w-full rounded-full object-cover"
                 />
               ) : (
-                <Car className="h-4 w-4" />
+                <Car className="h-3.5 w-3.5" />
               )}
               {ride.driver.verified ? (
-                <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-primary text-primary-foreground ring-[1.5px] ring-background">
-                  <BadgeCheck className="h-2.5 w-2.5" />
+                <span className="absolute -bottom-0.5 -right-0.5 flex h-3 w-3 items-center justify-center rounded-full bg-primary text-primary-foreground ring-[1.5px] ring-background">
+                  <BadgeCheck className="h-2 w-2" />
                 </span>
               ) : null}
             </span>
@@ -69,11 +69,11 @@ export function RideCard({ ride }: { ride: RideDTO }) {
 
         <Link
           href={ROUTES.rideDetails(ride.id)}
-          className="flex items-center gap-2 rounded-lg bg-accent/60 px-3 py-2 text-sm font-medium transition-colors hover:bg-accent"
+          className="flex items-center gap-2 rounded-lg bg-accent/60 px-2.5 py-1.5 text-sm font-medium transition-colors hover:bg-accent"
         >
-          <MapPin className="h-4 w-4 shrink-0 text-primary" />
+          <MapPin className="h-3.5 w-3.5 shrink-0 text-primary" />
           <span className="truncate">{ride.route.fromCity}</span>
-          <ArrowRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+          <ArrowRight className="h-3 w-3 shrink-0 text-muted-foreground" />
           <span className="truncate">{ride.route.toCity}</span>
         </Link>
 

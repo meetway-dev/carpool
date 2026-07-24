@@ -47,7 +47,18 @@ export default function LoginPage() {
   return (
     <main>
       <AppHeader title="Login" />
-      <div className="mx-auto flex min-h-[calc(100dvh-64px)] items-center justify-center px-4 py-8">
+      <div className="mx-auto flex min-h-[calc(100dvh-64px)] flex-col items-center justify-center px-4 py-8">
+        <div className="mb-4 text-center">
+          <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary animate-drive">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+              <circle cx="7" cy="17" r="2" />
+              <circle cx="17" cy="17" r="2" />
+            </svg>
+          </div>
+          <div className="h-1 w-16 mx-auto rounded-full animate-road opacity-40" />
+        </div>
+
         <Card className="w-full max-w-sm border-border shadow-sm">
           <CardHeader className="space-y-1 pb-5 pt-6">
             <CardTitle className="text-xl">Welcome back</CardTitle>
@@ -109,6 +120,24 @@ export default function LoginPage() {
             </div>
           </CardContent>
         </Card>
+
+        <div className="mt-6 w-full max-w-sm space-y-3 text-center text-xs text-muted-foreground">
+          <div className="flex items-center justify-center gap-4">
+            <span className="flex items-center gap-1.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5 text-primary"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+              Safe rides
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5 text-primary"><path d="M12 2v20M2 12h20"/></svg>
+              Best prices
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5 text-primary"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Trusted drivers
+            </span>
+          </div>
+          <p>Trusted by thousands of passengers across Pakistan</p>
+        </div>
       </div>
     </main>
   );

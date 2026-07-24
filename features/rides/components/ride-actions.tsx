@@ -36,17 +36,26 @@ export function RideActions({ ride, variant = "card" }: RideActionsProps) {
   const router = useRouter();
 
   async function handleShare() {
+    const shareText = [
+      `🚗 Ride: ${ride.route.fromCity} → ${ride.route.toCity}`,
+      `📅 ${formatRideDate(ride.departure.date)} at ${ride.departure.time}`,
+      `💰 Rs ${ride.pricePerSeat}/seat • ${ride.seatsLeft} seats left`,
+      `👤 Driver: ${ride.driver.name}`,
+      `🚙 ${ride.vehicle.model} • ${ride.vehicle.color} • ${ride.vehicle.type}`,
+      shareUrl,
+    ].join("\n");
+
     const shareData = {
       title: `${ride.route.fromCity} → ${ride.route.toCity} ride`,
-      text: `Ride from ${ride.route.fromCity} to ${ride.route.toCity} on RideConnect`,
+      text: shareText,
       url: shareUrl,
     };
     try {
       if (typeof navigator !== "undefined" && navigator.share) {
         await navigator.share(shareData);
       } else {
-        await navigator.clipboard.writeText(shareUrl);
-        toast.success("Link copied to clipboard");
+        await navigator.clipboard.writeText(shareText);
+        toast.success("Ride details copied to clipboard");
       }
     } catch {
       // User cancelled the share sheet — no-op.

@@ -41,6 +41,6 @@ export function buildRideInquiryMessage({
     `Route: ${fromCity} to ${toCity}\n` +
     `Date: ${date}\n` +
     `Seats needed: ${seats}\n\n` +
-    `Is this ride still available?`
+    `Please share your current location and any pickup points.`
   );
 }

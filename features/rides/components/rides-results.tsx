@@ -106,7 +106,7 @@ export function RidesResults({ params, initialData }: RidesResultsProps) {
   }
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-2.5">
       <p className="text-xs text-muted-foreground">
         {total} {total === 1 ? "ride" : "rides"} found
       </p>
@@ -118,13 +118,13 @@ export function RidesResults({ params, initialData }: RidesResultsProps) {
       <div ref={sentinelRef} aria-hidden className="h-px" />
 
       {isFetchingNextPage ? (
-        <div className="flex items-center justify-center gap-2 py-4 text-sm text-muted-foreground">
+        <div className="flex items-center justify-center gap-2 py-3 text-sm text-muted-foreground">
           <Loader2 className="h-4 w-4 animate-spin" /> Loading more…
         </div>
       ) : null}
 
       {!hasNextPage && rides.length > 0 ? (
-        <p className="py-4 text-center text-xs text-muted-foreground">
+        <p className="py-3 text-center text-xs text-muted-foreground">
           You&apos;ve reached the end.
         </p>
       ) : null}

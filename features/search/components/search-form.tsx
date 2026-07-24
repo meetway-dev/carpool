@@ -59,10 +59,10 @@ export function SearchForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
-      <div className="grid grid-cols-[1fr_auto_1fr] items-end gap-2">
+    <form onSubmit={handleSubmit} className="space-y-2.5">
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
         <div className="space-y-1">
-          {!compact ? <Label className="text-xs text-muted-foreground">From</Label> : null}
+          {!compact ? <Label className="text-[11px] text-muted-foreground">From</Label> : null}
           <CitySelect
             value={fromCity}
             onChange={setFromCity}
@@ -75,14 +75,14 @@ export function SearchForm({
           type="button"
           variant="outline"
           size="icon"
-          className="mb-0.5 h-9 w-9"
+          className="mb-0.5 h-8 w-8 shrink-0"
           onClick={swap}
           aria-label="Swap cities"
         >
-          <ArrowRightLeft className="h-4 w-4" />
+          <ArrowRightLeft className="h-3.5 w-3.5" />
         </Button>
         <div className="space-y-1">
-          {!compact ? <Label className="text-xs text-muted-foreground">To</Label> : null}
+          {!compact ? <Label className="text-[11px] text-muted-foreground">To</Label> : null}
           <CitySelect
             value={toCity}
             onChange={setToCity}
@@ -95,19 +95,19 @@ export function SearchForm({
 
       <div className="grid grid-cols-2 gap-2">
         <div className="relative">
-          <Calendar className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Calendar className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
           <Input
             type="date"
             value={date}
             min={todayISO()}
             onChange={(e) => setDate(e.target.value)}
-            className="pl-9"
+            className="h-10 pl-8"
             aria-label="Departure date"
           />
         </div>
         <Select value={seats} onValueChange={setSeats}>
-          <SelectTrigger aria-label="Seats required">
-            <Users className="mr-1 h-4 w-4 text-muted-foreground" />
+          <SelectTrigger aria-label="Seats required" className="h-10">
+            <Users className="mr-1.5 h-3.5 w-3.5 text-muted-foreground" />
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -122,8 +122,8 @@ export function SearchForm({
 
       <Button
         type="submit"
-        size="xl"
-        className="w-full"
+        size="default"
+        className="h-10 w-full text-sm font-semibold"
       >
         <Search className="h-4 w-4" /> Search rides
       </Button>
