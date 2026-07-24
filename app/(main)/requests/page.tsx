@@ -3,11 +3,16 @@ import type { Metadata } from "next";
 import { Plus, Inbox } from "lucide-react";
 import { AppHeader } from "@/components/layout/app-header";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { EmptyState } from "@/components/feedback/empty-state";
 import { RequestCard } from "@/features/requests/components/request-card";
 import { listRideRequests } from "@/services/ride-request.service";
+import { getAuthenticatedUser } from "@/lib/auth-server";
+import { connectToDatabase } from "@/lib/db/connect";
+import { RideRequest } from "@/models/ride-request.model";
 import { ROUTES } from "@/constants/routes";
 import type { RideRequestDTO } from "@/types";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const dynamic = "force-dynamic";
 
@@ -17,7 +22,7 @@ export const metadata: Metadata = {
     "Passengers looking for rides across Pakistan. Drivers can offer a ride directly via WhatsApp or call.",
 };
 
-async function loadRequests(): Promise<RideRequestDTO[]> {
+async function loadPublicRequests(): Promise<RideRequestDTO[]> {
   try {
     const result = await listRideRequests({ pageSize: 30 });
     return result.items;
@@ -27,45 +32,140 @@ async function loadRequests(): Promise<RideRequestDTO[]> {
   }
 }
 
+async function loadMyRequests(phone: string) {
+  await connectToDatabase();
+  const docs = await RideRequest.find({
+    "passenger.phone": phone,
+    status: { $nin: ["expired", "cancelled", "fulfilled"] },
+  })
+    .sort({ createdAt: -1 })
+    .lean()
+    .exec();
+
+  return docs.map((req) => ({
+    id: String(req._id),
+    fromCity: req.fromCity,
+    toCity: req.toCity,
+    date: req.date,
+    seats: req.seats,
+    budget: req.budget,
+    notes: req.notes,
+    status: req.status,
+    createdAt: req.createdAt?.toISOString?.() ?? new Date().toISOString(),
+  })) as RideRequestDTO[];
+}
+
+function RequestRow({ request }: { request: RideRequestDTO }) {
+  return (
+    <Card>
+      <CardContent className="p-4">
+        <div className="flex items-center justify-between">
+          <div className="space-y-0.5">
+            <p className="text-sm font-semibold">
+              {request.fromCity} → {request.toCity}
+            </p>
+            <p className="text-xs text-muted-foreground">
+              {request.date} • {request.seats} seat{request.seats === 1 ? "" : "s"}
+              {request.budget ? ` • Rs ${request.budget}` : ""}
+            </p>
+          </div>
+          <span className="text-xs font-medium text-primary">
+            {request.status}
+          </span>
+        </div>
+        {request.notes ? (
+          <p className="mt-2 text-xs text-muted-foreground">{request.notes}</p>
+        ) : null}
+      </CardContent>
+    </Card>
+  );
+}
+
 export default async function RequestsPage() {
-  const requests = await loadRequests();
+  const user = await getAuthenticatedUser();
+  const hasUser = Boolean(user?.phone);
+  const publicRequests = await loadPublicRequests();
+  const myRequests = hasUser && user?.phone ? await loadMyRequests(user.phone) : [];
 
   return (
     <main>
-      <AppHeader title="Passenger requests" />
+      <AppHeader title="Requests" />
 
-      <div className="space-y-4 px-4 py-4">
-        <div className="flex items-center justify-between gap-2 rounded-xl border bg-accent/40 p-3">
-          <p className="text-xs text-muted-foreground">
-            Need a ride? Post a request and let drivers come to you.
-          </p>
-          <Button asChild size="sm">
-            <Link href={ROUTES.createRequest}>
-              <Plus /> Post
-            </Link>
-          </Button>
-        </div>
+      <div className="px-4 py-4">
+        <Tabs defaultValue={hasUser ? "my" : "public"} className="space-y-4">
+          <TabsList className="w-full">
+            <TabsTrigger value="my" className="flex-1">
+              My requests
+            </TabsTrigger>
+            <TabsTrigger value="public" className="flex-1">
+              Public
+            </TabsTrigger>
+          </TabsList>
 
-        {requests.length > 0 ? (
-          <div className="space-y-3">
-            {requests.map((request) => (
-              <RequestCard key={request.id} request={request} />
-            ))}
-          </div>
-        ) : (
-          <EmptyState
-            icon={Inbox}
-            title="No requests yet"
-            description="Be the first to post a ride request and drivers will reach out."
-            action={
-              <Button asChild>
+          <TabsContent value="my" className="space-y-3">
+            {myRequests.length > 0 ? (
+              myRequests.map((request) => (
+                <RequestRow key={request.id} request={request} />
+              ))
+            ) : hasUser ? (
+              <EmptyState
+                icon={Inbox}
+                title="No active requests"
+                description="You haven&apos;t posted any ride requests yet."
+                action={
+                  <Button asChild>
+                    <Link href={ROUTES.createRequest}>
+                      <Plus /> Post a request
+                    </Link>
+                  </Button>
+                }
+              />
+            ) : (
+              <EmptyState
+                icon={Inbox}
+                title="Sign in to view your requests"
+                description="Login to see and manage your ride requests."
+                action={
+                  <Button asChild>
+                    <Link href={ROUTES.auth.login}>Login</Link>
+                  </Button>
+                }
+              />
+            )}
+          </TabsContent>
+
+          <TabsContent value="public" className="space-y-3">
+            <div className="flex items-center justify-between gap-2 rounded-xl border border-border bg-card/60 p-3">
+              <p className="text-xs text-muted-foreground">
+                Need a ride? Post a request and let drivers come to you.
+              </p>
+              <Button asChild size="sm">
                 <Link href={ROUTES.createRequest}>
-                  <Plus /> Post a request
+                  <Plus /> Post
                 </Link>
               </Button>
-            }
-          />
-        )}
+            </div>
+
+            {publicRequests.length > 0 ? (
+              publicRequests.map((request) => (
+                <RequestRow key={request.id} request={request} />
+              ))
+            ) : (
+              <EmptyState
+                icon={Inbox}
+                title="No requests yet"
+                description="Be the first to post a ride request and drivers will reach out."
+                action={
+                  <Button asChild>
+                    <Link href={ROUTES.createRequest}>
+                      <Plus /> Post a request
+                    </Link>
+                  </Button>
+                }
+              />
+            )}
+          </TabsContent>
+        </Tabs>
       </div>
     </main>
   );

@@ -61,9 +61,13 @@ function buildSort(sort: SortOption): Record<string, SortOrder> {
 
 /** Build the Mongoose filter from validated search params. */
 function buildFilter(params: SearchParams): FilterQuery<RideDocument> {
-  const filter: FilterQuery<RideDocument> = {
-    status: { $in: PUBLIC_RIDE_STATUSES },
-  };
+  const filter: FilterQuery<RideDocument> = {};
+
+  if (params.status) {
+    filter.status = params.status;
+  } else {
+    filter.status = { $in: PUBLIC_RIDE_STATUSES };
+  }
 
   if (params.fromCity) filter["route.fromCity"] = params.fromCity;
   if (params.toCity) filter["route.toCity"] = params.toCity;
@@ -77,7 +81,7 @@ function buildFilter(params: SearchParams): FilterQuery<RideDocument> {
   }
 
   // Only show rides departing in the future (unless a specific past date asked).
-  if (dates.length === 0) {
+  if (dates.length === 0 && !params.status) {
     filter["departure.timestamp"] = { $gte: new Date() };
   }
 

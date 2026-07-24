@@ -49,7 +49,7 @@ export default async function RidesPage({ searchParams }: PageProps) {
         seats={params.seats}
       />
 
-      <div className="px-4 py-4">
+      <div className="px-4 py-3">
         <Suspense fallback={<RideCardSkeletonList count={5} />}>
           <RidesResults params={params} initialData={initialData} />
         </Suspense>

@@ -1,41 +1,34 @@
 import type { LucideIcon } from "lucide-react";
-import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 interface EmptyStateProps {
-  icon: LucideIcon;
+  icon?: LucideIcon;
   title: string;
   description?: string;
-  action?: ReactNode;
+  action?: React.ReactNode;
   className?: string;
 }
 
-export function EmptyState({
-  icon: Icon,
-  title,
-  description,
-  action,
-  className,
-}: EmptyStateProps) {
+export function EmptyState({ icon: Icon, title, description, action, className }: EmptyStateProps) {
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center gap-4 rounded-2xl border border-dashed bg-muted/30 px-6 py-14 text-center",
+        "flex flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-border bg-accent/40 py-12 text-center",
         className,
       )}
     >
-      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent text-primary shadow-soft">
-        <Icon className="h-8 w-8" />
-      </div>
-      <div className="space-y-1.5">
-        <p className="text-base font-semibold tracking-tight">{title}</p>
+      {Icon ? (
+        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-secondary-foreground">
+          <Icon className="h-5 w-5" />
+        </span>
+      ) : null}
+      <div className="space-y-1">
+        <p className="text-sm font-semibold">{title}</p>
         {description ? (
-          <p className="mx-auto max-w-xs text-sm leading-relaxed text-muted-foreground">
-            {description}
-          </p>
+          <p className="text-sm text-muted-foreground">{description}</p>
         ) : null}
       </div>
-      {action ? <div className="pt-1">{action}</div> : null}
+      {action}
     </div>
   );
 }

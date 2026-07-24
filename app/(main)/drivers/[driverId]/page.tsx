@@ -49,16 +49,16 @@ export default async function DriverProfilePage({ params }: PageProps) {
 
   return (
     <main className="pb-8">
-      <header className="glass sticky top-0 z-30 flex items-center gap-2 px-3 py-3">
+      <header className="sticky top-0 z-30 flex items-center gap-2 border-b border-border/60 bg-background/95 px-3 py-3 backdrop-blur-md">
         <Button asChild variant="ghost" size="icon" aria-label="Back">
           <Link href={ROUTES.rides}>
-            <ArrowLeft />
+            <ArrowLeft className="h-4 w-4" />
           </Link>
         </Button>
         <span className="text-sm font-semibold">Driver profile</span>
       </header>
 
-      <div className="space-y-4 px-4 py-4">
+      <div className="space-y-3 px-4 py-4">
         {/* Profile card */}
         <Card>
           <CardContent className="space-y-4 p-4">

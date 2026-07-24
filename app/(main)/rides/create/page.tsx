@@ -12,7 +12,7 @@ export default function CreateRidePage() {
   return (
     <main>
       <AppHeader title="Post a ride" />
-      <div className="px-4 py-5">
+      <div className="px-4 py-4">
         <CreateRideForm />
       </div>
     </main>

@@ -12,7 +12,6 @@ interface FormFieldProps {
   children: ReactNode;
 }
 
-/** Consistent labelled field wrapper with error + hint messaging. */
 export function FormField({
   label,
   htmlFor,
@@ -24,7 +23,7 @@ export function FormField({
 }: FormFieldProps) {
   return (
     <div className={cn("space-y-1.5", className)}>
-      <Label htmlFor={htmlFor}>
+      <Label htmlFor={htmlFor} className="text-xs font-medium">
         {label}
         {required ? <span className="ml-0.5 text-destructive">*</span> : null}
       </Label>

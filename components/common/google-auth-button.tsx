@@ -12,7 +12,7 @@ export function GoogleAuthButton({ className, text = "Continue with Google" }: G
       asChild
       variant="outline"
       className={cn(
-        "h-12 w-full justify-center rounded-xl border border-gray-300 bg-white text-gray-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md",
+        "h-10 w-full justify-center rounded-md border border-input bg-background text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground",
         className,
       )}
     >

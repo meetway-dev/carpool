@@ -35,7 +35,6 @@ export default function NotificationsPage() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["notifications", deviceKey] }),
   });
 
-  // Auto-mark all read when page opens.
   useEffect(() => {
     if (deviceKey && data?.some((n) => !n.read)) {
       markRead.mutate();
@@ -47,9 +46,9 @@ export default function NotificationsPage() {
 
   return (
     <main>
-      <AppHeader title="Notifications">
-        {unread > 0 ? (
-          <div className="flex items-center justify-between border-t px-4 py-2">
+      <AppHeader title="Notifications" right={
+        unread > 0 ? (
+          <div className="flex items-center gap-2">
             <span className="text-xs text-muted-foreground">{unread} unread</span>
             <Button
               variant="ghost"
@@ -60,13 +59,13 @@ export default function NotificationsPage() {
               <Check className="h-4 w-4" /> Mark all read
             </Button>
           </div>
-        ) : null}
-      </AppHeader>
+        ) : null
+      } />
 
-      <div className="space-y-1 px-4 py-4">
+      <div className="px-4 py-4">
         {isLoading ? (
           Array.from({ length: 5 }).map((_, i) => (
-            <Skeleton key={i} className="h-16 w-full rounded-xl" />
+            <Skeleton key={i} className="h-14 w-full rounded-lg" />
           ))
         ) : !data?.length ? (
           <EmptyState
@@ -79,8 +78,8 @@ export default function NotificationsPage() {
             <div
               key={n.id}
               className={cn(
-                "flex items-start gap-3 rounded-xl p-3 transition-colors",
-                !n.read && "bg-primary/5",
+                "flex items-start gap-3 rounded-lg border border-transparent p-3 transition-colors",
+                !n.read && "bg-accent/40",
               )}
             >
               <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-muted">

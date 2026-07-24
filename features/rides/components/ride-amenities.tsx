@@ -12,7 +12,6 @@ interface Amenity {
   key: keyof RideDTO["options"];
   label: string;
   icon: LucideIcon;
-  /** Whether this amenity is a positive highlight (true) or a restriction. */
   positive: boolean;
 }
 
@@ -23,7 +22,6 @@ const AMENITIES: Amenity[] = [
   { key: "smoking", label: "Smoking", icon: Cigarette, positive: false },
 ];
 
-/** Compact amenity chip row shown on ride cards and details. */
 export function RideAmenities({
   options,
   className,
@@ -46,10 +44,10 @@ export function RideAmenities({
           <span
             key={amenity.key}
             className={cn(
-              "inline-flex items-center gap-1 rounded-md px-2 py-1 text-[11px] font-medium",
+              "inline-flex items-center gap-1 rounded-md border border-border px-2 py-1 text-[11px] font-medium",
               amenity.positive
-                ? "bg-accent text-accent-foreground"
-                : "bg-muted text-muted-foreground",
+                ? "bg-secondary text-secondary-foreground"
+                : "bg-background text-muted-foreground",
             )}
           >
             <Icon className="h-3.5 w-3.5" />

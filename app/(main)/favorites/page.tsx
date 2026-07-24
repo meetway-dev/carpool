@@ -45,7 +45,7 @@ export default function FavoritesPage() {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="rides" className="mt-4 space-y-3">
+          <TabsContent value="rides" className="mt-3 space-y-3">
             {favorites.rides.length === 0 ? (
               <EmptyState
                 icon={Heart}
@@ -54,7 +54,7 @@ export default function FavoritesPage() {
                 action={
                   <Button asChild>
                     <Link href={ROUTES.rides}>
-                      <Search /> Find rides
+                      <Search className="h-4 w-4" /> Find rides
                     </Link>
                   </Button>
                 }
@@ -66,7 +66,7 @@ export default function FavoritesPage() {
             )}
           </TabsContent>
 
-          <TabsContent value="routes" className="mt-4 space-y-2">
+          <TabsContent value="routes" className="mt-3 space-y-2">
             {favorites.routes.length === 0 ? (
               <EmptyState
                 icon={MapPin}
@@ -77,7 +77,7 @@ export default function FavoritesPage() {
               favorites.routes.map((route) => (
                 <div
                   key={`${route.fromCity}-${route.toCity}`}
-                  className="flex items-center justify-between rounded-xl border bg-card p-3"
+                  className="flex items-center justify-between rounded-lg border border-border bg-card p-3"
                 >
                   <Link
                     href={`${ROUTES.rides}?fromCity=${encodeURIComponent(route.fromCity)}&toCity=${encodeURIComponent(route.toCity)}`}

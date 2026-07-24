@@ -57,14 +57,14 @@ export default function SignupPage() {
           </p>
         </div>
 
-        <Card className="w-full max-w-md border-border/60 bg-background/95 shadow-xl">
-          <CardHeader className="space-y-2 pb-4">
-            <CardTitle className="text-2xl">Create your account</CardTitle>
+        <Card className="w-full max-w-sm border-border shadow-sm">
+          <CardHeader className="space-y-2 pb-5 pt-6">
+            <CardTitle className="text-xl">Create your account</CardTitle>
             <p className="text-sm text-muted-foreground">
               Join RideConnect to find trusted rides and share your travel plans.
             </p>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-4 pb-6">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <FormField label="Email" error={errors.email?.message}>
                 <Input type="email" {...register("email")} />
@@ -91,17 +91,15 @@ export default function SignupPage() {
 
             <div className="flex items-center gap-3">
               <div className="h-px flex-1 bg-border" />
-              <span className="text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
-                or
-              </span>
+              <span className="text-[11px] text-muted-foreground">or</span>
               <div className="h-px flex-1 bg-border" />
             </div>
 
             <div className="space-y-3">
               <GoogleAuthButton text="Sign up with Google" />
 
-              <p className="text-sm text-muted-foreground">
-                Already have an account?{' '}
+              <p className="text-center text-xs text-muted-foreground">
+                Already have an account?{" "}
                 <Link className="text-primary hover:underline" href={ROUTES.auth.login}>
                   Login
                 </Link>

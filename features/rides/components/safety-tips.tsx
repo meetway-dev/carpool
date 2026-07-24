@@ -10,7 +10,7 @@ const SAFETY_TIPS = [
 /** Static safety guidance shown on ride details. */
 export function SafetyTips() {
   return (
-    <div className="rounded-xl border bg-accent/40 p-4">
+    <div className="rounded-lg border bg-accent/40 p-4">
       <div className="mb-2 flex items-center gap-2 text-sm font-semibold">
         <ShieldCheck className="h-4 w-4 text-primary" /> Safety tips
       </div>

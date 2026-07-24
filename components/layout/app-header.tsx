@@ -1,53 +1,41 @@
-"use client";
-
-import { NotificationBell } from "@/components/common/notification-bell";
-import { ThemeToggle } from "@/components/common/theme-toggle";
-import { ROUTES } from "@/constants/routes";
-import { cn } from "@/lib/utils";
-import { Car, User } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { type ReactNode } from "react";
+import { Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ROUTES } from "@/constants/routes";
+import { ThemeToggle } from "@/components/common/theme-toggle";
+import { NotificationBell } from "@/components/common/notification-bell";
 
 interface AppHeaderProps {
   title?: string;
-  children?: React.ReactNode;
-  className?: string;
+  right?: ReactNode;
 }
 
-export function AppHeader({ title, children, className }: AppHeaderProps) {
-  const pathname = usePathname?.() || "";
-  const isAuthPage = pathname === "/auth/login" || pathname === "/auth/signup";
-  const hideActions = isAuthPage;
+export function AppHeader({ title, right }: AppHeaderProps) {
   return (
-    <header className={cn("glass sticky top-0 z-30", className)}>
+    <header className="sticky top-0 z-30 border-b border-border/60 bg-background/95 backdrop-blur-md">
       <div className="flex items-center justify-between px-4 py-3">
-        <Link href={ROUTES.home} className="flex items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm ring-1 ring-primary/10">
-            <Car className="h-5 w-5" />
-          </span>
-          <span className="text-lg font-bold tracking-tight">
-            {isAuthPage ? "CityPool" : (title ?? "CityPool")}
-          </span>
-        </Link>
-        <div className="ml-auto flex items-center gap-1">
-          {!hideActions ? (
-            <>
-              <NotificationBell />
-              <ThemeToggle />
-              <Link
-                href={ROUTES.profile}
-                aria-label="Go to profile"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/80 text-foreground transition-colors hover:bg-accent"
-              >
-                <User className="h-5 w-5" />
-              </Link>
-            </>
-          ) : (
-            <ThemeToggle />
-          )}
+        <div className="flex items-center gap-3">
+          <Link href={ROUTES.home} className="flex items-center gap-2.5">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
+              <span className="text-sm font-bold tracking-tight">C</span>
+            </span>
+            {title ? (
+              <span className="text-base font-semibold tracking-tight">{title}</span>
+            ) : (
+              <span className="text-base font-semibold tracking-tight">
+                CityPool
+              </span>
+            )}
+          </Link>
+        </div>
+
+        <div className="flex items-center gap-1">
+          <NotificationBell />
+          <ThemeToggle />
+          {right}
         </div>
       </div>
-      {children}
     </header>
   );
 }

@@ -11,7 +11,7 @@ export function RouteChangeIndicator() {
   useEffect(() => {
     if (prev.current && prev.current !== pathname) {
       setLoading(true);
-      const t = setTimeout(() => setLoading(false), 600);
+      const t = setTimeout(() => setLoading(false), 500);
       return () => clearTimeout(t);
     }
     prev.current = pathname;
@@ -21,8 +21,6 @@ export function RouteChangeIndicator() {
   if (!loading) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-0.5">
-      <div className="h-full w-full bg-primary/70 transition-all duration-300" />
-    </div>
+    <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-0.5 bg-primary/80 transition-all duration-300" />
   );
 }

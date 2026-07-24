@@ -24,7 +24,7 @@ export function RideStatusBadge({
 }) {
   const meta = RIDE_STATUS_META[status];
   return (
-    <Badge variant={VARIANT_BY_STATUS[status]} className={cn(className)}>
+    <Badge variant={VARIANT_BY_STATUS[status]} className={cn("text-[11px]", className)}>
       {meta.label}
     </Badge>
   );

@@ -22,7 +22,6 @@ interface SearchFormProps {
   defaultToCity?: string;
   defaultDate?: string;
   defaultSeats?: number;
-  /** Compact styling used inside the sticky search bar on results page. */
   compact?: boolean;
 }
 
@@ -30,7 +29,6 @@ function todayISO(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
-/** Home / sticky search form. Navigates to the results page with query params. */
 export function SearchForm({
   defaultFromCity = DEFAULT_SEARCH_PAIR.fromCity,
   defaultToCity = DEFAULT_SEARCH_PAIR.toCity,
@@ -77,7 +75,7 @@ export function SearchForm({
           type="button"
           variant="outline"
           size="icon"
-          className="mb-0.5"
+          className="mb-0.5 h-9 w-9"
           onClick={swap}
           aria-label="Swap cities"
         >
@@ -125,9 +123,9 @@ export function SearchForm({
       <Button
         type="submit"
         size="xl"
-        className="w-full bg-primary shadow-elevated"
+        className="w-full"
       >
-        <Search /> Search rides
+        <Search className="h-4 w-4" /> Search rides
       </Button>
     </form>
   );

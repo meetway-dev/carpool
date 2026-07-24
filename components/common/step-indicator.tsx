@@ -7,7 +7,6 @@ interface StepIndicatorProps {
   className?: string;
 }
 
-/** Horizontal step progress indicator for multi-step forms. */
 export function StepIndicator({ steps, current, className }: StepIndicatorProps) {
   return (
     <ol className={cn("flex items-center gap-2", className)}>
@@ -19,19 +18,19 @@ export function StepIndicator({ steps, current, className }: StepIndicatorProps)
             <div className="flex flex-col items-center gap-1">
               <span
                 className={cn(
-                  "flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold transition-colors",
+                  "flex h-6 w-6 items-center justify-center rounded-full text-[11px] font-semibold transition-colors",
                   isDone && "bg-primary text-primary-foreground",
-                  isActive && "bg-primary/15 text-primary ring-2 ring-primary",
+                  isActive && "bg-primary/15 text-primary ring-1 ring-primary",
                   !isDone && !isActive && "bg-muted text-muted-foreground",
                 )}
               >
-                {isDone ? <Check className="h-4 w-4" /> : index + 1}
+                {isDone ? <Check className="h-3 w-3" /> : index + 1}
               </span>
             </div>
             {index < steps.length - 1 ? (
               <span
                 className={cn(
-                  "h-0.5 flex-1 rounded-full transition-colors",
+                  "h-px flex-1 rounded-full transition-colors",
                   isDone ? "bg-primary" : "bg-muted",
                 )}
               />

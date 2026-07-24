@@ -247,8 +247,6 @@ export function CreateRideForm() {
         </div>
       ) : null}
 
-      
-
       {/* Step 2 — Amenities / options */}
       {step === 1 ? (
         <div className="space-y-4">
@@ -259,7 +257,7 @@ export function CreateRideForm() {
               <label key={opt.key} className="flex items-center justify-between">
                 <div className="space-y-0.5">
                   <div className="text-sm font-medium">{opt.label}</div>
-                  <div className="text-sm text-muted-foreground">{opt.description}</div>
+                  <div className="text-xs text-muted-foreground">{opt.description}</div>
                 </div>
                 <Controller
                   control={control}
@@ -273,7 +271,6 @@ export function CreateRideForm() {
           </div>
         </div>
       ) : null}
-
 
       {/* Step 3 — Preview */}
       {step === 2 ? (
@@ -290,17 +287,17 @@ export function CreateRideForm() {
       <div className="flex items-center gap-2">
         {step > 0 ? (
           <Button type="button" variant="outline" onClick={back} disabled={isPending}>
-            <ArrowLeft /> Back
+            <ArrowLeft className="h-4 w-4" /> Back
           </Button>
         ) : null}
 
         {step < STEPS.length - 1 ? (
           <Button type="button" onClick={next} className="flex-1">
-            Next <ArrowRight />
+            Next <ArrowRight className="h-4 w-4" />
           </Button>
         ) : (
           <Button type="submit" className="flex-1" disabled={isPending}>
-            <Send /> {isPending ? "Publishing…" : "Publish ride"}
+            <Send className="h-4 w-4" /> {isPending ? "Publishing…" : "Publish ride"}
           </Button>
         )}
       </div>

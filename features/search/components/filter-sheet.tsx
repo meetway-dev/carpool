@@ -35,13 +35,13 @@ const PRICE_MIN = 0;
 const PRICE_MAX = 5000;
 const PRICE_STEP = 100;
 
-/** Advanced filter drawer. Applies all filters to the URL on submit. */
 export function FilterSheet() {
   const { get, setParams, clearFilters, searchParams } = useSearchQuery();
   const [open, setOpen] = useState(false);
 
   const [timeWindow, setTimeWindow] = useState<string>("");
   const [vehicleType, setVehicleType] = useState<string>("");
+  const [status, setStatus] = useState<string>("");
   const [priceRange, setPriceRange] = useState<[number, number]>([PRICE_MIN, PRICE_MAX]);
   const [driverName, setDriverName] = useState("");
   const [phone, setPhone] = useState("");
@@ -50,11 +50,11 @@ export function FilterSheet() {
   const [femaleOnly, setFemaleOnly] = useState(false);
   const [verified, setVerified] = useState(false);
 
-  // Hydrate local state from the URL whenever the sheet opens.
   useEffect(() => {
     if (!open) return;
     setTimeWindow(get("timeWindow") ?? "");
     setVehicleType(get("vehicleType") ?? "");
+    setStatus(get("status") ?? "");
     setPriceRange([
       Number(get("minPrice") ?? PRICE_MIN),
       Number(get("maxPrice") ?? PRICE_MAX),
@@ -74,6 +74,7 @@ export function FilterSheet() {
       {
         timeWindow: timeWindow || undefined,
         vehicleType: vehicleType || undefined,
+        status: status || undefined,
         minPrice: priceRange[0] > PRICE_MIN ? priceRange[0] : undefined,
         maxPrice: priceRange[1] < PRICE_MAX ? priceRange[1] : undefined,
         driverName: driverName.trim() || undefined,
@@ -100,7 +101,7 @@ export function FilterSheet() {
           <SlidersHorizontal className="h-4 w-4" />
           Filters
           {activeCount > 0 ? (
-            <Badge variant="default" className="ml-0.5 px-1.5 py-0">
+            <Badge variant="default" className="ml-0.5 h-5 rounded-md px-1.5 py-0 text-[11px]">
               {activeCount}
             </Badge>
           ) : null}
@@ -114,46 +115,26 @@ export function FilterSheet() {
         </SheetHeader>
 
         <div className="space-y-5 px-5 pb-4">
-          {/* Time of day */}
           <div className="space-y-2">
-            <Label>Departure time</Label>
-            <div className="grid grid-cols-4 gap-2">
-              {TIME_WINDOW_KEYS.map((key) => (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => setTimeWindow(timeWindow === key ? "" : key)}
-                  className={`rounded-lg border px-2 py-2 text-xs font-medium transition-colors ${
-                    timeWindow === key
-                      ? "border-primary bg-primary/10 text-primary"
-                      : "hover:bg-accent"
-                  }`}
-                >
-                  {TIME_WINDOWS[key].label}
-                </button>
-              ))}
-            </div>
+            <Label>Status</Label>
+            <Select
+              value={status || "active"}
+              onValueChange={(v) => setStatus(v === "active" ? "" : v)}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Active" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="active">Active</SelectItem>
+                <SelectItem value="open">Open</SelectItem>
+                <SelectItem value="almostFull">Almost full</SelectItem>
+                <SelectItem value="full">Full</SelectItem>
+                <SelectItem value="expired">Expired</SelectItem>
+                <SelectItem value="cancelled">Cancelled</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
-          {/* Price range */}
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <Label>Price per seat</Label>
-              <span className="text-sm text-muted-foreground">
-                {formatPrice(priceRange[0])} – {formatPrice(priceRange[1])}
-                {priceRange[1] >= PRICE_MAX ? "+" : ""}
-              </span>
-            </div>
-            <Slider
-              min={PRICE_MIN}
-              max={PRICE_MAX}
-              step={PRICE_STEP}
-              value={priceRange}
-              onValueChange={(v) => setPriceRange([v[0] ?? PRICE_MIN, v[1] ?? PRICE_MAX])}
-            />
-          </div>
-
-          {/* Vehicle type */}
           <div className="space-y-2">
             <Label>Vehicle type</Label>
             <Select
@@ -176,7 +157,6 @@ export function FilterSheet() {
 
           <Separator />
 
-          {/* Toggles */}
           <div className="space-y-3">
             <ToggleRow label="Air conditioning" checked={ac} onChange={setAc} />
             <ToggleRow
@@ -193,7 +173,6 @@ export function FilterSheet() {
 
           <Separator />
 
-          {/* Text filters */}
           <div className="space-y-3">
             <div className="space-y-1.5">
               <Label htmlFor="filter-driver">Driver name</Label>
@@ -227,11 +206,11 @@ export function FilterSheet() {
         </div>
 
         <SheetFooter className="sticky bottom-0 border-t bg-background">
-          <Button variant="ghost" onClick={reset} className="sm:flex-1">
+          <Button variant="ghost" onClick={reset} className="flex-1">
             Reset
           </Button>
           <SheetClose asChild>
-            <Button onClick={apply} className="sm:flex-1">
+            <Button onClick={apply} className="flex-1">
               Show results
             </Button>
           </SheetClose>
@@ -261,6 +240,7 @@ function ToggleRow({
 const FILTER_KEYS = [
   "timeWindow",
   "vehicleType",
+  "status",
   "minPrice",
   "maxPrice",
   "driverName",

@@ -26,6 +26,7 @@ export const searchParamsSchema = z.object({
   vehicleType: z
     .enum(VEHICLE_TYPE_VALUES)
     .optional(),
+  status: z.enum(["open", "almostFull", "full", "expired", "cancelled"]).optional(),
   driverName: z.string().max(60).trim().optional(),
   phone: z.string().max(20).trim().optional(),
   keyword: z.string().max(80).trim().optional(),
