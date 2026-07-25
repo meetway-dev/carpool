@@ -59,8 +59,8 @@ export default async function RideDetailsPage({ params }: PageProps) {
   );
 
   return (
-    <main className="pb-28">
-      <header className="sticky top-0 z-30 flex items-center gap-2 border-b border-border/60 bg-background/95 px-3 py-3 backdrop-blur-md">
+    <main className="animate-fade-in pb-28">
+      <header className="sticky top-0 z-30 flex items-center gap-3 border-b border-border/60 bg-background/95 px-4 py-3 backdrop-blur-md">
         <Button asChild variant="ghost" size="icon" aria-label="Back to rides">
           <Link href={ROUTES.rides}>
             <ArrowLeft className="h-4 w-4" />
@@ -73,10 +73,9 @@ export default async function RideDetailsPage({ params }: PageProps) {
       </header>
 
       <div className="space-y-3 px-4 py-4">
-        {/* Driver */}
         <Card>
-          <CardContent className="flex items-center gap-3 p-4">
-            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground">
+          <CardContent className="flex items-center gap-4 p-4">
+            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-secondary text-secondary-foreground ring-2 ring-border">
               {ride.driver.photoUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -90,7 +89,7 @@ export default async function RideDetailsPage({ params }: PageProps) {
             </span>
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-1.5">
-                <p className="truncate font-semibold">{ride.driver.name}</p>
+                <p className="truncate text-base font-semibold">{ride.driver.name}</p>
                 {ride.driver.verified ? (
                   <BadgeCheck className="h-4 w-4 shrink-0 text-primary" />
                 ) : null}
@@ -110,22 +109,22 @@ export default async function RideDetailsPage({ params }: PageProps) {
           </CardContent>
         </Card>
 
-        {/* Trip summary */}
         <Card>
           <CardContent className="space-y-4 p-4">
             <div className="flex items-center justify-between">
               <div>
-                <span className="text-2xl font-bold">
+                <span className="text-2xl font-bold tabular-nums">
                   {formatPrice(ride.pricePerSeat)}
                 </span>
                 <span className="text-sm text-muted-foreground"> / seat</span>
               </div>
-              <div className="flex items-center gap-3 text-sm">
-                <span className="flex items-center gap-1.5 text-muted-foreground">
-                  <Users className="h-4 w-4" />
-                  {ride.seatsLeft}/{ride.seatsTotal}
-                </span>
-              </div>
+              <Badge
+                variant={ride.seatsLeft <= 0 ? "muted" : ride.seatsLeft <= 2 ? "warning" : "success"}
+                className="text-sm"
+              >
+                <Users className="mr-1 h-3.5 w-3.5" />
+                {ride.seatsLeft}/{ride.seatsTotal} seats
+              </Badge>
             </div>
 
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -146,7 +145,6 @@ export default async function RideDetailsPage({ params }: PageProps) {
           </CardContent>
         </Card>
 
-        {/* Vehicle */}
         <Card>
           <CardContent className="space-y-3 p-4">
             <p className="text-sm font-semibold">Vehicle</p>
@@ -161,23 +159,21 @@ export default async function RideDetailsPage({ params }: PageProps) {
           </CardContent>
         </Card>
 
-        {/* Amenities */}
         <Card>
           <CardContent className="space-y-3 p-4">
             <p className="text-sm font-semibold">Ride rules &amp; amenities</p>
             <RideAmenities options={ride.options} />
             {ride.notes ? (
-              <p className="rounded-lg bg-muted p-3 text-sm text-muted-foreground">
+              <p className="rounded-xl bg-muted/60 p-3 text-sm text-muted-foreground">
                 {ride.notes}
               </p>
             ) : null}
           </CardContent>
         </Card>
 
-        {/* Map placeholder */}
         <Card>
           <CardContent className="p-4">
-            <div className="flex h-32 flex-col items-center justify-center gap-1 rounded-xl bg-muted text-muted-foreground">
+            <div className="flex h-32 flex-col items-center justify-center gap-2 rounded-xl bg-muted/60 text-muted-foreground">
               <MapPin className="h-6 w-6" />
               <p className="text-xs">Map view coming soon</p>
             </div>
@@ -186,9 +182,8 @@ export default async function RideDetailsPage({ params }: PageProps) {
 
         <SafetyTips />
 
-        {/* Related */}
         {related.length > 0 ? (
-          <section className="space-y-3">
+          <section className="space-y-3 pt-2">
             <div className="flex items-center justify-between">
               <h2 className="text-sm font-semibold">
                 More on {ride.route.fromCity} → {ride.route.toCity}
@@ -202,11 +197,8 @@ export default async function RideDetailsPage({ params }: PageProps) {
         ) : null}
       </div>
 
-      {/* Sticky action bar */}
-      <div className="fixed inset-x-0 bottom-0 z-40 mx-auto max-w-lg border-t bg-background/90 p-3 backdrop-blur-xl">
-        <div className="space-y-2">
-          <RideActions ride={ride} variant="detail" />
-        </div>
+      <div className="fixed inset-x-0 bottom-0 z-40 mx-auto max-w-lg border-t border-border/60 bg-background/95 p-4 pb-safe backdrop-blur-xl">
+        <RideActions ride={ride} variant="detail" />
       </div>
     </main>
   );
@@ -222,8 +214,10 @@ function InfoRow({
   value: string;
 }) {
   return (
-    <div className="flex items-center gap-2">
-      <Icon className="h-4 w-4 shrink-0 text-muted-foreground" />
+    <div className="flex items-center gap-2.5">
+      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-muted/60">
+        <Icon className="h-4 w-4 text-muted-foreground" />
+      </span>
       <div className="min-w-0">
         <p className="text-[11px] text-muted-foreground">{label}</p>
         <p className="truncate font-medium">{value}</p>

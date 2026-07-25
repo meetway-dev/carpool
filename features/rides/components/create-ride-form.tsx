@@ -179,7 +179,7 @@ export function CreateRideForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
       <StepIndicator steps={STEPS} current={step} />
 
       {/* Step 1 — Route */}
@@ -254,7 +254,7 @@ export function CreateRideForm() {
           <p className="text-xs text-muted-foreground">Choose amenities and rules for your ride.</p>
           <div className="space-y-2.5">
             {RIDE_OPTION_CONFIG.map((opt) => (
-              <label key={opt.key} className="flex items-center justify-between">
+              <label key={opt.key} className="flex items-center justify-between rounded-xl bg-accent/40 p-3">
                 <div className="space-y-0.5">
                   <div className="text-sm font-medium">{opt.label}</div>
                   <div className="text-[11px] text-muted-foreground">{opt.description}</div>
@@ -296,8 +296,8 @@ export function CreateRideForm() {
             Next <ArrowRight className="h-4 w-4" />
           </Button>
         ) : (
-          <Button type="submit" className="flex-1" disabled={isPending}>
-            <Send className="h-4 w-4" /> {isPending ? "Publishing…" : "Publish ride"}
+          <Button type="submit" className="flex-1" loading={isPending}>
+            <Send className="h-4 w-4" /> Publish ride
           </Button>
         )}
       </div>

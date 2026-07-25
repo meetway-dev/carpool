@@ -72,9 +72,9 @@ export function RequestForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
       <FormField label="Your name" error={errors.passengerName?.message} required>
-        <Input placeholder="e.g. Ahmed Khan" {...register("passengerName")} />
+        <Input placeholder="e.g. Ahmed Khan" {...register("passengerName")} aria-invalid={!!errors.passengerName} />
       </FormField>
 
       <FormField
@@ -83,7 +83,7 @@ export function RequestForm() {
         hint="Drivers contact you on WhatsApp / call"
         required
       >
-        <Input placeholder="0300 1234567" inputMode="tel" {...register("phone")} />
+        <Input placeholder="0300 1234567" inputMode="tel" {...register("phone")} aria-invalid={!!errors.phone} />
       </FormField>
 
       <div className="grid grid-cols-2 gap-3">
@@ -151,8 +151,8 @@ export function RequestForm() {
         <Textarea placeholder="Flexible timing, need AC, etc." {...register("notes")} />
       </FormField>
 
-      <Button type="submit" size="xl" className="w-full" disabled={isPending}>
-        <Send /> {isPending ? "Posting…" : "Post request"}
+      <Button type="submit" size="xl" className="w-full" loading={isPending}>
+        <Send /> Post request
       </Button>
     </form>
   );

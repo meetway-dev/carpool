@@ -45,18 +45,20 @@ export default function NotificationsPage() {
   const unread = data?.filter((n) => !n.read).length ?? 0;
 
   return (
-    <main>
+    <main className="animate-fade-in">
       <AppHeader title="Notifications" right={
         unread > 0 ? (
           <div className="flex items-center gap-2">
-            <span className="text-xs text-muted-foreground">{unread} unread</span>
+            <Badge variant="default" className="tabular-nums">
+              {unread} new
+            </Badge>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => markRead.mutate()}
               disabled={markRead.isPending}
             >
-              <Check className="h-4 w-4" /> Mark all read
+              <Check className="h-4 w-4" /> Mark read
             </Button>
           </div>
         ) : null
@@ -64,9 +66,18 @@ export default function NotificationsPage() {
 
       <div className="px-4 py-4">
         {isLoading ? (
-          Array.from({ length: 5 }).map((_, i) => (
-            <Skeleton key={i} className="h-14 w-full rounded-lg" />
-          ))
+          <div className="space-y-2">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div key={i} className="flex items-start gap-3 rounded-xl p-3">
+                <Skeleton className="h-10 w-10 rounded-full" />
+                <div className="flex-1 space-y-2">
+                  <Skeleton className="h-4 w-3/4" />
+                  <Skeleton className="h-3 w-full" />
+                  <Skeleton className="h-3 w-16" />
+                </div>
+              </div>
+            ))}
+          </div>
         ) : !data?.length ? (
           <EmptyState
             icon={BellOff}
@@ -74,31 +85,34 @@ export default function NotificationsPage() {
             description="Save a route and we'll notify you when a new ride is posted."
           />
         ) : (
-          data.map((n) => (
-            <div
-              key={n.id}
-              className={cn(
-                "flex items-start gap-3 rounded-lg border border-transparent p-3 transition-colors",
-                !n.read && "bg-accent/40",
-              )}
-            >
-              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-muted">
-                <Bell className="h-4 w-4 text-muted-foreground" />
-              </span>
-              <div className="min-w-0 flex-1">
-                <div className="flex items-start justify-between gap-2">
-                  <p className="text-sm font-medium">{n.title}</p>
-                  {!n.read ? (
-                    <Badge variant="default" className="shrink-0 px-1.5 py-0 text-[10px]">
-                      New
-                    </Badge>
-                  ) : null}
+          <div className="space-y-1">
+            {data.map((n) => (
+              <div
+                key={n.id}
+                className={cn(
+                  "flex items-start gap-3 rounded-xl p-3 transition-all",
+                  !n.read && "bg-accent/50",
+                )}
+              >
+                <span className={cn(
+                  "mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full",
+                  n.read ? "bg-muted" : "bg-primary/10",
+                )}>
+                  <Bell className={cn("h-4 w-4", n.read ? "text-muted-foreground" : "text-primary")} />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-start justify-between gap-2">
+                    <p className={cn("text-sm", !n.read ? "font-semibold" : "font-medium")}>{n.title}</p>
+                    {!n.read ? (
+                      <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                    ) : null}
+                  </div>
+                  <p className="mt-0.5 text-xs text-muted-foreground line-clamp-2">{n.body}</p>
+                  <p className="mt-1 text-[11px] text-muted-foreground">{timeAgo(n.createdAt)}</p>
                 </div>
-                <p className="text-xs text-muted-foreground">{n.body}</p>
-                <p className="mt-0.5 text-[11px] text-muted-foreground">{timeAgo(n.createdAt)}</p>
               </div>
-            </div>
-          ))
+            ))}
+          </div>
         )}
       </div>
     </main>

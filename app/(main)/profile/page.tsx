@@ -1,10 +1,11 @@
 import { AppHeader } from "@/components/layout/app-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ROUTES } from "@/constants/routes";
 import { ProfileForm } from "@/features/profile/profile-form";
-import { Heart, LogOut, Plus, ShieldCheck, User, Car } from "lucide-react";
+import { Heart, LogOut, Plus, ShieldCheck, User, Car, MapPin, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { getAuthenticatedUser } from "@/lib/auth-server";
 import { connectToDatabase } from "@/lib/db/connect";
@@ -12,7 +13,6 @@ import { Ride } from "@/models/ride.model";
 import { RideRequest } from "@/models/ride-request.model";
 import { RideCard } from "@/features/rides/components/ride-card";
 import { EmptyState } from "@/components/feedback/empty-state";
-import { RideCardSkeleton } from "@/features/rides/components/ride-card-skeleton";
 
 export const dynamic = "force-dynamic";
 
@@ -62,10 +62,22 @@ export default async function ProfilePage() {
   }
 
   return (
-    <main>
+    <main className="animate-fade-in">
       <AppHeader title="Profile" />
-      <div className="px-4 py-4 space-y-4">
-        <Tabs defaultValue={activeRide ? "ride" : "requests"} className="space-y-3">
+      <div className="px-4 py-4 space-y-5">
+        {hasUser ? (
+          <div className="flex items-center gap-4">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary ring-2 ring-primary/20">
+              <User className="h-6 w-6" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-base font-semibold">{user?.name || "User"}</p>
+              <p className="truncate text-sm text-muted-foreground">{user?.phone || user?.email || ""}</p>
+            </div>
+          </div>
+        ) : null}
+
+        <Tabs defaultValue={activeRide ? "ride" : "requests"} className="space-y-4">
           <TabsList className="w-full">
             <TabsTrigger value="ride" className="flex-1">
               My ride
@@ -117,27 +129,26 @@ export default async function ProfilePage() {
             )}
           </TabsContent>
 
-          <TabsContent value="requests" className="space-y-2.5">
+          <TabsContent value="requests" className="space-y-3">
             {activeRequests.length > 0 ? (
               activeRequests.map((req) => (
-                <Card key={String(req._id)}>
-                  <CardContent className="p-3.5">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-semibold text-sm">
-                          {req.fromCity} → {req.toCity}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          {req.date} • {req.seats} seat{req.seats === 1 ? "" : "s"}
-                          {req.budget ? ` • Rs ${req.budget}` : ""}
-                        </p>
+                <Card key={String(req._id)} className="card-interactive">
+                  <CardContent className="p-4">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 text-sm font-semibold">
+                        <MapPin className="h-3.5 w-3.5 text-primary" />
+                        {req.fromCity}
+                        <ArrowRight className="h-3 w-3 text-muted-foreground" />
+                        {req.toCity}
                       </div>
-                      <span className="text-xs font-medium text-primary">
-                        {req.status}
-                      </span>
+                      <Badge variant="default">{req.status}</Badge>
                     </div>
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      {req.date} · {req.seats} seat{req.seats === 1 ? "" : "s"}
+                      {req.budget ? ` · Rs ${req.budget}` : ""}
+                    </p>
                     {req.notes ? (
-                      <p className="mt-2 text-xs text-muted-foreground">{req.notes}</p>
+                      <p className="mt-2 text-xs text-muted-foreground line-clamp-2">{req.notes}</p>
                     ) : null}
                   </CardContent>
                 </Card>
@@ -171,7 +182,7 @@ export default async function ProfilePage() {
         </Tabs>
 
         {hasUser ? (
-          <div className="mt-4 space-y-3">
+          <div className="space-y-4">
             <ProfileForm />
 
             <div className="space-y-2">
@@ -182,7 +193,7 @@ export default async function ProfilePage() {
                     key={link.href}
                     asChild
                     variant="outline"
-                    className="w-full justify-start"
+                    className="w-full justify-start gap-3"
                   >
                     <Link href={link.href}>
                       <Icon /> {link.label}
@@ -191,16 +202,16 @@ export default async function ProfilePage() {
                 );
               })}
 
-              <Button asChild variant="destructive" className="w-full justify-start">
+              <Button asChild variant="destructive" className="w-full justify-start gap-3">
                 <Link href={ROUTES.auth.logout}>
                   <LogOut /> Logout
                 </Link>
               </Button>
             </div>
 
-            <div className="flex items-center gap-2 rounded-xl border border-dashed border-border bg-accent/40 p-3 text-xs text-muted-foreground">
-              <ShieldCheck className="h-4 w-4 shrink-0 text-primary" />
-              Profile details are stored locally. Login to sync ride history and requests.
+            <div className="flex items-center gap-3 rounded-xl border border-dashed border-border bg-accent/40 p-4 text-xs text-muted-foreground">
+              <ShieldCheck className="h-5 w-5 shrink-0 text-primary" />
+              <span>Profile details are stored locally. Login to sync ride history and requests.</span>
             </div>
           </div>
         ) : null}

@@ -21,6 +21,8 @@ export function FormField({
   className,
   children,
 }: FormFieldProps) {
+  const errorId = htmlFor ? `${htmlFor}-error` : undefined;
+
   return (
     <div className={cn("space-y-1.5", className)}>
       <Label htmlFor={htmlFor} className="text-xs font-medium">
@@ -29,7 +31,9 @@ export function FormField({
       </Label>
       {children}
       {error ? (
-        <p className="text-xs font-medium text-destructive">{error}</p>
+        <p id={errorId} role="alert" className="animate-slide-up text-xs font-medium text-destructive">
+          {error}
+        </p>
       ) : hint ? (
         <p className="text-xs text-muted-foreground">{hint}</p>
       ) : null}

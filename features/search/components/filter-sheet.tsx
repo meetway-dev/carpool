@@ -1,12 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { SlidersHorizontal } from "lucide-react";
+import { SlidersHorizontal, Wind, ShieldCheck, UserCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { Slider } from "@/components/ui/slider";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -27,13 +26,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { VEHICLE_TYPES } from "@/constants/vehicle-types";
-import { TIME_WINDOWS, TIME_WINDOW_KEYS } from "@/constants/routes";
-import { formatPrice } from "@/lib/utils";
 import { useSearchQuery } from "@/features/search/hooks/use-search-query";
 
 const PRICE_MIN = 0;
 const PRICE_MAX = 5000;
-const PRICE_STEP = 100;
 
 export function FilterSheet() {
   const { get, setParams, clearFilters, searchParams } = useSearchQuery();
@@ -101,116 +97,128 @@ export function FilterSheet() {
           <SlidersHorizontal className="h-4 w-4" />
           Filters
           {activeCount > 0 ? (
-            <Badge variant="default" className="ml-0.5 h-5 rounded-md px-1.5 py-0 text-[11px]">
+            <Badge variant="default" className="ml-0.5 h-5 rounded-full px-1.5 py-0 text-[11px]">
               {activeCount}
             </Badge>
           ) : null}
         </Button>
       </SheetTrigger>
 
-      <SheetContent side="bottom" className="max-h-[85dvh] overflow-y-auto">
-        <SheetHeader className="px-4 pt-4 pb-2">
+      <SheetContent side="bottom" className="max-h-[85dvh] overflow-y-auto rounded-t-2xl">
+        <div className="mx-auto mb-2 mt-2 h-1 w-10 rounded-full bg-muted-foreground/30" />
+
+        <SheetHeader className="px-4 pb-3">
           <SheetTitle className="text-base">Filters</SheetTitle>
           <SheetDescription className="text-xs">Refine your ride search.</SheetDescription>
         </SheetHeader>
 
-        <div className="space-y-4 px-4 pb-4">
-          <div className="space-y-1.5">
-            <Label className="text-xs">Status</Label>
-            <Select
-              value={status || "active"}
-              onValueChange={(v) => setStatus(v === "active" ? "" : v)}
-            >
-              <SelectTrigger className="h-10">
-                <SelectValue placeholder="Active" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="active">Active</SelectItem>
-                <SelectItem value="open">Open</SelectItem>
-                <SelectItem value="almostFull">Almost full</SelectItem>
-                <SelectItem value="full">Full</SelectItem>
-                <SelectItem value="expired">Expired</SelectItem>
-                <SelectItem value="cancelled">Cancelled</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+        <div className="space-y-5 px-4 pb-4">
+          <div className="space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Ride type</p>
+            <div className="space-y-2">
+              <div className="space-y-1.5">
+                <Label className="text-xs">Status</Label>
+                <Select
+                  value={status || "active"}
+                  onValueChange={(v) => setStatus(v === "active" ? "" : v)}
+                >
+                  <SelectTrigger className="h-10">
+                    <SelectValue placeholder="Active" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="active">Active</SelectItem>
+                    <SelectItem value="open">Open</SelectItem>
+                    <SelectItem value="almostFull">Almost full</SelectItem>
+                    <SelectItem value="full">Full</SelectItem>
+                    <SelectItem value="expired">Expired</SelectItem>
+                    <SelectItem value="cancelled">Cancelled</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
 
-          <div className="space-y-1.5">
-            <Label className="text-xs">Vehicle type</Label>
-            <Select
-              value={vehicleType || "any"}
-              onValueChange={(v) => setVehicleType(v === "any" ? "" : v)}
-            >
-              <SelectTrigger className="h-10">
-                <SelectValue placeholder="Any vehicle" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="any">Any vehicle</SelectItem>
-                {VEHICLE_TYPES.map((type) => (
-                  <SelectItem key={type} value={type}>
-                    {type}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          <Separator />
-
-          <div className="space-y-2.5">
-            <ToggleRow label="Air conditioning" checked={ac} onChange={setAc} />
-            <ToggleRow
-              label="Female friendly"
-              checked={femaleOnly}
-              onChange={setFemaleOnly}
-            />
-            <ToggleRow
-              label="Verified drivers only"
-              checked={verified}
-              onChange={setVerified}
-            />
+              <div className="space-y-1.5">
+                <Label className="text-xs">Vehicle type</Label>
+                <Select
+                  value={vehicleType || "any"}
+                  onValueChange={(v) => setVehicleType(v === "any" ? "" : v)}
+                >
+                  <SelectTrigger className="h-10">
+                    <SelectValue placeholder="Any vehicle" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="any">Any vehicle</SelectItem>
+                    {VEHICLE_TYPES.map((type) => (
+                      <SelectItem key={type} value={type}>
+                        {type}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
           </div>
 
           <Separator />
 
           <div className="space-y-3">
-            <div className="space-y-1.5">
-              <Label htmlFor="filter-driver" className="text-xs">Driver name</Label>
-              <Input
-                id="filter-driver"
-                value={driverName}
-                onChange={(e) => setDriverName(e.target.value)}
-                placeholder="e.g. Bilal"
-                className="h-10"
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Preferences</p>
+            <div className="space-y-3">
+              <ToggleRow icon={Wind} label="Air conditioning" checked={ac} onChange={setAc} />
+              <ToggleRow
+                icon={UserCheck}
+                label="Female friendly"
+                checked={femaleOnly}
+                onChange={setFemaleOnly}
+              />
+              <ToggleRow
+                icon={ShieldCheck}
+                label="Verified drivers only"
+                checked={verified}
+                onChange={setVerified}
               />
             </div>
-            <div className="space-y-1.5">
-              <Label htmlFor="filter-phone" className="text-xs">Phone number</Label>
-              <Input
-                id="filter-phone"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="e.g. 0300..."
-                inputMode="tel"
-                className="h-10"
-              />
-            </div>
-            <div className="space-y-1.5">
-              <Label htmlFor="filter-keyword" className="text-xs">Keyword</Label>
-              <Input
-                id="filter-keyword"
-                value={keyword}
-                onChange={(e) => setKeyword(e.target.value)}
-                placeholder="Pickup point, notes…"
-                className="h-10"
-              />
+          </div>
+
+          <Separator />
+
+          <div className="space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Search</p>
+            <div className="space-y-2.5">
+              <div className="space-y-1.5">
+                <Label htmlFor="filter-driver" className="text-xs">Driver name</Label>
+                <Input
+                  id="filter-driver"
+                  value={driverName}
+                  onChange={(e) => setDriverName(e.target.value)}
+                  placeholder="e.g. Bilal"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="filter-phone" className="text-xs">Phone number</Label>
+                <Input
+                  id="filter-phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="e.g. 0300..."
+                  inputMode="tel"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="filter-keyword" className="text-xs">Keyword</Label>
+                <Input
+                  id="filter-keyword"
+                  value={keyword}
+                  onChange={(e) => setKeyword(e.target.value)}
+                  placeholder="Pickup point, notes…"
+                />
+              </div>
             </div>
           </div>
         </div>
 
-        <SheetFooter className="sticky bottom-0 border-t bg-background px-4 py-3">
-          <Button variant="ghost" onClick={reset} className="flex-1">
-            Reset
+        <SheetFooter className="sticky bottom-0 border-t bg-background/95 backdrop-blur-sm px-4 py-3 pb-safe">
+          <Button variant="outline" onClick={reset} className="flex-1">
+            Reset all
           </Button>
           <SheetClose asChild>
             <Button onClick={apply} className="flex-1">
@@ -224,17 +232,22 @@ export function FilterSheet() {
 }
 
 function ToggleRow({
+  icon: Icon,
   label,
   checked,
   onChange,
 }: {
+  icon: React.ComponentType<{ className?: string }>;
   label: string;
   checked: boolean;
   onChange: (value: boolean) => void;
 }) {
   return (
-    <label className="flex cursor-pointer items-center justify-between">
-      <span className="text-sm">{label}</span>
+    <label className="flex cursor-pointer items-center justify-between rounded-lg px-1 py-1">
+      <span className="flex items-center gap-2.5 text-sm">
+        <Icon className="h-4 w-4 text-muted-foreground" />
+        {label}
+      </span>
       <Switch checked={checked} onCheckedChange={onChange} />
     </label>
   );

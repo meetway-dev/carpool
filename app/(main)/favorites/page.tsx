@@ -3,6 +3,7 @@
 import { EmptyState } from "@/components/feedback/empty-state";
 import { AppHeader } from "@/components/layout/app-header";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ROUTES } from "@/constants/routes";
 import { useFavorites } from "@/features/favorites/hooks/use-favorites";
@@ -11,7 +12,7 @@ import { RideCardSkeletonList } from "@/features/rides/components/ride-card-skel
 import { getApi } from "@/lib/api-client";
 import type { RideDTO } from "@/types";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowRight, Heart, MapPin, Search } from "lucide-react";
+import { ArrowRight, Heart, MapPin, Search, X } from "lucide-react";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
@@ -32,25 +33,35 @@ export default function FavoritesPage() {
   });
 
   return (
-    <main>
+    <main className="animate-fade-in">
       <AppHeader title="Saved" />
       <div className="px-4 py-4">
         <Tabs defaultValue="rides">
           <TabsList className="w-full">
-            <TabsTrigger value="rides" className="flex-1">
-              Rides {favorites.rides.length > 0 ? `(${favorites.rides.length})` : ""}
+            <TabsTrigger value="rides" className="flex-1 gap-1.5">
+              Rides
+              {favorites.rides.length > 0 ? (
+                <Badge variant="secondary" className="ml-1 h-5 rounded-full px-1.5 py-0 text-[11px]">
+                  {favorites.rides.length}
+                </Badge>
+              ) : null}
             </TabsTrigger>
-            <TabsTrigger value="routes" className="flex-1">
-              Routes {favorites.routes.length > 0 ? `(${favorites.routes.length})` : ""}
+            <TabsTrigger value="routes" className="flex-1 gap-1.5">
+              Routes
+              {favorites.routes.length > 0 ? (
+                <Badge variant="secondary" className="ml-1 h-5 rounded-full px-1.5 py-0 text-[11px]">
+                  {favorites.routes.length}
+                </Badge>
+              ) : null}
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="rides" className="mt-3 space-y-3">
+          <TabsContent value="rides" className="mt-4 space-y-3">
             {favorites.rides.length === 0 ? (
               <EmptyState
                 icon={Heart}
                 title="No saved rides"
-                description="Tap the heart on any ride to save it here."
+                description="Tap the heart on any ride to save it here for quick access."
                 action={
                   <Button asChild>
                     <Link href={ROUTES.rides}>
@@ -66,34 +77,36 @@ export default function FavoritesPage() {
             )}
           </TabsContent>
 
-          <TabsContent value="routes" className="mt-3 space-y-2">
+          <TabsContent value="routes" className="mt-4 space-y-2.5">
             {favorites.routes.length === 0 ? (
               <EmptyState
                 icon={MapPin}
                 title="No saved routes"
-                description="Save a route to get notified when new rides are posted."
+                description="Save a route to quickly search for rides on your frequent trips."
               />
             ) : (
               favorites.routes.map((route) => (
                 <div
                   key={`${route.fromCity}-${route.toCity}`}
-                  className="flex items-center justify-between rounded-lg border border-border bg-card p-3"
+                  className="card-interactive flex items-center justify-between rounded-xl border border-border bg-card p-3.5 shadow-soft"
                 >
                   <Link
                     href={`${ROUTES.rides}?fromCity=${encodeURIComponent(route.fromCity)}&toCity=${encodeURIComponent(route.toCity)}`}
-                    className="flex items-center gap-2 text-sm font-medium"
+                    className="flex items-center gap-2.5 text-sm font-medium"
                   >
+                    <MapPin className="h-4 w-4 text-primary" />
                     {route.fromCity}
-                    <ArrowRight className="h-4 w-4 text-muted-foreground" />
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
                     {route.toCity}
                   </Link>
                   <Button
                     variant="ghost"
-                    size="sm"
+                    size="icon"
                     onClick={() => toggleRoute(route.fromCity, route.toCity)}
-                    className="text-muted-foreground"
+                    className="h-8 w-8 text-muted-foreground hover:text-destructive"
+                    aria-label={`Remove ${route.fromCity} to ${route.toCity}`}
                   >
-                    Remove
+                    <X className="h-4 w-4" />
                   </Button>
                 </div>
               ))

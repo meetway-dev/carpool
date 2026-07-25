@@ -1,12 +1,12 @@
+import { RideCardSkeletonList } from "@/features/rides/components/ride-card-skeleton";
+import { AppHeader } from "@/components/layout/app-header";
+
 export default function MainLoading() {
   return (
-    <div className="flex flex-1 items-center justify-center py-20">
-      <div className="flex flex-col items-center gap-3">
-        <div className="relative">
-          <div className="h-10 w-10 animate-spin rounded-full border-2 border-primary/30" />
-          <div className="absolute inset-0 h-10 w-10 animate-spin rounded-full border-2 border-primary border-t-transparent" style={{ animationDirection: "reverse", animationDuration: "1s" }} />
-        </div>
-        <p className="text-sm font-medium text-muted-foreground">Loading rides...</p>
+    <div className="animate-fade-in">
+      <AppHeader />
+      <div className="px-4 py-4">
+        <RideCardSkeletonList count={4} />
       </div>
     </div>
   );

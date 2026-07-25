@@ -6,6 +6,7 @@ import { RideCard } from "@/features/rides/components/ride-card";
 import { RideCardSkeletonList } from "@/features/rides/components/ride-card-skeleton";
 import { EmptyState } from "@/components/feedback/empty-state";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { useInfiniteRides } from "@/features/rides/hooks/use-infinite-rides";
 import { saveSearchToHistory } from "@/features/search/actions/record-search";
 import { useDeviceKey } from "@/hooks/use-device-key";
@@ -106,14 +107,18 @@ export function RidesResults({ params, initialData }: RidesResultsProps) {
   }
 
   return (
-    <div className="space-y-2.5">
-      <p className="text-xs text-muted-foreground">
-        {total} {total === 1 ? "ride" : "rides"} found
-      </p>
+    <div className="space-y-3">
+      <div className="flex items-center gap-2">
+        <Badge variant="secondary" className="tabular-nums">
+          {total} {total === 1 ? "ride" : "rides"}
+        </Badge>
+      </div>
 
-      {rides.map((ride) => (
-        <RideCard key={ride.id} ride={ride} />
-      ))}
+      <div className="space-y-3">
+        {rides.map((ride) => (
+          <RideCard key={ride.id} ride={ride} />
+        ))}
+      </div>
 
       <div ref={sentinelRef} aria-hidden className="h-px" />
 
